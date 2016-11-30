@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/karmathegame/include/functions.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/karmathegame/popup_chat.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/karmathegame/popup_introduction.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/karmathegame/popup_safe.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/karmathegame/util.php" dialect="MySQL" />
   </component>
 </project>

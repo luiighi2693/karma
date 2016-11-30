@@ -16,18 +16,18 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 <form name="frmpopup" id="frmpopup" enctype="multipart/form-data" method="post" style="font-size: 0vh;">
 	
 	<div class="header">
-			<div class="top_info">
-				<div class="icon_holder">
+		<div class="top_info">
+			<div class="icon_holder">
 				<img src="images/icon_intro.png" border="0"></img>
-				</div>
-				<div class="text_holder">
-					intro
-				</div>
-				<div class="icon_holder"style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
-				</div>
-				 
 			</div>
+			<div class="text_holder">
+				intro
+			</div>
+			<div class="icon_holder"style="float:right;">
+				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
+			</div>
+				 
+		</div>
 					
 	</div>	<!-- the header ends -->	
 	
@@ -38,44 +38,46 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 				<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt=""/>
 			</div>
 			<div class="emoticon_list" >
-								<?
-								$EMM=0;
-								$getEmotionsQryRs=mysql_query("SELECT * FROM emoticons ORDER BY id DESC");
-								while($getEmotionsQryRow=mysql_fetch_array($getEmotionsQryRs))
-								{
-									?>
-									<a href="#" onclick="document.getElementById('Hidintroduction').value=<? echo $getEmotionsQryRow['id'];?>;SelectEmotion('<? echo $getEmotionsQryRow['picture'];?>');return false;">
-										<img  src="Emoticons/<? echo $getEmotionsQryRow['picture'];?>" style="border:1px solid #000000; width: 11%;height:18%;"/>
-									</a>
-									<?
-									$EMM++;
-								}
-								?>
+				<?
+				$EMM=0;
+				$getEmotionsQryRs=mysql_query("SELECT * FROM emoticons ORDER BY id DESC");
+				while($getEmotionsQryRow=mysql_fetch_array($getEmotionsQryRs))
+				{
+					?>
+					<a href="#" onclick="document.getElementById('Hidintroduction').value=<? echo $getEmotionsQryRow['id'];?>;SelectEmotion('<? echo $getEmotionsQryRow['picture'];?>');return false;">
+						<img  src="Emoticons/<? echo $getEmotionsQryRow['picture'];?>" style="border:1px solid #000000; width: 11%;height:18%;"/>
+					</a>
+					<?
+					$EMM++;
+				}
+				?>
 			</div>
-		
+			<div class="emoticon_pic" id="BigEmotionID"></div>
+			<div id="MessageId" class="redtext"></div>
 		</div>
+		
 	</div>	<!-- the middlesection ends -->
 		
 
 	<div class="footer">
 		<div class="centered_info">
-		<input type="hidden" id="Hidintroduction" name="Hidintroduction" value="" />
-		<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
-		<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
-		<div class="button">
-			<a href="#" onclick="hide_pop();return false;">
-				<img src="images/close-button.png" border="0" />
-			</a>
-		</div>
-		<div class="button">
-		<input  type="image" name="sendbutton" id="sendbutton" src="images/send-button.png" onclick="return POPUPfrmcheck('introduction');" />
-		</div>
+			<input type="hidden" id="Hidintroduction" name="Hidintroduction" value="" />
+			<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
+			<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
+			<div class="button">
+				<a href="#" onclick="hide_pop();return false;">
+					<img src="images/close-button.png" border="0" />
+				</a>
+			</div>
+			<div class="button">
+				<input  type="image" name="sendbutton" id="sendbutton" src="images/send-button.png" onclick="return POPUPfrmcheck('introduction');" />
+			</div>
 		
-		<br /><span id="MessageId" style="color:#FF0000;"></span>
+		
 		</div>
 	</div>	
 							
-			
+
 </form>
 </body>
 </html>
