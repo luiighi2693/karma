@@ -1,0 +1,29 @@
+[27-Oct-2016 20:54:59 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home1/karmathe/public_html/karmathegame/siteadmin/manage_ideas.php on line 130
+[27-Oct-2016 21:00:15 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home1/karmathe/public_html/karmathegame/siteadmin/manage_ideas.php on line 130
+[27-Oct-2016 21:01:34 America/Chicago] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home1/karmathe/public_html/karmathegame/siteadmin/manage_ideas.php on line 130
+[27-Oct-2016 21:03:43 America/Chicago] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home1/karmathe/public_html/karmathegame/siteadmin/manage_ideas.php on line 132
+[29-Oct-2016 19:22:12 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home1/karmathe/public_html/karmathegame/siteadmin/add_ideas.php on line 176
+[29-Oct-2016 20:18:14 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/karmathe/public_html/karmathegame/include/functions.php on line 92
+[29-Oct-2016 20:31:36 America/Chicago] PHP Parse error:  syntax error, unexpected 'Parth' (T_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_ideas.php on line 176
+[29-Oct-2016 20:34:54 America/Chicago] PHP Parse error:  syntax error, unexpected 'Parth' (T_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_ideas.php on line 176
+[30-Oct-2016 16:11:23 America/Chicago] PHP Parse error:  syntax error, unexpected 'location' (T_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_truth.php on line 39
+[30-Oct-2016 16:17:50 America/Chicago] PHP Parse error:  syntax error, unexpected 'location' (T_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_truth.php on line 40
+[30-Oct-2016 16:18:18 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_truth.php on line 44
+[30-Oct-2016 16:42:54 America/Chicago] PHP Parse error:  syntax error, unexpected 'location' (T_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_truth.php on line 39
+[15-Nov-2016 15:24:07 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/karmathe/public_html/karmathegame/include/functions.php on line 108
+[15-Nov-2016 15:56:16 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 147
+[15-Nov-2016 15:56:39 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 147
+[15-Nov-2016 15:56:44 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 147
+[15-Nov-2016 15:56:45 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 147
+[15-Nov-2016 16:01:11 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:01:11 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:01:13 America/Chicago] PHP Parse error:  syntax error, unexpected '<' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:10:04 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home1/karmathe/public_html/karmathegame/include/functions.php on line 108
+[15-Nov-2016 16:18:20 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:19:07 America/Chicago] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:20:31 America/Chicago] PHP Fatal error:  Cannot use object of type stdClass as array in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:26:01 America/Chicago] PHP Parse error:  syntax error, unexpected '');?>' (T_ENCAPSED_AND_WHITESPACE) in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 151
+[15-Nov-2016 16:34:06 America/Chicago] PHP Parse error:  syntax error, unexpected '==' (T_IS_EQUAL) in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 150
+[15-Nov-2016 17:44:07 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 169
+[15-Nov-2016 17:44:52 America/Chicago] PHP Parse error:  syntax error, unexpected '!=' (T_IS_NOT_EQUAL) in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 172
+[15-Nov-2016 17:49:48 America/Chicago] PHP Parse error:  syntax error, unexpected 'htmlentities' (T_STRING) in /home1/karmathe/public_html/karmathegame/siteadmin/add_marketers.php on line 169
