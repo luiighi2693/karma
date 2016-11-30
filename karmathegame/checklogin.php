@@ -1,0 +1,24 @@
+<? 
+if($_SESSION['UsErIdFrOnT']!='')
+{
+	$getuserwry="SELECT * FROM users WHERE id='".$_SESSION['UsErIdFrOnT']."'";
+	$getuserwryRs=mysql_query($getuserwry);
+	$Totgetuser=mysql_affected_rows();
+	if($Totgetuser<=0)
+	{
+		$_SESSION['UsErIdFrOnT']='';
+		header("location:$SITE_URL/index.php");
+		exit;
+	}
+	else
+	{
+		$CURRENTgetuserwryRow=mysql_fetch_array($getuserwryRs);
+		if($CURRENTgetuserwryRow['username']!=''){$LOGINusername=stripslashes($CURRENTgetuserwryRow['username']);}else{$LOGINusername=stripslashes($CURRENTgetuserwryRow['couponcode']);}
+	}
+}
+else
+{
+	header("location:$SITE_URL/index.php");
+	exit;
+}
+?>
