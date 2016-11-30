@@ -1,0 +1,160 @@
+.header
+{
+	width:100%;
+	height:12%;
+	position:relative;
+	
+	
+
+}
+
+.middleSection
+{
+	width:100%;
+	height:78%;
+
+}
+.text1
+{
+	width:100%;
+	height:3%;
+	color:white;
+	font-size:3vh;
+	margin-bottom:2%;
+	display:inline-block;
+}
+.footer
+{
+	width:100%;
+	height:10%;
+}
+
+.top_info
+{
+	width:95%;
+	height:90%;
+	margin-left:2.5%;
+        border-bottom: solid #FFFFFF;
+}
+.centered_info
+{
+	width:95%;
+	height:90%;
+	margin-left:2.5%;
+	
+       
+}
+.icon_holder
+{
+	width:5%; 
+	align:left;
+	height:100%;
+	display:inline-block;
+	padding-bottom:0.8%;
+	padding-top:0.8%;
+}
+.icon_holder img
+{
+	width:99%; 
+	height:100%;
+	
+}
+
+.text_holder
+{
+	height:100%;
+	width:88%;
+	display:inline-flex;
+	padding-bottom:0.8%;
+	padding-top:0.8%;
+	 font-size:5vh; text-align:left; 
+	 padding-left:2%;
+font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+font-weight:300; letter-spacing:1px;
+}
+.button
+{
+	height:80%;
+	width:10%;
+	display:inline-block;
+	float:right;
+}
+.button input{
+	width:100%;
+	height:100%;
+}
+
+.button img{
+	width:100%;
+	height:100%;
+}
+.avatar_pic{
+
+	width: 20%; 
+	height:71%;
+	background-color: white; 
+	display:inline-block;
+	float:left;
+	
+
+}
+.avatar_pic img{
+
+	width: 100%; 
+	height:100%;
+	
+
+}
+.emoticon_list
+{
+	display:inline-block;
+	height:80%;
+	width:50%;
+	margin-left:4%;
+
+}
+.meetup_pic{
+	height:15%;
+	width:40%;
+	margin-left:21%;
+	margin-top:1%;
+	
+	
+}
+.meetup_pic img
+{
+	width:100%;
+	height:100%;
+}
+.whitetext{
+	text-align:left;
+	color:#fff;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-size:3vh;
+	height:20%;
+	position:relative;
+}
+.container{
+	
+	width:78%;
+	float:right;
+	height:71%;
+	display:inline-block;
+
+}
+#groupleftletters
+{
+	width:25%;
+	display:inline-block;
+	float:left;
+	height:15%;
+	
+}
+#grouprightitems
+{
+	width:70%;
+	display:inline-block;
+	float:right;
+	height:10%;
+	
+}

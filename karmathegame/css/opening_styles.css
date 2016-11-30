@@ -1,0 +1,1452 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+/*table {
+    border-collapse:collapse;
+    border-spacing:0;
+}*/
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/* Begining of CSS Definitions */
+/* ------------------------------------------------------------------------------------ */
+
+body
+{
+background-color:#e6e6e6;
+} 
+
+#main_title {
+	color:#663300; font-size:60px; margin-left:37%; margin-top:5px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px;
+}
+#main_title a{color:#663300; font-size:60px;text-decoration:none;}
+#logo {position:absolute; right:5px; float:left; height:75px; width:75px;}
+#subtitle {color:#663300; margin-left:44%; font-size:20px;font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;}
+
+#clock {
+	color:#663300; 
+	font-size:40px; 
+	max-width:35%; 
+	margin:3px 0px 2px 5px; 
+	float:left;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+}
+
+#date_time {
+	color:#663300; 
+	margin-left:5px; 
+	font-size:20px; 
+	float:left;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+}
+
+
+#top_line {
+	background-color:#663300; height:3px; margin-left:5px; width:99%;margin-top:15px; 
+}
+
+#top_l_line {
+	background-color:#663300; height:1px; width:100%;
+}
+#red_line {
+	background-color:#d06581; height:4px; width:80%;
+	}
+	
+#yellow_line {
+	background-color:#d0cf65; height:4px; width:80%;
+	}
+	
+#blue_line {
+	background-color:#65b9d0; height:4px; width:80%;
+	}
+	
+#brown_line {
+	background-color:#5d4c46; height:4px; width:80%;
+	}
+
+
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+::-webkit-scrollbar-button {
+	width: 8px;
+	height:5px;
+}
+::-webkit-scrollbar-track {
+	background:#eee;
+	border: thin solid lightgray;
+	box-shadow: 0px 0px 3px #dfdfdf inset;
+	border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+	background:#999;
+	border: thin solid gray;
+	border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background:#7d7d7d;
+} 
+
+
+	
+.close_button	a:link {}    /* unvisited link */
+.close_button	a:visited {} /* visited link */
+.close_button	a:hover {opacity:0.8;filter:alpha(opacity=80);}   /* mouse over link */
+.close_button	a:active {}  /* selected link */
+	
+#left_content {
+	margin-left:0px; width:20%; float:left; padding: 0px 0px 0px 5px;
+}
+
+#left_content img {
+	padding:20px 2px 15px 2px; float:left;
+}
+
+#facts_title {
+	color: #707070;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:0px;
+	padding: 10px 0px 10px 0px;
+
+}
+
+#facts {
+	background-color:#e6e6e6; 
+	height:85%; 
+	/*padding:20px; */
+	padding:5px 5px 5px 0px; 
+	overflow:auto;
+}
+
+#facts h2 {
+	color: #707070;
+	font-size:24px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+}
+
+#facts p {
+	color: #070707;
+	font-size:14px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-top:10px;
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+	
+
+#center_content {
+	margin-left:5px; width:50%; height:85%; float:left; padding: 0px 0px 0px 30px;
+}
+#pad_wrapper {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:98%;
+	height:100%;
+	
+}
+
+#pad_selectavatar {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
+	background-color:#5d4c46;
+	border:2px solid gray;
+	border-radius:20px;
+	max-width:70%;
+}
+#pad_selectavatar h1{
+	color:#f1f1f1; font-size:30px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:20px;
+	
+	}
+#pad {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:30px;
+	height:80%;
+	background-color:#5d4c46;
+	border:2px solid gray;
+	border-radius:20px;
+	max-width:90%;
+	overflow:auto;
+}
+	
+#pad h1{
+	color:#f1f1f1; font-size:30px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:20px;
+}
+#bottom_border {
+	width:90%;
+	background-color:#5d4c46;
+	max-width:90%;
+	height:5px;
+	margin-top:20px;
+	/* outline: 3pt solid green; */ 
+}
+	
+#pad p{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:7px;
+	background-color:#5d4c46; width:90%;   
+	color: #f1f1f1;
+	font-size:14px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 2px;
+}
+	
+#pad_wrapper_newlife {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:98%;
+	height:100%;
+	/* outline:3px solid green; */
+	/* background-color:white; */
+	}
+	
+#bottom_border_newlife {
+	
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:5px;
+	width:90%;
+	background-color:#5d4c46;
+	max-width:90%;
+	
+	/* outline: 3pt solid green; */
+	
+	}
+	
+#bottom_border_newlife p{
+	
+	background-color:#5d4c46; width:100%;   
+	color: #f1f1f1;
+	font-size:14px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:100;
+	letter-spacing: 1px;
+}
+	
+
+
+#pad_newlife {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
+	background-color:#5d4c46;
+	border:2px solid gray;
+	border-radius:20px;
+	max-width:70%;
+	/* outline:1px solid red; */
+	}
+	
+#pad_newlife h1{
+	color:#f1f1f1; font-size:30px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:20px;
+	
+	}
+#pad_newlife_fullwidth {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
+	background-color:#5d4c46;
+	/*border:2px solid gray;*/
+	max-width:100%;
+	/* outline:1px solid red; */
+	}
+	
+#pad_newlife_fullwidth h1{
+	color:#f1f1f1; font-size:30px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:20px;
+	
+	}	
+input[type="button"]
+{
+	width:220px;
+	height:30px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+	background-color:#f1f1f1;
+	cursor:pointer;
+}
+input[type="submit"]
+{
+	width:220px;
+	height:30px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+	background-color:#f1f1f1;
+	cursor:pointer;
+}
+#obj_rules {
+	/*color: #663300;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:0px;*/
+	color: #707070;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:0px;
+	padding: 10px 0px 10px 0px;
+
+}
+
+#top_l_line {
+	background-color:#663300; height:1px; width:100%;
+}
+
+#login_box {
+	width:70%; padding: 70px 0px 0px 100px; margin-left:80px; margin-top: 100px;
+}
+
+#username {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:70%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-left:20px; margin-top:3px; margin-bottom:2px;
+}
+
+#password {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:70%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-left:20px; margin-top:3px; margin-bottom:2px;
+}
+
+#username_box {
+	background-color:#ffffff; height:20px; background-border:3px 5px 3px 5px; width:70%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-left:20px; margin-top:3px; margin-bottom:2px;
+
+}
+
+#password_box {
+	background-color:#ffffff; height:20px; background-border:3px 5px 3px 5px; width:70%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-left:20px; margin-top:3px; margin-bottom:2px;
+
+}
+
+#login_box_newlife {
+	width:90%; display:block; margin-right:auto; margin-left:auto; margin-top: 0px;
+}
+#username_newlife {
+	background-color:#d8d8d8; height:20px; width:98%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	
+
+}
+
+#password_newlife {
+	background-color:#d8d8d8; height:20px; width:98%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px; 
+	
+
+}
+
+#username_box_newlife {
+	background-color:#ffffff; height:20px;  width:98%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px; 
+	
+
+}
+
+#password_box_newlife {
+	background-color:#ffffff; height:20px; width:98%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px; 
+	
+}
+
+#mbook {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin_top:20px;
+	width:90%;
+	max-width:90%;
+	height:90%;
+	/* margin-bottom:50px; */
+	
+	/* outline: 1pt solid green; */
+	}	
+	
+#mbook a {
+	text-decoration:none;
+	text-shadow:#999;
+	
+	padding:18px 10px 18px 10px;
+	}
+	
+#mbook a:hover {
+	color: white;
+	
+	}
+	
+	
+
+#mbook .left_button{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	margin-bottom:20px; 
+	padding:20px 0px 20px 0px;
+	width:70%;
+	text-align:center;
+	text-decoration:none;
+	text-shadow:#999;
+	border-radius:8px;
+	background-color:#65b9d0;  
+	color: #f1f1f1;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	/* outline: 3pt solid green; */ 
+	}	
+	
+	
+#mbook .center_button{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:20px 0px 20px 0px;
+	margin-top:20px;
+	margin-bottom:20px;
+	width:70%;
+	text-align:center;
+	text-decoration:none;
+	text-shadow:#999;
+	border-radius:8px;
+	background-color:#d0cf65;  
+	color: #f1f1f1;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	/* outline: 3pt solid green; */ 
+	}	
+	
+#mbook .right_button{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:20px 0px 20px 0px;
+	margin-top:20px;
+	margin-bottom:20px;
+	width:70%;
+	text-align:center;
+	text-decoration:none;
+	text-shadow:#999;
+	border-radius:8px;
+	background-color:#d06581;  
+	color: #f1f1f1;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	/* outline: 3pt solid green; */ 
+	}
+	
+#mbook .left_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:33%;
+	background-color:#5d4c46;
+	float:left;
+	height:50%;
+	/* outline: 3pt solid green; */
+	}
+	
+#mbook .center_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:34%;
+	background-color:#5d4c46;
+	float:left;
+	height:50%;
+	/* outline: 3pt solid green; */ 
+	}
+	
+#mbook .right_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:33%;
+	float:left;
+	background-color:#5d4c46;
+	height:50%;
+	/* outline: 3pt solid green; */
+	
+	}
+
+#mbook_selectavatar {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	width:100%;
+	max-width:100%;
+	height:380px;
+	margin-bottom:15px;
+	}	
+	
+#mbook_selectavatar img{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+	width:100%;
+	max-width:100%;
+	height:inherit;
+	cursor:pointer;
+	/* outline: 1pt solid green; */
+}
+	
+#mbook_selectavatar img:hover{/*outline: 10pt solid grey;width:95%;max-width:95%;*/}
+	
+#mbook_selectavatar .left_column_selectavatar{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	width:33%;
+	background-color:#f1f1f1;
+	float:left;
+	height:380px;overflow:auto;
+	/*outline: 1pt solid #CCCCCC;*/
+}
+	
+#mbook_selectavatar .center_column_selectavatar{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	width:34%;
+	background-color:#f1f1f1;
+	float:left;
+	height:380px; overflow:auto;
+	/*outline: 1pt solid #CCCCCC;*/
+}
+	
+#mbook_selectavatar .right_column_selectavatar{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	width:33%;
+	float:left;
+	background-color:#f1f1f1;
+	height:380px; overflow:auto;
+	/*outline: 1pt solid #CCCCCC;*/
+}
+	
+#mbook_selectavatar .tab_column{
+display:block;
+margin-left:0px;
+margin-right:0px;
+margin-top:0px;
+width:4%;
+background-color:#5d4c46;
+height:400px;
+float:left;
+outline: 1pt solid black;
+
+}	
+#center_content h2 {
+	background-color:#707070; 
+	color:#f1f1f1;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+
+}
+
+#rules_box {
+	background-color:#e6e6e6; 
+	height:65%; 
+	padding:5px; 
+	overflow:auto;
+
+}
+
+#rules_box p{
+	font-size:14px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:0px;
+
+}
+#center_content 3_doors {
+	margin-left:5px;
+	width:100%;
+}
+
+#right_content {
+	margin-left:5px; width:22%; float:left;
+	height:75%; 
+	padding:0px; 
+	overflow:auto;
+	align:center;
+}	
+
+#icon_title {
+	/*color: #663300;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:0px;*/
+	color: #707070;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:0px;
+	padding: 10px 0px 10px 0px;
+
+}
+
+#right_content img {
+	padding:15px 2px 7px 0px; margin-left:20px;
+}
+
+#right_content h2 {
+	background-color:#707070; 
+	color:#f1f1f1;
+	font-size:14px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	width:50%;
+	align:center;
+	
+
+}
+
+#play_content {
+	color: #663300;
+	font-size:12px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+
+}
+
+#menu {
+	height:200px; margin-left:5px; width:100%; float:left;
+}	
+
+#menulink
+{	
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-top:3px; margin-bottom:2px;
+}
+#menulink:hover
+{
+	background-color:#707070; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #e6e6e6;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-top:3px; margin-bottom:2px;
+	cursor:pointer;
+}
+
+#menulink a:active
+{	
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#login {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-top:3px; margin-bottom:2px;
+
+}
+
+#login a:link{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#login a:visited{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#login a:hover{
+	color: #e6e6e6; background-color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#login a:active{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+
+#new_life {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%; 
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-bottom:2px;
+
+}
+
+#new_life a:link{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#new_life a:visited{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#new_life a:hover{
+	color: #e6e6e6; background-color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#new_life a:active{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#game_stats {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%; 
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 200;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-bottom:2px;
+
+}
+
+#game_stats a:link{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#game_stats a:visited{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#game_stats a:hover{
+	color: #e6e6e6; background-color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#game_stats a:active{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#dating_facts {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 150;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-bottom:2px;
+
+}
+
+#dating_facts a:link{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#dating_facts a:visited{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#dating_facts a:hover{
+	color: #e6e6e6; background-color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#dating_facts a:active{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#rules {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-bottom:2px;
+
+}
+
+#rules a:link{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#rules a:visited{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#rules a:hover{
+	color: #e6e6e6; background-color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#rules a:active{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#contact {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:10px;
+	margin-top:3px; margin-bottom:2px;
+
+}
+
+#contact a:link{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#contact a:visited{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+#contact a:hover{
+	color: #e6e6e6; background-color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+#contact a:active{
+	color: #707070; height:20px; width:100%; padding:10px; text-decoration:none;
+}
+
+
+#why_play {
+	position:absolute;
+	right:5px;
+} 
+
+#grand_prize {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%; 
+	color: #070707;
+	font-size:10px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	margin-bottom:2px;
+
+}
+
+#challange {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #070707;
+	font-size:10px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	margin-bottom:2px;
+
+}
+
+#adventure {
+	background-color:#d8d8d8; height:20px; background-border:3px 5px 3px 5px; width:95%;  
+	color: #070707;
+	font-size:10px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	margin-bottom:2px;
+}
+
+/*BY YGS*/
+.inputbox
+{
+	width:90%;
+	border:0px;
+	color: #707070;
+	font-size:16px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+}
+.submitbutton
+{
+	width:220px;
+	height:30px;
+	display:block;
+	font-size:20px;
+	margin-right:auto;
+	background-color:#f1f1f1;
+	margin-left:20px!important;
+}	
+.register_textfield2 {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:3px;
+	font-size:11px;
+	width:145px;
+	border: 1px solid #b6b6b6;
+}
+.font_11_red {font-size: 11px;color: #FF0000;}
+
+
+
+#pad_wrapper_Journey {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:98%;
+	height:100%;
+	/* outline:3px solid green; */
+	/* background-color:white; */
+}    
+#pad_Journey {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
+	background-color:#5d4c46;
+	/*border:2px solid gray;*/
+	max-width:100%;
+	/* outline:1px solid red; */
+	}
+	
+#pad_Journey h1{
+	color:#f1f1f1; font-size:30px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:20px;
+	
+	}
+	
+#mbook_Journey {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin_top:40px;
+	width:90%;
+	background-color:#5d4c46;
+	max-width:90%;
+	height:400px;
+	margin-bottom:50px;
+	/* outline: 1pt solid black; */
+	}	
+	
+#mbook_Journey .left_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:20%;
+	background-color:#5d4c46;
+	float:left;
+	height:400px;
+	/* outline:1px gray solid; */
+	}
+	
+#mbook_Journey .center_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:15%;
+	background-color:#5d4c46;
+	float:left;
+	height:400px;
+	/* outline:2px yellow solid; */
+	}
+	
+#mbook_Journey .right_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:40%;
+	float:left;
+	background-color:#f1f1f1;
+	height:400px;
+	/* outline:3px gray solid; */
+	
+	}
+	
+#mbook_Journey .right_column img{
+	width:40px;
+	height:40px;
+	/* outline:3px gray solid; */
+	
+	}
+	
+#mbook_Journey .tab_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	width:4%;
+	background-color:#5d4c46;
+	height:400px;
+	float:left;
+	/* outline:1px red solid; */
+	
+	}
+#dark_block {
+	width:40%;
+	float:left;
+	background-color:#5d4c46;
+	height:40px;
+	/* outline:1px red solid; */
+	}
+
+
+#white_block {
+	width:40%;
+	float:left;
+	background-color:#f1f1f1;
+	height:40px;
+	/* outline:1px red solid; */
+	}
+	
+#dark_center {
+	width:20%;
+	float:left;
+	background-color:#5d4c46;
+	height:40px;
+	/* outline:1px red solid; */ 
+	}
+	
+#dark_space {
+	width:80%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#5d4c46;
+	height:80px;
+	margin-top:40px;
+	/* outline:1px red solid; */
+	}
+	
+#dark_bar {
+	width:100%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#5d4c46;
+	height:20px;
+	margin-top:0px;
+	/* outline:1px red solid; */; 
+	}
+	
+#white_space {
+	width:60%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	background-color:#f1f1f1;
+	height:40px;
+	/* outline:1px red solid; */
+	}
+	
+#tab_close {
+/* outline:1px red solid; */	 }
+	
+#tab_blue {
+/* outline:1px red solid; */	}
+	
+#tab_back {
+/* outline:1px red solid; */	 }
+	
+#tab_yellow {
+/* outline:1px red solid; */	}
+	
+#tab_forward {
+/* outline:1px red solid; */	 }
+	
+#tab_red {
+/* outline:1px red solid; */	}
+	
+#tab_stats {
+/* outline:1px red solid; */	 }	
+#questions {
+	margin-left:5%;
+	padding:20px 20px 20px 5px;
+	}
+	
+#questions h1{
+	color:#5d4c46; font-size:20px; text-align:left; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:100; letter-spacing:1px; padding:5px;
+	}
+	
+#questions table{
+	color:#5d4c46; font-size:14px; text-align:left; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; cellpadding:5px; 
+	}
+	
+#questions p{
+	color:#5d4c46; font-size:16px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:5px;
+	}
+	
+#questions label{
+	color:#5d4c46; font-size:10px; margin-top:5px; margin-left:5px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:100; letter-spacing:1px; padding:5px;
+	}
+	
+#pad_wrapper_JourneyQuestions {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:98%;
+	height:100%;
+	/* outline:3px solid green; */
+	/* background-color:white; */
+	}    
+	
+#pad_JourneyQuestions {
+	/*display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
+	background-color:#5d4c46;
+	border:2px solid gray;
+	border-radius:20px;
+	max-width:80%;*/
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:90%;
+	background-color:#5d4c46;
+	/*border:2px solid gray;*/
+	max-width:100%;
+	/* outline:1px solid red; */
+}
+	
+#pad_JourneyQuestions h1{
+	color:#f1f1f1; font-size:30px; text-align:center; margin-top:0px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:20px;
+	
+	}
+	
+#mbook_JourneyQuestions {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin_top:10px;
+	width:90%;
+	background-color:#f1f1f1;
+	max-width:90%;
+	height:400px;
+	margin-bottom:50px;
+	/* outline: 1pt solid black; */
+	}	
+	
+#mbook_JourneyQuestions .left_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:41%;
+	background-color:#f1f1f1;
+	float:left;
+	height:400px;
+	/* outline:1px gray solid; */
+	}
+	
+#mbook_JourneyQuestions .center_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:15%;
+	background-color:#f1f1f1;
+	float:left;
+	height:400px;
+	/* outline:2px yellow solid; */
+	}
+	
+#mbook_JourneyQuestions .right_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin_top:0px;
+	width:40%;
+	float:left;
+	background-color:#f1f1f1;
+	height:400px;
+	/* outline:3px gray solid; */
+	
+	}
+	
+#mbook_JourneyQuestions .tab_column{
+	display:block;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	width:4%;
+	background-color:#5d4c46;
+	height:400px;
+	float:left;
+	/* outline:1px red solid; */
+	
+	}
+	
+#white_block_JourneyQuestions {
+	width:40%;
+	float:left;
+	background-color;#f1f1f1;
+	height:40px;
+	/* outline:1px red solid; */
+	}
+	
+#dark_center_JourneyQuestions {
+	width:20%;
+	float:left;
+	background-color:#5d4c46;
+	height:40px;
+	/* outline:1px red solid; */ 
+	}
+	
+#dark_space_JourneyQuestions {
+	width:80%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#5d4c46;
+	height:80px;
+	margin-top:40px;
+	/* outline:1px red solid; */
+	}
+	
+#dark_bar_JourneyQuestions {
+	width:100%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#5d4c46;
+	height:20px;
+	margin-top:0px;
+	/* outline:1px red solid; */; 
+	}
+	
+#white_space_JourneyQuestions {
+	width:60%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	background-color:#f1f1f1;
+	height:40px;
+	/* outline:1px red solid; */
+	}
+	 
+#questions_JourneyQuestions {
+	margin-left:5%;
+	padding:20px 20px 20px 5px;
+	}
+	
+#questions_JourneyQuestions h1{
+	color:#5d4c46; font-size:20px; text-align:left; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:100; letter-spacing:1px; padding:5px;
+	}
+	
+#questions_JourneyQuestions table{
+	color:#5d4c46; font-size:14px; text-align:left; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; cellpadding:5px; 
+	}
+	
+#questions_JourneyQuestions p{
+	color:#5d4c46; font-size:16px; text-align:center; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; padding:2px;
+	}
+	
+#questions_JourneyQuestions label{
+	color:#5d4c46; font-size:10px; margin-top:5px; margin-left:5px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:100; letter-spacing:1px; padding:5px;
+	}	
+.graylink12 {color:#5D4C46;text-decoration:none;}	
+.graylink12 a{color:#5D4C46;text-decoration:none;}	
+.graylink12 a:hover{color:#5D4C46;text-decoration:underline;}	

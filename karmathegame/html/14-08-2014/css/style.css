@@ -1,0 +1,164 @@
+﻿@font-face {
+    font-family: 'avantgarde_bk_btbook';
+    src: url('../fonts/avant_garde_book_bt.eot');
+    src: url('../fonts/avant_garde_book_bt.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/avant_garde_book_bt.woff') format('woff'),
+         url('../fonts/avant_garde_book_bt.ttf') format('truetype'),
+         url('../fonts/avant_garde_book_bt.svg#avantgarde_bk_btbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{margin:0;padding:0;font-family:'avantgarde_bk_btbook';font-size:14px;color:#5d4c46;background:#cbdfec;overflow-x:hidden}
+*{margin:0;padding:0;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+ul, li{list-style:none}
+.clearfix:after{content:"";visibility:hidden;display:block;height:0;clear:both}
+
+#header a{display:block;margin-bottom:5px;}
+#header h2{border-bottom:2px solid #5d4c46;border-top:2px solid #5d4c46;color:#5d4c46;font-size:24px;font-weight:normal;height:40px;line-height:38px;margin:0;text-transform:uppercase;}
+.main{max-width:1366px;margin:0 auto;height:700px;position:relative}
+.container{height:70%}
+.container .column1{height:100%;overflow:auto}
+.column1{float:left;width:42.25%;margin-right:9px;}
+.column2{float:left;width:37.9%;margin-right:9px;}
+.column3{float:left;width:18.2%;}
+
+#header .column1 h2{margin:0 0 0 4px;padding:0 0 0 14px}
+#header .column2 h2{padding:0 0 0 5px}
+#header .column3 h2{margin:0 4px 0 0;text-align:right}
+
+.footer_left, .footer_mid, .footer_right{height:35px;line-height:35px;background:#5d4c46;position:absolute;bottom:0;width:42.25%;font-size:24px;color:#fff;text-align:center;}
+.footer_mid{width:37.9%;}
+.footer_right{width:18.2%;}
+.footer_right input[type="text"]{border:0;height:20px;float:left;margin:10px 0 10px 33px;width:140px;padding-left:5px;font-size:13px}
+.footer_right input[type="submit"]{border:0;background:url(../images/search-icon.jpg) no-repeat;cursor:pointer;display:block;color:transparent;vertical-align:middle;width:24px;height:23px;float:left;margin:8px 0 0 20px;}
+
+.photo_list {margin:5px 0 0 15px;padding-right:15px;}
+.photo_list ul{background:#fff;margin:12px 0;padding:2px 2px 0 2px}
+.photo_list li{float:left;width:16.3%;margin:0 2px 2px 0;text-align:center;background:#fff;position:relative;border:1px solid #5e4b45}
+.photo_list li:nth-child(6n+6){margin:0 0 2px 0}
+.photo_list li img{margin-top:20px;}
+.icon_wrap{background:#5e4b45;text-align:left;padding-left:5px;position:absolute;left:0:top:0;width:100%}
+.link_icon{background:url(../images/link-icon.jpg) no-repeat;width:16px;height:16px;display:inline-block;text-indent:-9999px;}
+.like_icon{background:url(../images/like-icon.jpg) no-repeat;width:16px;height:16px;display:inline-block;text-indent:-9999px;}
+.fav_icon{background:url(../images/fav-icon.jpg) no-repeat;width:16px;height:16px;display:inline-block;text-indent:-9999px;}
+
+.journey_book{background:#5d4c46;float:right;margin:1px 0 0 0;color:#fff;height:30px;line-height:32px;text-transform:uppercase;font-size:18px;width:245px;text-align:center}
+.journal_section{margin:1% 15%}
+.journal_links{background:#5d4c46;padding:1%;text-align:center;color:#fff}
+.journal_links a{color:#fff;text-transform:uppercase;text-decoration:none;font-size:9.5px}
+.status_bar{margin:1% 0 0 0}
+.status_bar img{max-width:100%}
+.journal_bg{background:#5d4c46;margin:0.3% 0 0 0;padding:2% 5%;}
+.journal_box{background:#f1f1f1 url(../images/jr-rpt.jpg) repeat-y 0 22px;min-height:330px;padding-left:18%;float:left;width:85%}
+.journal_box h2{text-align:center;margin-left:-17%}
+.journal_data{margin-top:7%}
+.journal_bar{background:#5d4c46;float:left;width:17%;text-align:center;padding:2% 0;margin-top:8.5%}
+.journal_bar a{color:transparent;display:inline-block;height:30px;margin-bottom:10%;vertical-align: middle}
+.journal_bar a.hide_icon{background:url(../images/hide-icon.png) no-repeat;background-size:36px auto;width:36px}
+.journal_bar a.bomb_icon{background:url(../images/bomb-icon.png) no-repeat;background-size:25px auto;width:25px}
+.journal_bar a.stars_icon{background:url(../images/stars-icon.png) no-repeat;background-size:32px auto;width:32px}
+.journal_bar a.challenge_icon{background:url(../images/challenge-icon.png) no-repeat;background-size:35px auto;width:35px}
+.journal_bar a.music_icon{background:url(../images/music-icon.png) no-repeat;background-size:20px auto;width:20px;height:33px}
+.journal_bar a.strike_icon{background:url(../images/strike-icon.png) no-repeat;background-size:25px auto;width:25px}
+.journal_bar a.outing_icon{background:url(../images/outing-icon.png) no-repeat;background-size:23px auto;width:23px}
+.journal_info{float:left;width:70%;margin-left:2%}
+.jr_info_head{border-bottom:1px solid #5d4c46;}
+.jr_info_head li{float:left;width:50%;text-align:center;font-size:12px;text-transform:uppercase;padding-bottom:1%}
+.jr_info_list{border-left:1px solid #5d4c46;margin-top:5%}
+.jr_info_list li{float:left;width:50%;text-align:center;font-size:12px;padding-bottom:12%}
+.jr_lock{float:left;margin:5% 0 0 1%;}
+.jr_lock li{margin-bottom:20px}
+.pager{text-align:center;margin:20px 0 0 0}
+.pager a{background:#888787;width:16px;height:17px;display:inline-block;margin:0 12px 0 -4px;border-radius:50px;text-indent:-9999px}
+.blue_bar{background:#65b9d0}
+.yellow_bar{background:#d0cf65}
+.pink_bar{background:#d06582}
+.status{margin:5px 0 0 0;font-size:16px}
+.status span{display:inline-block;height:15px;vertical-align:middle}
+.status .blue_bar{width:75%}
+.status .yellow_bar{width:70%;margin-right:10px}
+.status .pink_bar{width:80%}
+.user_status{margin:5px 0 0 0}
+.user_status .user_box{width:50px;height:50px;line-height:50px;float:left;background:#65b9d0;font-size:20px;text-transform:uppercase;text-align:center;font-weight:bold;margin:0 2px 2px 0}
+.user_stat{float:left;width:73%}
+.user_stat span{display:inline-block;margin-bottom:2px;height:15px}
+.user_stat .blue_bar{width:90%}
+.user_stat .yellow_bar{width:55%}
+.user_stat .pink_bar{width:30%}
+.icon_list{margin:3px 0 0 0}
+.icon_list ul{width:100%;float:left}
+.icon_list ul li{width:25%;float:left;padding-right:2px;margin-bottom:2px}
+.icon_list ul li a img{display:block;width:100%}
+
+
+@media only screen and (max-width:1370px){
+.footer_left, .footer_mid, .footer_right{height:35px;line-height:35px;background:#5d4c46;position:fixed;bottom:0;width:42.25%;font-size:24px;color:#fff;text-align:center;}
+.footer_mid{width:37.9%;}
+.footer_right{width:18.2%;}
+.main{height:auto!important}
+}
+
+@media only screen and (max-width:1280px){
+.main{width:100%}
+.container{height:82%}
+#header img{max-width:100%;}
+#header h2{font-size:20px;height:30px;line-height:28px;}
+.column1, .footer_left{width:44%}
+.column2, .footer_mid{width:36.06%}
+.column3, .footer_right{width:18.5%}
+.photo_list li{width:16.25%}
+.photo_list li:nth-child(6n+6){margin:0 2px 2px 0}
+.journal_section{margin:1% 3%}
+.journal_box{width:90%}
+.jr_info_list li{padding-bottom:10.5%}
+.status .blue_bar{width:70%}
+.status .yellow_bar{width:60%}
+.user_stat{width:57%}
+}
+
+@media only screen and (max-width:1024px){
+.main{width:100%}
+.container{height:78%}
+#header img{max-width:100%;}
+#header h2{font-size:20px;height:30px;line-height:28px;}
+.column1, .footer_left{width:39%}
+.column2, .footer_mid{width:35.75%}
+.column3, .footer_right{width:23.45%}
+.footer_right input[type="text"]{margin:10px 0 10px 30px;width:150px;}
+.footer_right input[type="submit"]{width:16px;height:16px;margin:12px 0 0 8px;background-size:16px 16px}
+.photo_list li{width:32.75%}
+.journey_book{width:135px;font-size:14px}
+.journal_section{margin:1% 3%}
+.journal_box{background-size:35px 88px;width:90%}
+.journal_bar{width:25%}
+.jr_info_head li{font-size:10px}
+.jr_info_list li{padding-bottom:13.75%}
+.status .blue_bar{width:70%}
+.status .yellow_bar{width:60%}
+.user_stat{width:57%}
+}
+
+@media only screen and (max-width:768px){
+.main{width:100%}
+.container{height:86%}
+#header img{max-width:100%;}
+#header h2{font-size:20px;height:30px;line-height:28px;}
+.column1, .footer_left{width:41%}
+.column2, .footer_mid{width:37.3%}
+.column3, .footer_right{width:19.3%}
+.footer_right input[type="text"]{margin:10px 0 10px 10px;width:90px;}
+.footer_right input[type="submit"]{width:16px;height:16px;margin:12px 0 0 8px;background-size:16px 16px}
+.photo_list li{width:32.6%}
+.journey_book{width:135px;font-size:14px}
+.journal_section{margin:1% 3%}
+.journal_box{background-size:35px 88px;width:90%}
+.journal_bar{width:25%}
+.jr_info_head li{font-size:10px}
+.jr_info_list li{padding-bottom:16%}
+.status .blue_bar{width:70%}
+.status .yellow_bar{width:60%}
+.user_stat{width:57%}
+.icon_list ul li{width:56px}
+}

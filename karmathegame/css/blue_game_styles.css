@@ -1,0 +1,585 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/* Begining of CSS Definitions */
+/* ------------------------------------------------------------------------------------ */
+/* Background and Top of Page Definitions */
+/* ------------------------------------------------------------------------------------ */
+
+body
+{
+background-color:#cbdfee;
+} 
+
+#pad {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:85%;
+	background-color:#cbdfee;
+	/* border:1px solid gray; */
+	border-radius:2px;
+	max-width:98%;
+	}
+
+#logout {
+	position:absolute;
+	right:2px;
+} 
+
+#main_title {
+	color:#663300; font-size:30px; margin-left:37%; margin-top:5px; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight:300; letter-spacing:1px; 
+
+}
+
+#subtitle {
+	color:#663300; margin-left:44%; font-size:10px; float:left;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+}
+
+#logo {
+	position:absolute; right:5px; float:left; height:75px; width:75px;
+	
+}
+
+#clock {
+	color:#663300; 
+	font-size:40px; 
+	max-width:35%; 
+	margin:3px 0px 2px 5px; 
+	float:left;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+}
+
+#date_time {
+	color:#663300; 
+	margin-left:5px; 
+	font-size:20px; 
+	float:left;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+}
+
+
+#top_line {
+	background-color:#663300; height:3px; margin-left:5px; width:99%;
+}
+
+#headline_titles {
+	display:inline; width:100%;
+}
+
+#headline_titles {
+	
+}
+
+#potential_title {
+	color: #663300;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:5px;
+		
+}
+
+#candidate_title {
+	color: #663300;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:0px;
+	
+
+}
+
+#console_title {
+	color: #663300;
+	font-size:20px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	margin-left:5px;
+
+}
+
+#top_l_line {
+	background-color:#663300; height:1px; width:100%;
+}
+
+#left_game_content {
+	margin-left:5px; width:35%; float:left; padding: 0px 0px 0px 0px;
+	height:100%; overflow:auto; /*outline:1px solid red; */
+}
+
+#candidates {
+	margin-left:20px; margin-right:auto; max-width:90%; max-height:100%; float:left; padding: 5px 5px 5px 0px;  /* outline:1px solid green; */
+}
+
+#candidates img:hover{
+	outline:solid blue 2pt;
+}
+
+::-webkit-scrollbar {
+	    width: 8px;
+	}
+	::-webkit-scrollbar-button {
+	    width: 8px;
+	    height:5px;
+	}
+	::-webkit-scrollbar-track {
+	    background:#eee;
+	    border: thin solid lightgray;
+	    box-shadow: 0px 0px 3px #dfdfdf inset;
+	    border-radius:10px;
+	}
+	::-webkit-scrollbar-thumb {
+	    background:#999;
+	    border: thin solid gray;
+	    border-radius:10px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+	    background:#7d7d7d;
+	} 
+
+#left_footer {
+	position:absolute;
+	bottom:2px;
+	background-color:#5d4c46;
+	color:#f1f1f1;
+	font-size:24px;
+	width: 33%;
+	margin:auto;
+	padding: 5px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	
+}
+
+#center_game_content {
+	margin-left:5px; width:35%; height:100%; float:left; padding: 0px 0px 0px 0px; overflow:auto; /* outline:1px solid red; */
+}
+
+
+
+#center_content_wrapper {
+	background-color:#f1f1f1; width:95%; height:100%; display:block; margin-left:auto; 
+	margin-right:auto; border-radius:2px; margin-top:5px; /* outline:1px solid green; */
+}
+
+#top_candidate_bar {
+	max-width:100%;padding:20px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	
+	
+	
+}
+
+#center_content_wrapper p {
+	color: #070707;
+	font-size:12px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:2px 40px 2px 40px;
+	
+}
+
+#o_meter {
+	/* border:solid red 1pt; */
+	width:95%; height:15px; padding:5px;
+	background-color:5d4c46;
+	float:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+		
+	
+}
+
+.outing_meter li{
+	/* outline:solid green 1pt; */
+	width:22%;
+	float:left;
+	font-size:8px;
+	background-color:5d4c46;
+	color:#f1f1f1;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	display:block;
+	text-align:center;
+}
+
+#o_meter_bar {
+	width:95%; height:15px; padding:5px;
+	background-color:5d4c46;
+	float:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+
+	
+}
+
+.outing_meter_bar li{
+	/* outline:solid green 1pt; */
+	width:22%;
+	float:left;
+	font-size:8px;
+	background-color:f1f1f1;
+	color:#60993c;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	display:block;
+	text-align:center;
+}
+
+#o_meter_bar_bottom {
+	width:95%; height:15px; padding:5px;
+	background-color:5d4c46;
+	float:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+
+	
+}
+
+#journeybook {
+	max-width:70%;padding:2px;
+	/* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+	/* bottom:60px; */
+	
+	
+}
+
+#center_footer {
+	position:absolute;
+	bottom:2px;
+	background-color:#5d4c46;
+	color:#f1f1f1;
+	font-size:24px;
+	width: 33%;
+	margin:auto;
+	padding: 5px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	
+}
+
+
+#right_game_content {
+	margin-left:5px; width:27%; float:left; /* outline:1px solid red; */
+	
+}
+
+
+
+#green_choice {
+	/* outline:solid red 1pt; */
+	width:185px; height:125px; padding:5px;
+	float:right;
+	display:block;
+	position:absolute;
+	right:59px;
+	top:398px;
+
+	
+}
+
+.green_list a{
+	/* outline:solid red 1pt; */
+	text-decoration: none;
+	color:#f1f1f1;
+}
+
+.green_list li{
+	/* outline:solid red 1pt; */
+	width:95%;
+	font-size:12px; 
+	background-color:60993c;
+	color:#f1f1f1; 
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	padding:5px;
+	margin-bottom:5px;
+	display:block;
+	
+	text-align:center;
+}
+
+.green_list ul{
+	/* outline:solid red 1pt; */
+	padding:10px;
+}
+
+.green_list li:hover{
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+#connectmenu {
+	position:absolute; right:5px; float:left; max-width:75px; margin-top:5px;
+	
+}
+
+.intro:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.chat:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.group:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.outing:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.safe:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.calendar:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.myjourneybook:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.email:hover {
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+
+#right_footer {
+	position:absolute;
+	bottom:2px;
+	background-color:#5d4c46;
+	color:#f1f1f1;
+	font-size:24px;
+	width: 27%;
+	margin:auto;
+	padding: 5px;
+	font-family:"Century Gothic", "Calibri", "Trebuchet MS", ariel, Helvetica, sans-serif;
+	font-weight: 100;
+	letter-spacing: 1px;
+	
+}
+
+
+.button{display:block;width:200px;height:200px;border-radius:100px;font-size:10px;color:#f1f1f1;line-height:100px;text-align:center;background:#5d4c46}
+
+
+#green_larrow {
+	position:absolute; bottom:50px; right:5px; float:right; 
+	
+}
+
+.greenbar {
+	display:none; 
+	
+}
+
+#green_larrow:hover .greenbar {
+	position:absolute; display:block; bottom:0px;  
+	
+}
+
+
+#bail {
+	position:absolute; right:56px; 
+	
+}
+
+
+#zap {
+	position:absolute; right:112px; 
+	
+}
+
+#music {
+	position:absolute; right:168px; 
+	
+}
+
+#challenge {
+	position:absolute; right:224px; 
+	
+}
+
+#stars {
+	position:absolute; right:280px; 
+	
+}
+
+#bomb {
+	position:absolute; right:336px; 
+	
+}
+
+#hide {
+	position:absolute; right:392px; 
+	
+}
+
+.bail_sub1{
+	display:none;
+	
+}
+
+#bail:hover .bail_sub1{
+	position:absolute; right:10px; bottom:100px; display:block;
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+	
+}
+
+.zap_sub1{
+	display:none;
+	
+}
+
+#zap:hover .zap_sub1{
+	position:absolute; right:60px; bottom:45px; display:block;
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+	
+}
+
+
+
+
