@@ -17,49 +17,47 @@ $Tot2=mysql_affected_rows();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title><? echo $SITE_TITLE;?></title>
-<link href="css/style.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
+<link href="css/style_popups.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 </head>
 <body style="text-align:center;">
 <form name="frmpopup" id="frmpopup" enctype="multipart/form-data" method="post">
-<table width="95%" style="text-align:center;margin-left:auto;margin-right:auto;" align="center" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
-		<table width="100%" align="center" border="0" cellspacing="3" cellpadding="3">
-		  <tr>
-			<td class="bottmborder_white">
-			 <br />
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				  <tr>
-					<td width="8%" align="left"><img src="images/outingWhiteFill.png"  border="0"/></td>
-					<td width="82%"><h1 style="text-align:left;">LET'S GO OUT!!!</h1></td>
-					<td width="10%" align="right"><a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a></td>
-				  </tr>
-				</table>
-				 <br />
-			</td>
-		  </tr>
-		  <tr>
-			<td style="padding-top:20px;">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<div class="header">
+			<div class="top_info">
+				<div class="icon_holder">
+				<img src="images/outingWhiteFill.png" border="0"></img>
+				</div>
+				<div class="text_holder">
+					let's go out!!!
+				</div>
+				<div class="icon_holder" style="float:right;">
+				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
+				</div>
+				 
+			</div>
+					
+</div>	<!-- the header ends -->
+<div class="middlesection">
+		<div class="centered_info" >
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				  <tr>
 					<td width="170" align="left" valign="top" >
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						  <tr>
-							<td align="left" valign="top" class="dashboard_whitetext" height="40"><h2><? echo $username;?></h2></td>
+							<td align="left" valign="top" class="whitetext" height="40"><h2><? echo $username;?></h2></td>
 						  </tr>
 						  <tr>
 							<td align="center" height="250" valign="middle" style="background-color:#FFFFFF;" ><img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt="" width="150"  /></td>
 						  </tr>
 						</table>
 					</td>
-					<td   align="left" valign="top" style="padding-left:60px;" class="dashboard_whitetext">
+					<td   align="left" valign="top" style="padding-left:60px;" class="whitetext">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						  
 						  <tr>
 								<td>
 									<table border="0" cellspacing="0" cellpadding="0">
 								  	    <tr>
-										  <td  class="dashboard_whitetext">
+										  <td  class="whitetext">
 										  <input type="radio" name="outtype" id="outtype_1" value="DATE" checked="checked" onclick="document.getElementById('Hidouttype').value='DATE'"/>&nbsp;<label for="outtype_1">DATE</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										  <input type="radio" name="outtype" id="outtype_2" value="EVENT" onclick="document.getElementById('Hidouttype').value='EVENT'"/>&nbsp;<label for="outtype_2">EVENT</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 										  <input type="radio" name="outtype" id="outtype_3" value="GROUP" onclick="document.getElementById('Hidouttype').value='GROUP'"/>&nbsp;<label for="outtype_3">GROUP</label> </td>
@@ -71,7 +69,7 @@ $Tot2=mysql_affected_rows();
 								<td style="padding-top:15px;">
 									<table border="0" cellspacing="0" cellpadding="0">
 								  	    <tr>
-										  <td  class="dashboard_whitetext">
+										  <td  class="whitetext">
 										  <input type="radio" name="relationtype" id="relationtype_1" value="RELATIONSHIP" checked="checked" onclick="document.getElementById('Hidrelationtype').value='RELATIONSHIP'"/>&nbsp;<label for="relationtype_1">RELATIONSHIP</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										  <input type="radio" name="relationtype" id="relationtype_2" value="FRIENDSHIP" onclick="document.getElementById('Hidrelationtype').value='FRIENDSHIP'"/>&nbsp;<label for="relationtype_2">FRIENDSHIP</label>
 										  			  	
@@ -86,13 +84,13 @@ $Tot2=mysql_affected_rows();
 								<td style="padding-top:15px;">
 									<table border="0" cellspacing="0" cellpadding="0">
 								  	    <tr>
-										  <div style="display:inline-block;" class="dashboard_whitetext">WHEN <input type="text" name="outdate"  id="outdate" placeholder="mm/dd/yyyy" onClick="displayCalendar(document.getElementById('outdate'),'mm/dd/yyyy',this);" style="width:100px;"/></div>
+										  <div style="display:inline-block;" class="whitetext">WHEN <input type="text" name="outdate"  id="outdate" placeholder="mm/dd/yyyy" onClick="displayCalendar(document.getElementById('outdate'),'mm/dd/yyyy',this);" style="width:100px;"/></div>
 										  
-										   <div  style="display:inline-block;margin-left:50px;" class="dashboard_whitetext">TIME <input id="goOutTime" type="text" name="outtime"  id="outtime" placeholder="6 to 8 pm"  style="width:100px;"/></div>
+										   <div  style="display:inline-block;margin-left:50px;" class="whitetext">TIME <input id="goOutTime" type="text" name="outtime"  id="outtime" placeholder="6 to 8 pm"  style="width:100px;"/></div>
 										   
 									     </tr>
 										  <tr>
-										  <td  class="dashboard_whitetext" style="padding-top:15px;">
+										  <td  class="whitetext" style="padding-top:15px;">
 											  <input type="radio" name="whomidea" id="whomidea_1" value="YOUR IDEA" checked="checked" onclick="control2(1);"/>&nbsp;<label for="whomidea_1">YOUR IDEA</label>&nbsp;&nbsp;&nbsp;&nbsp;
 											  <input type="radio" style="margin-left:50px;" name="whomidea" id="whomidea_2" value="MY IDEA" onclick="control2(2);"/>&nbsp;<label for="whomidea_2">MY IDEA</label>
 										  </td>
@@ -111,18 +109,18 @@ $Tot2=mysql_affected_rows();
 		while($GetUsersQryRow3=mysql_fetch_array($GetUsersQryRs3))
 		{
 		
-		?><li  style="width:93%; position:relative;  margin-top:10px;" onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
+		?><li style="width:100%;height:100px;border:none;margin-bottom:10px;background:none;position:relative;vertical-align: top;"  onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="display:inline-block;">
 				  <tr>
-					<td style="height:120px;background-color:gray;text-transform:uppercase;width:20%;" align="center" nowrap="nowrap">
+					<td style="height:120px;background-color:gray;text-transform:uppercase;width:20%;" align="center" vertical-align:top;nowrap="nowrap">
 						<span style="color:#FFFFFF;font-size:12px;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span><br />
 						<span style="color:#FFFFFF;font-size:20px;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['startdate']));?></span><br />
 						<div style="font-size:12px;text-transform:none;">through</div>
 						<span style="color:#FFFFFF;font-size:12px;"><? echo date("l",strtotime($GetUsersQryRow3['enddate']));?></span><br />
 						<span style="color:#FFFFFF;font-size:20px;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['enddate']));?></span>
 					</td>
-					<td width="45%"><? if($GetUsersQryRow3['picture']!='' && file_exists("Ideas/".$GetUsersQryRow3['picture'])){?><img src="Ideas/<? echo $GetUsersQryRow3['picture'];?>" height="120" width="100%" style="margin-top:0px;" /><? }else{?>&nbsp;<? } ?></td>
-					<td width="35%" height="60px">
+					<td style="vertical-align:top;" width="45%"><? if($GetUsersQryRow3['picture']!='' && file_exists("Ideas/".$GetUsersQryRow3['picture'])){?><img src="Ideas/<? echo $GetUsersQryRow3['picture'];?>" height="120" width="100%" style="margin-top:0px;" /><? }else{?>&nbsp;<? } ?></td>
+					<td width="35%" height="60px" style="vertical-align:top;">
 					<div style="width:95%;height:60px;margin-left:10px;border-style:solid; border-color:black;height:50%; background:black;position:relative;margin-bottom:5px;">
 					<span style="color:#999999;font-size:11px;"><? echo stripslashes($GetUsersQryRow3['place']);?></span><br />
 					<span style="color:#FFFFFF;font-size:12px;"><? echo stripslashes($GetUsersQryRow3['title']);?></span><br />
@@ -144,7 +142,7 @@ $Tot2=mysql_affected_rows();
 		</ul>
 		
 	<? }else{?>	
-	<div  class="dashboard_whitetext">
+	<div  class="whitetext">
 	Bucketlist is empty.
 	</div>
 	<? }?>
@@ -158,7 +156,7 @@ $Tot2=mysql_affected_rows();
 			{
 		while($GetUsersQryRow2=mysql_fetch_array($GetUsersQryRs2))
 		{
-		?><li  style="width:93%;position:relative;  margin-top:10px;" >
+		?><li  style="width:100%;height:100px;border:none;margin-bottom:10px;background:none;position:relative;vertical-align: top;"  >
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="display:inline-block;">
 				  <tr>
 					<td style="height:120px;background-color:gray;text-transform:uppercase;width:20%;" align="center" nowrap="nowrap">
@@ -191,7 +189,7 @@ $Tot2=mysql_affected_rows();
 		</ul>
 		
 	<? }else{?>	
-	<div  class="dashboard_whitetext">
+	<div  class="whitetext">
 	Bucketlist is empty.
 	</div>
 	<? }?>
@@ -206,7 +204,7 @@ $Tot2=mysql_affected_rows();
 								<td style="padding-top:15px;">
 									<table border="0" cellspacing="0" cellpadding="0">
 								  	    <tr>
-										  <td  class="dashboard_whitetext">
+										  <td  class="whitetext">
 										  <input type="radio" name="payby" id="payby_1" value="I WILL PAY" checked="checked" onclick="document.getElementById('Hidpayby').value='I WILL PAY'"/>&nbsp;<label for="payby_1">I'LL PAY</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										  <input type="radio" name="payby" id="payby_2" value="YOU PAY" onclick="document.getElementById('Hidpayby').value='YOU PAY'"/>&nbsp;<label for="payby_2">YOU PAY</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										  <input type="radio" name="payby" id="payby_3" value="SPLIT" onclick="document.getElementById('Hidpayby').value='SPLIT'"/>&nbsp;<label for="payby_3">SPLIT</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -237,9 +235,37 @@ $Tot2=mysql_affected_rows();
 			</td>
 		  </tr>
 		</table>
-	</td>
+		</td>
   </tr>
 </table>
+		</div>
+</div>		
+<div class="footer">
+	<div class="centered_info">
+		<input type="hidden" id="Hidouttype" name="Hidouttype" value="DATE" />
+		<input type="hidden" id="Hidrelationtype" name="Hidrelationtype" value="RELATIONSHIP" />
+		<input type="hidden" id="Hidwhomidea" name="Hidwhomidea" value="YOUR IDEA" />
+		<input type="hidden" id="Hidpayby" name="Hidpayby" value="I WILL PAY" />
+						
+		<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
+		<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
+		<input type="hidden" id="id_bucket" name="id_bucket" value="" />
+		
+		
+		<div class="button">
+			<a href="#" onclick="hide_pop();return false;">
+				<img src="images/close-button.png" border="0" />
+			</a>
+		</div>
+		<div class="button">
+			<input type="image" name="sendbutton" id="sendbutton"  src="images/send-button.png" align="top" onclick="return POPUPfrmcheck('goout');" /> 
+		</div>
+		
+		
+	</div>
+</div>
+
+
 </form>
 </body>
 </html>

@@ -48,13 +48,13 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 					$uploaded='YES';
 					$getusers_sociallinks_shareRow=mysql_fetch_array($getusers_sociallinks_shareRs);
 					?>
-					<? if($getusers_sociallinks_shareRow['social_fb_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_fb","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_facebook.png" border="0"  width="25"/></a>&nbsp;<? }?>
-					<? if($getusers_sociallinks_shareRow['social_twitter_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_twitter","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_twitter.png" border="0" width="25"/></a>&nbsp;<? }?>
-					<? if($getusers_sociallinks_shareRow['social_youtube_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_youtube","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_youtube.png" border="0" width="25"/></a>&nbsp;<? }?>
-					<? if($getusers_sociallinks_shareRow['social_in_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_in","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_linkdin.png" border="0" width="25"/></a>&nbsp;<? }?>
-					<? if($getusers_sociallinks_shareRow['social_pinterest_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_pinterest","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_pinterest.png" border="0" width="25"/></a>&nbsp;<? }?>
-					<? if($getusers_sociallinks_shareRow['social_instagram_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_instagram","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_instagram.png" border="0" width="25"/></a>&nbsp;<? }?>
-					<? if($getusers_sociallinks_shareRow['social_rss_share']=='Y'){?><? $uploaded='YES';?><a href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_rss","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_rss.png" border="0" width="25"/></a><? }?>
+					<? if($getusers_sociallinks_shareRow['social_fb_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_fb","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_facebook.png" border="0"  width="25"/></a>&nbsp;<? }?>
+					<? if($getusers_sociallinks_shareRow['social_twitter_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_twitter","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_twitter.png" border="0" width="25"/></a>&nbsp;<? }?>
+					<? if($getusers_sociallinks_shareRow['social_youtube_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_youtube","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_youtube.png" border="0" width="25"/></a>&nbsp;<? }?>
+					<? if($getusers_sociallinks_shareRow['social_in_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_in","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_linkdin.png" border="0" width="25"/></a>&nbsp;<? }?>
+					<? if($getusers_sociallinks_shareRow['social_pinterest_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_pinterest","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_pinterest.png" border="0" width="25"/></a>&nbsp;<? }?>
+					<? if($getusers_sociallinks_shareRow['social_instagram_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_instagram","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_instagram.png" border="0" width="25"/></a>&nbsp;<? }?>
+					<? if($getusers_sociallinks_shareRow['social_rss_share']=='Y'){?><? $uploaded='YES';?><a style="float:left; padding-left: 2%;" href="<? echo WebsiteWithProperUrl(stripslashes(GetName1("users","social_rss","id",$_REQUEST['id'])));?>" target="_blank" ><img src="images/icon_rss.png" border="0" width="25"/></a><? }?>
 				<? }?>
 				<?
 				$GetsharedPicRs=mysql_query("SELECT * FROM users_pics_videos_share WHERE  userid_from='".mysql_real_escape_string($_REQUEST['id'])."' and userid_to='".mysql_real_escape_string($_SESSION['UsErIdFrOnT'])."'");
@@ -78,24 +78,24 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 					$getPicsQryRow=mysql_fetch_array($getPicsQryRs);
 					?>
 
-					<? if($getPicsQryRow['type']=='Picture'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainImage" src="<? echo "SafePicsVideos/".$getPicsQryRow['picture']."";?>" width="150" height="100" /><? }?>
+					<? if($getPicsQryRow['type']=='Picture'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainImage" src="<? echo "SafePicsVideos/".$getPicsQryRow['picture']."";?>" width="100%" height="100" /><? }?>
 					<a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Picture','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO ENLARGE AND SEE MORE</a>
 				<? }?>
 					<? if($TotgetPics2>0){
 					$getPicsQryRow2=mysql_fetch_array($getPicsQryRs2);
 					?>
-					<? if($getPicsQryRow2['type']=='Video'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainVideo" src="images/icon-player.png" /><? }?>
+					<? if($getPicsQryRow2['type']=='Video'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainVideo" src="images/icon-player.png" width="100%" height="100" /><? }?>
 					<a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Video','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO VIEW VIDEOS</a>
 				<? }?>
 					<? if($TotgetPics3>0){
 					$getPicsQryRow3=mysql_fetch_array($getPicsQryRs3);
 					?>
-					<? if($getPicsQryRow3['type']=='Music'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainMusic" src="images/icon_player.png" /><? }?><a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Music','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO VIEW MUSIC</a>
+					<? if($getPicsQryRow3['type']=='Music'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainMusic" src="images/icon_player.png" width="100%" height="100"/><? }?><a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Music','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO VIEW MUSIC</a>
 				<? }?>
 				<? }?>
 			</div>
 			<div style="display:inline-block;height:80%;width:55%;margin-left:4%;" >
-					<div>
+					<div style="width: 100%;">
 						<a href="#" onClick="openWin2('update_sociallinks.php?userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"  ><img src="images/icon_facebook.png" border="0" /></a>&nbsp;
 						<a href="#" onClick="openWin2('update_sociallinks.php?userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"  ><img src="images/icon_twitter.png" border="0" /></a>&nbsp;
 						<a href="#" onClick="openWin2('update_sociallinks.php?userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"  ><img src="images/icon_youtube.png" border="0" /></a>&nbsp;
@@ -104,9 +104,10 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 						<a href="#" onClick="openWin2('update_sociallinks.php?userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"  ><img src="images/icon_instagram.png" border="0" /></a>&nbsp;
 						<a href="#" onClick="openWin2('update_sociallinks.php?userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"  ><img src="images/icon_rss.png" border="0" /></a>
 					</div>
-					<div>
-						<img src="images/pic_video.png" border="0" usemap="#Map" />
-						<img src="images/icon_player.png" href="#" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Music&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
+					<div style="width: 100%;">
+						<img src="images/sharePict.jpg" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Picture&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
+						<img src="images/shareVid.jpg" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Video&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
+						<img src="images/icon_player.png" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Music&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
 					</div>
 			</div>
 		</div>
@@ -114,6 +115,4 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 
 	<div class="footer"></div>
 </form>
-
-<map name="Map" id="Map"><area shape="rect" coords="38,32,126,157" href="#" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Picture&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"   /><area shape="rect" coords="148,30,237,158" href="#" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Video&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/></map></body>
 </html>
