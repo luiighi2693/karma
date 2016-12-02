@@ -39,9 +39,9 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 					<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt=""/>
 				</div>
 				<div class="container">
-						<div  class="whitetext" id="groupleftletters" nowrap="nowrap">New Group Name:&nbsp;</div>
-					        <div  class="whitetext" id="grouprightitems"><input type="text" name="groupid_new" id="groupid_new" class="inputboxchat" /></div>
-						<div  class="whitetext" style="width:100%;">Or</div>
+						<div  class="whitetext" id="groupleftletters" nowrap="nowrap" >New Group Name:&nbsp;</div>
+					        <div  class="whitetext" id="grouprightitems"><input type="text" name="groupid_new" id="groupid_new" class="inputboxchat"></input></div>
+						<div class="whitetext2" id="groupleftletters" style="width:100%;">Or</div>
 									 
 						<div  class="whitetext"  id="groupleftletters"nowrap="nowrap" >My Groups:&nbsp;</div>
 						<div class="whitetext" id="grouprightitems">
@@ -63,13 +63,14 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 				<div class="meetup_pic">
 					<img src="images/affiliate_meetup.png"></img>
 				</div>
+				<span id="MessageId" style="color:#FF0000;float:right;display:inline-block;"></span>
 		</div>	
 </div>	
 <div class="footer">
 	<div class="centered_info">
 		<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
 		<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
-		<span id="MessageId" style="color:#FF0000;"></span>
+		
 		
 		<div class="button">
 			<a href="#" onclick="hide_pop();return false;">

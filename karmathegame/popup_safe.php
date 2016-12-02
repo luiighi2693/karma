@@ -25,9 +25,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 			<div class="icon_holder"style="float:right;">
 				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
 			</div>
-
 		</div>
-
 	</div>	<!-- the header ends -->
 
 	<div class="middlesection">

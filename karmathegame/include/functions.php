@@ -4,7 +4,7 @@ function GetName1($tablename,$field,$where,$id){
     $uquery="SELECT * FROM $tablename WHERE $where=$id";
     $uresult=mysql_query($uquery);
     $urow=mysql_fetch_array($uresult);
-    return $urow['\''.$field.'\''];
+    return $urow[$field];
 //    echo  $uquery;
 //    return $tablename.','.$field.','.$where.','.$id;
 }

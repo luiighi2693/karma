@@ -30,7 +30,7 @@ function Callchateverysec()
 }	
 function SelectEmotion(emoticon)
 {
-	document.getElementById('BigEmotionID').innerHTML='<img src="Emoticons/'+emoticon+'" width="200" height="200" />';
+	document.getElementById('BigEmotionID').innerHTML='<img src="Emoticons/'+emoticon+'" />';
 }
 function POPUPfrmcheck(formid)
 {

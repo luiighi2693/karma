@@ -115,13 +115,13 @@ if($_POST['sharepics'])
 								?>
 								<div align="center"  style="width:240px;float:left;">
 									<? if($getPicsQryRow['type']=='Picture'){?>
-										<img src="<? echo "SafePicsVideos/".$getPicsQryRow['picture'];?>" style="width:30%;height:100px;" />
+										<img src="<? echo "SafePicsVideos/".$getPicsQryRow['picture'];?>" style="width:50%;height:100px;" />
 									<? }?>
 									<? if($getPicsQryRow['type']=='Video'){?>
-										<img src="images/icon_player.png" style="width:30%;height:100px;"/>
+										<img src="images/icon_player.png" style="width:50%;height:100px;"/>
 									<? }?>
 									<? if($getPicsQryRow['type']=='Music'){?>
-										<img src="images/icon_player.png" style="width:30%;height:100px;"/>
+										<img src="images/icon_player.png" style="width:50%;height:100px;"/>
 									<? }?>
 									<br />
 									<input id="<?echo $getPicsQryRow['id']?>" type="checkbox" name="sharepiccheckbox[]" <? echo CheckEitherPICVIDEOShareOrNot($getPicsQryRow['id'],$_SESSION['UsErIdFrOnT'],mysql_real_escape_string($_REQUEST['userid_to']));?> value="<? echo $getPicsQryRow['id'];?>" style="margin-top:10px;" />

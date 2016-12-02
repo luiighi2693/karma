@@ -175,6 +175,14 @@ font-weight:300; letter-spacing:1px;
 	display:inline-block;
 
 }
+.container2{
+	
+	width:78%;
+	float:right;
+	height:90%;
+	display:inline-block;
+
+}
 #groupleftletters
 {
 	width:25%;
@@ -194,5 +202,97 @@ font-weight:300; letter-spacing:1px;
 	
 	
 }
+.blocks_2
+{
+	display:inline-block;
+	width:45%;
+
+}
+.blocks_3
+{
+	display:inline-block;
+	width:30%;
+
+}
+.row
+{
+	width:100%;
+	margin-bottom:1%;
+	height:5%;
+
+}
+.ideaslist
+{
+	margin-top:1%;
+	width:60%;
+	height:100%;
+	display:inline-block;
+
+}
+.ideaslist ul
+{
+	width:100%;
+	overflow:auto;
+	height:100%;
+
+}
+.listItem
+{
+	width:94%;
+	height:100px;
+	border:none;
+	margin-bottom:10px;
+	background:none;
+	position:relative;
+	vertical-align: top;
+}
+.idea_info_left
+{
+	float:left;
+	width:20%;
+	background:gray;
+	height:100%;
+	display:inline-block;
+	text-align:center;
+	padding-top:2%;
+
+}
+.idea_pic
+{
+	float:left;
+	width:45%;
+	background:gray;
+	height:100%;
+	display:inline-block;
+	margin-left:0.5%
+
+}
+.idea_info_rigth
+{
+	float:right;
+	width:34%;
+	
+	height:100%;
+	display:inline-block;
+	
+
+}
+.radios2theright
+{
+	display:inline:block;
+	width:38%;
+	height:80%;
+	float:right;
+	
+	margin-top:2%;
+
+}
 @media only screen and (max-width: 768px) 
-{.whitetext2 {padding-top: 5%;}}
+{
+.whitetext2 
+{padding-top: 5%;}
+
+
+
+
+}
