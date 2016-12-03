@@ -5,47 +5,32 @@ include("checklogin.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <link href="css/opening_styles.css">
-    <title></title>
+    <title><? echo $SITE_TITLE;?></title>
+    <link href="css/style_popups.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 </head>
-<body>
-<div id="main_menu">
-    <div style="width:80% text-align:center margin-bottom: 50px;" >
-        <table style="text-align:center;margin-left:auto;margin-right:auto;" width="95%" cellspacing="0" cellpadding="0" border="0" align="center">
-            <tr>
-                <td class="bottmborder_white">
-                    <br />
-                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tr>
-                            <td width="8%" align="left">
-                                <img src="images/icon_bail.png" border="0">
-                            </td>
-                            <td width="52%">
-                                <h1 style="text-align:left;">BAIL</h1>
-                            </td>
-                            <td width="10%" align="right">
-                                <a href="#" onclick="hide_pop();return false;">
-                                    <img src="images/popup_close.png" border="0">
-                            </td>
-                        </tr>
-                    </table>
-                    <br />
-                </td>
-                <br />
-            </tr>
-            </tbody>
-        </table>
-        <table style="text-align:center;margin-left:auto;margin-right:auto;padding-bottom: 30px;" width="100%" cellspacing="0" cellpadding="0" border="0" align="center"></table>
-        <table style="text-align:center;margin-left:auto;margin-right:auto; background-color: #c1c1bf;" width="60%" cellspacing="0" cellpadding="0" border="0" align="center">
-            <tr>
-                <td>
-                    <h1 style="text-align:center;font-size: 30px;color: black;">IF YOU WOULD LIKE TO DESTROY YOUR AVATAR AND DELETE THE PROFILE, YOU MAY CHECK THE BOX BELOW THEN PRESS THE DESTROY BUTTON. ALL CHATS, PICTURES, FRIENDS LINKS AND EMAILS WILL BE DELETED FROM THE SYSTEM. THIS CANNOT BE UNDEONE.</h1>
-                </td>
-             </tr>
-            <tr>
-                <td style="    padding: 30px;">
-                <div style="">
-			  <input id="checkboxToDeleteAccount" style="zoom:2;
+<body style="text-align: center;">
+<div id="main_menu" style="font-size: 0vh; width: 100%; background-color: #5d4c46;">
+    <div class="header">
+        <div class="top_info">
+            <div class="icon_holder">
+                <img src="images/icon_bail.png" border="0" alt="">
+            </div>
+            <div class="text_holder">
+                BAIL
+            </div>
+            <div class="icon_holder"style="float:right;">
+                <a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" alt=""/></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="middlesection">
+        <div class="centered_info">
+            <div style="text-align:center;margin-left:auto;margin-right:auto; background-color: #c1c1bf; width: 70%;">
+                <h1 style="text-align:center;font-size: 3vh;color: black;    padding-top: 1%;">IF YOU WOULD LIKE TO DESTROY YOUR AVATAR AND DELETE THE PROFILE, YOU MAY CHECK THE BOX BELOW THEN PRESS THE DESTROY BUTTON. ALL CHATS, PICTURES, FRIENDS LINKS AND EMAILS WILL BE DELETED FROM THE SYSTEM. THIS CANNOT BE UNDEONE.</h1>
+
+                <div style="    width: 100%;padding-top: 1%;padding-bottom: 7%;">
+                    <input id="checkboxToDeleteAccount" style="zoom:2;
 			  transform:scale(2);
 			  -ms-transform:scale(2);
 			  -webkit-transform:scale(2);
@@ -57,18 +42,18 @@ include("checklogin.php");
 			  -o-transform-origin:0 0;
 			  -moz-transform-origin:0 0;
 			  -webkit-transform-origin:0 0;" type=checkbox />
-			</div>
-                </td>
-            </tr>
-            <tr>
-                <td style="padding-bottom: 20px;">
-                    <input onclick="deleteAccount(<? echo $_SESSION['UsErIdFrOnT'];?>)" style="text-align:center;font-size: 40px; height: 100px;width: 350px;color: black;background-color: #870505;border: none;" type="button" value="DESTROY"/>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <input onclick="location.href='http://www.karmathegame.org/karmathegame/login.php';" style="text-align:center;font-size: 40px; height: 100px;width: 350px;color: black;background-color: #c1c1bf;border: none; margin-left: 50px;margin-top: 30px;" type="button" value="LOGOUT"/>
-        <input onclick="hide_pop();return false;" style="text-align:center;font-size: 40px; height: 100px;width: 350px;color: black;background-color: #c1c1bf;border: none; float: right; margin-right: 50px;margin-top: 30px;" type="button" value="CANCEL"/>
+                </div>
+
+                <div style="padding-bottom: 4%;">
+                    <input onclick="deleteAccount(<? echo $_SESSION['UsErIdFrOnT'];?>)" style="text-align:center;font-size: 2vh; height: 15%;width: 25%;color: black;background-color: #870505;border: none;" type="button" value="DESTROY"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <input onclick="location.href='http://www.karmathegame.org/karmathegame/login.php';" style="text-align:center;font-size: 3vh; height: 50%;width: 30%;color: black;background-color: #c1c1bf;border: none; margin-left: 10%; margin-right: 10%;" type="button" value="LOGOUT"/>
+        <input onclick="hide_pop();return false;" style="text-align:center;font-size: 3vh; height: 50%;width: 30%;color: black;background-color: #c1c1bf;border: none; float: right; margin-left: 10%; margin-right: 10%;" type="button" value="CANCEL"/>
     </div>
 </div>
 </body>
