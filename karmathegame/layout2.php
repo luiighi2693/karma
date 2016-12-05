@@ -501,6 +501,7 @@ function showSlides(n) {
 					"method" : "addAnswer",
 					"id_question" :  questionId ,
 					"id_user" : userId,
+					"id_userTo" : userToId,
 					"answer" : document.getElementById("txtAreaUser").value
 				},
 				success: function(data){

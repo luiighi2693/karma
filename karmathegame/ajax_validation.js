@@ -318,7 +318,8 @@ function SAVE_POPUP_HIDE(userid_from,userid_to,neverwann,hideme1,hideme2)
 	  {
 		  if(http4_1.responseText!="")
 		  {
-			  document.getElementById('MessageId').innerHTML='<br>Updated Successfully!';
+			  alert("Updated Successfully!");
+			  location.reload();
 			  return  false;
 		  }
 	  } 
@@ -425,7 +426,8 @@ function SAVE_POPUP_ZAP(userid_from,userid_to,neverwann,reason)
 	  {
 		  if(http4_1.responseText!="")
 		  {
-			  document.getElementById('MessageId').innerHTML='<br>Zapped Successfully!';
+			  alert("Zapped Successfully!");
+			  location.reload();
 			  return  false;
 		  }
 	  } 

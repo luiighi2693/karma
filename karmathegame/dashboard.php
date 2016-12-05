@@ -1,5 +1,7 @@
 <? include("connect.php");
 include("checklogin.php");
+
+
 $avatarlogo = stripslashes(GetName1("avatars", "picture", "id", $CURRENTgetuserwryRow['avatarid']));
 
 if (isset($_GET["theme"])&&isset($_GET["soundoption"])) {
@@ -83,8 +85,8 @@ if ($_POST['Hidsubmit'] == '1') {
 <div style="width:100%;height:100%;z-index:3;position:absolute;">
 	<div id="dashboard_box" >
 
-		<div style="height: 3%;width: 100%;font-size: 2.5vh;margin-top:.025vh; display: flex;border-bottom: 1px solid #848484;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
-			<div style="width: 45%; color:#848484; overflow: hidden;">
+		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
+			<div style="width: 45%; overflow: hidden;">
 				<? echo date("l, F j, Y");?>
 			</div>
 
@@ -92,17 +94,17 @@ if ($_POST['Hidsubmit'] == '1') {
 				<div style="text-align: center;"><a href="myfile.htm"><img width="20%" src="images/guru_logo.png"></a> </div>
 			</div>
 
-			<div style="width: 45%; text-align: right; color:#848484; overflow: hidden;">
+			<div style="width: 45%; text-align: right; overflow: hidden;">
 				<? echo TotalQuestionsAnswered();?>
 			</div>
 		</div>
 
-		<div style="height: 3%;width: 100%;font-size: 2vh;margin-top:.05vh;display: flex;border-bottom: 1px solid #848484;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
-			<div style="width: 50%; overflow: hidden; text-align: center; color:#848484;">
+		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
+			<div style="width: 50%; overflow: hidden; text-align: center;">
 				THE GRID
 			</div>
 
-			<div style="width: 50%; overflow: hidden; color:#848484; text-align: center;">
+			<div style="width: 50%; overflow: hidden; text-align: center;">
 				THE BOX
 			</div>
 		</div>
@@ -125,7 +127,7 @@ if ($_POST['Hidsubmit'] == '1') {
 			</div>   <!-- end #left_buttons -->
 			
 			
-			<div id="popup_box" style="position:relative;">
+			<div id="popup_box" style="position:relative; overflow: hidden;">
 				<div class="dashboardpopup" id='rightsidePOPUP_MAIN' style="display:none;width:100%;height:100%;">
 					<div id="pad_wrapper_newlife">
 						<div id="pad_newlife" style="border:0px solid gray;	border-radius:0px;max-width:100%;">
@@ -211,18 +213,18 @@ if ($_POST['Hidsubmit'] == '1') {
 			<div id="bottom_menu">
 			
 				<div id="box15"><a href="#" onclick="show_pop('popup_options.php');"><img src="images/icon_gears.png"  alt="OPTIONS" title="OPTIONS" border="0"></a> </div>
-				<div id="box16"><a href="#" onClick="LoadFooterSoulmates('Infinity');"><img id="Infinity" src="images/icon_infinity.png" />
+				<div id="box16"><a href="#" onClick=" clickOnIcon('Infinity');"><img id="Infinity" src="images/icon_infinity.png" />
 					</a> </div>
-				<div id="box17"><a href="#" onClick="LoadFooterSoulmates('ThumbsUp');"><img id="ThumbsUp" src="images/icon_like.png" border="0"/></a></div>
-				<div id="box18"><a href="#" onClick="LoadFooterSoulmates('Heart');"><img id="Heart"																					src="images/icon_heart.png" border="0"/></a> </div>
-				<div id="box19"><a href="#" onClick="LoadFooterSoulmates('Ideas');"><img id="Ideas" src="images/icon_idea.png" border="0"/></a> </div>
-				<div id="box20"><a href="myfile.htm"><img src="images/icon_search_white.png"></a> </div>
+				<div id="box17"><a href="#" onClick=" clickOnIcon('ThumbsUp');"><img id="ThumbsUp" src="images/icon_like.png" border="0"/></a></div>
+				<div id="box18"><a href="#" onClick=" clickOnIcon('Heart');"><img id="Heart"																					src="images/icon_heart.png" border="0"/></a> </div>
+				<div id="box19"><a href="#" onClick=" clickOnIcon('Ideas');"><img id="Ideas" src="images/icon_idea.png" border="0"/></a> </div>
+				<div id="box20"><a onclick="searchUser()"><img src="images/icon_search_white.png"></a> </div>
 					
-				<div id="box21" style="background:black;"><input style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
+				<div id="box21" style="background:black;"><input id="textToSearch" style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
 				</div> </div>
 					 
 			<div id="box22"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
-			<div id="box23"><a href="#" onclick="show_bucketlist();"><img   src="images/icon_bucketlist.png" border="0"></a> </div>
+			<div id="box23"><a href="#" onClick="changefunctionForbucket(document.getElementById('CurrentSelectedUserId').value,10);"><img   src="images/icon_bucketlist.png" border="0"></a> </div>
 			<div id="box24"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'3');openPreferencesPopup('540',document.getElementById('CurrentSelectedUserId').value)"><img   src="images/icon_journeybook.png" border="0"></a> </div>
 			<div id="box25"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'2');"><img
 						src="images/icon_stats.png" border="0"></a> </div>
@@ -239,7 +241,8 @@ if ($_POST['Hidsubmit'] == '1') {
         
 			
 		 
-                    
+           <input id="currentSelectedIcon" value="" hidden/>   
+          
 </div>  <!-- end #dashboard_box -->
 </div>
 		
@@ -275,6 +278,51 @@ fclose($txtfile);
 	var themeSelected=1;
 	var soundOptionSelected=2;
 	var userId = <?echo $_SESSION['UsErIdFrOnT'];?>;
+	var slideIndex = 1;
+	var ideaSelected = null;
+    
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function control3(id)
+{
+ var checks = document.getElementsByClassName("checks");
+ var i;
+ 
+  for (i = 0; i < checks.length; i++)
+   {
+ 
+  	if(checks[i].value!=id)
+  	{
+     		checks[i].checked = false; 
+  	}
+  	
+  	
+  	
+   }
+   if(document.getElementById(id)!=null)
+   {
+   document.getElementById(id).checked = true; 
+   }
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("photos");
+  
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+ 
+  slides[slideIndex-1].style.display = "block"; 
+
+}
 	$(document).ready(function () {
 		resizeDiv();
 		//myAudio = new Audio('music/looperman-l-0782612-0087385-40a-soul-link.wav');
@@ -453,6 +501,7 @@ fclose($txtfile);
 					"method" : "addAnswer",
 					"id_question" :  questionId ,
 					"id_user" : userId,
+					"id_userTo" : userToId,
 					"answer" : document.getElementById("txtAreaUser").value
 				},
 				success: function(data){
@@ -552,8 +601,8 @@ fclose($txtfile);
 	function DeleteEmailList(){
 		var list =document.getElementById('mailList');
 		for (var i=0; i<list.childElementCount; i++){
-			if(list.children[i].children[3].children[0].checked){
-				DeleteEmail(list.children[i].children[3].children[0].id);
+			if(list.children[i].children[2].children[1].checked){
+				DeleteEmail(list.children[i].children[2].children[1].id);
 			}
 		}
 		setTimeout(function() {
@@ -568,23 +617,23 @@ fclose($txtfile);
 			document.getElementById('Hidwhomidea').value='YOUR IDEA'
 			document.getElementById('whomidea_2').checked=false;
          
-			if (document.getElementById('my_blist').style.display == "block") {
+			if (document.getElementById('my_blist').style.display == "inline-block") {
 				document.getElementById('my_blist').style.display = "none";
        		
 			}
        		
-			document.getElementById('other_list').style.display = "block";
+			document.getElementById('other_list').style.display = "inline-block";
        		 
 		}
         
 		if (selected == 2) {
 			document.getElementById('Hidwhomidea').value='MY IDEA'
 			document.getElementById('whomidea_1').checked=false;
-			if (document.getElementById('other_list').style.display == "block") {
+			if (document.getElementById('other_list').style.display == "inline-block") {
 				document.getElementById('other_list').style.display = "none";
 			}
        		
-			document.getElementById('my_blist').style.display = "block";
+			document.getElementById('my_blist').style.display = "inline-block";
        		 
 		}
       
@@ -637,7 +686,99 @@ fclose($txtfile);
 			}
 		});
 	}
-
+	function clickOnIcon(type)
+	{
+		var currentselected=document.getElementById("currentSelectedIcon").value;
+		RemoveYellowIcon(currentselected);
+		if(type==currentselected)
+		{
+			document.getElementById("currentSelectedIcon").value="";
+			type="";
+		}else{
+			setYellowIcon(type);
+			document.getElementById("currentSelectedIcon").value=type;
+			updateLeftSection(type);
+		}
+		updateLeftSection(type);
+		
+	
+	}
+	function updateLeftSection(type)
+	{
+	 var http4_1 = false;
+ 	 document.getElementById('grid_box').innerHTML= "<img src='images/loading.gif' />";
+  	if(navigator.appName == "Microsoft Internet Explorer") { http4_1 = new ActiveXObject("Microsoft.XMLHTTP");} else {  http4_1 = new XMLHttpRequest();	}
+ 		 http4_1.abort();
+ 		 http4_1.open("GET", "ajax_footersoulmates.php?type="+type+"&allselected="+type, true);
+ 		 http4_1.onreadystatechange=function()
+ 	 {
+	  if(http4_1.readyState == 4)
+	  {
+		  if(http4_1.responseText!="")
+		  {
+			  document.getElementById('grid_box').innerHTML=http4_1.responseText;
+			  return  false;
+		  }
+	  } 
+  }
+  http4_1.send(null);
+	
+	}
+	
+	function changefunctionForbucket(userid,slide)
+	{
+		if(ideaSelected != null){
+			insert_bucketlist(ideaSelected, <? echo $_SESSION['UsErIdFrOnT']; ?>);
+			ideaSelected = null;
+		}else{
+			Updatebox(userid, slide);
+		}
+	}
+	function RemoveYellowIcon(type)
+	{
+	switch(type)// removes the glow effect on
+		{
+			 case "Heart":
+        			document.getElementById('Heart').src="images/icon_heart.png";
+				
+      			  	break;
+      			  	
+   			 case "Infinity":
+   			 document.getElementById('Infinity').src="images/icon_infinity.png";
+				
+   			 	break;
+   			 	
+   			 case "ThumbsUp":
+        			document.getElementById('ThumbsUp').src="images/icon_like.png";
+				
+      			  	break;
+      			  	
+    			default:
+    			document.getElementById('Ideas').src="images/icon_idea.png";
+		}
+	}
+	function setYellowIcon(type)
+	{
+	switch(type)// adds the glow effect on
+		{
+			 case "Heart":
+        			document.getElementById('Heart').src="images/footer_icon3_blur.png";
+      			  	break;
+      			  	
+   			 case "Infinity":
+   			 document.getElementById('Infinity').src="images/footer_icon1_blur.png";
+   			 	break;
+   			 	
+   			 case "ThumbsUp":
+        			document.getElementById('ThumbsUp').src="images/footer_icon2_blur.png";
+      			  	break;
+      			  	
+    			default:
+			document.getElementById('Ideas').src="images/footer_icon4_blur.png";
+		}
+		
+	
+	}
 	function frmupdatesave() {
 		//document.getElementById('Hidsubmit').value = '1';
 		jQuery.ajax({
@@ -657,6 +798,43 @@ fclose($txtfile);
 			}
 		});
 	}
+
+	function searchUser() {
+		var textToSearch = document.getElementById('textToSearch').value;
+		if(textToSearch == ''){
+			location.reload();
+		}else{
+			jQuery.ajax({
+				type: "POST",
+				url: "util.php",
+				data: {
+					"method" : "searchUser",
+					"username" :  textToSearch
+				},
+				success: function(data){
+
+					if(data == "[]"){
+						alert('username not found');
+						document.getElementById('textToSearch').value="";
+					}else{
+						var result = JSON.parse(data);
+						var innerResult = '';
+						for (var i = 0; i < result.length; i++){
+							var idUser = result[i].split(',')[0];
+							var picture = result[i].split(',')[1];
+							var username = result[i].split(',')[2];
+							innerResult+='<li onClick="ClickAvatar('+idUser+',1);">' +
+											'<div class="icon_wrap" style="color:#ffffff;text-align:center;">'+username+'</div>' +
+											'<img src="Avatars/'+picture+'" width="75" height="114"/>' +
+										'</li>';
+						}
+						document.getElementById('SoulmateboxID').innerHTML = innerResult;
+					}
+				}
+			});
+		}
+	}
+
 	Updatebox(<? echo $_SESSION['UsErIdFrOnT'];?>, 1);
 
 </script>

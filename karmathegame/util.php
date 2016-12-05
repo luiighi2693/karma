@@ -124,9 +124,11 @@ function addAnswer(){
 
     $id_user = $_POST['id_user'];
 
+    $id_userTo = $_POST['id_userTo'];
+
     $answer = $_POST['answer'];
 
-    $query = "INSERT INTO torb_question_answers SET id_question=".$id_question.", userid_from=".$id_user.", answer='".$answer."'";
+    $query = "INSERT INTO torb_question_answers SET id_question=".$id_question.", userid_from=".$id_user.", userid_to=".$id_userTo.", answer='".$answer."'";
 
     $q = mysql_query($query);
 

@@ -187,10 +187,10 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_INTRODUCTION")
 }
 else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 {
-	function validate($userid_from,$userid_to,$outtype,$relationtype,$whomidea,$payby,$outdate,$outdatetime, $bucket_id, $output="false",$outtime="",$massage="")
+	function validate($userid_from,$userid_to,$outtype,$relationtype,$whomidea,$payby,$outdate,$outdatetime, $bucket_id, $output="false",$massage="")
 	{
 		global $SITE_URL;
-		if($outtime!=""){
+		if($massage!=""){
 			$query = "insert into users_goout
 				 set 
 				 userid_from = '".addslashes($userid_from)."',
@@ -200,7 +200,7 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 				 whomidea ='".addslashes($whomidea)."',
 				 payby ='".addslashes($payby)."',
 				 outdate ='".addslashes($outdate)."',
-				 outdatetime ='".addslashes($outtime)."',
+				 outdatetime ='".addslashes($outdatetime)."',
 				 massage ='".addslashes($massage)."',
 				 addeddate =now(),
 				 ipaddress = '".get_client_ip()."'";
@@ -275,7 +275,7 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 	}
 	if($_REQUEST['output'])
 	{
-	echo validate(trim($_REQUEST['userid_from']),trim($_REQUEST['userid_to']),trim($_REQUEST['outtype']),trim($_REQUEST['relationtype']),trim($_REQUEST['whomidea']),trim($_REQUEST['payby']),trim($_REQUEST['outdate']),trim($_REQUEST['output']),trim($_REQUEST['outtime']),trim($_REQUEST['massage']));
+	echo validate(trim($_REQUEST['userid_from']),trim($_REQUEST['userid_to']),trim($_REQUEST['outtype']),trim($_REQUEST['relationtype']),trim($_REQUEST['whomidea']),trim($_REQUEST['payby']),trim($_REQUEST['outdate']),trim($_REQUEST['outdatetime']),trim($_REQUEST['bucket_id']),trim($_REQUEST['output']),trim($_REQUEST['massage']));
 	}
 	else
 	{
@@ -514,12 +514,10 @@ else if($_REQUEST["Type"]=="LoadEmail")
 				$getDetailQryRs=mysql_query("select * FROM $TYPE_TABLE where id='".$TYPE_TABLE_ID."'");
 				$totgetDetailQry=mysql_affected_rows();
 			}
-			$ret='<table width="100%" border="0" cellspacing="2" cellpadding="2">
-				  <tr>
-					<td align="left" height="30">From: '.GetUserName($getchatsRow['userid_from']).'</td>
-					<td align="right" height="30">'.date("l M j, Y",strtotime($getchatsRow['createdate'])).'</td>
-				  </tr>
-				</table>';
+            $ret='<div style="width: 100%; height: 15%;">
+					<div style="float: left;">From: '.GetUserName($getchatsRow['userid_from']).'</div>
+					<div style="float: right;">'.date("l M j, Y",strtotime($getchatsRow['createdate'])).'</div>
+				</div>';
 				
 			if($TYPE=='introduction') //if introductio email 
 			{
@@ -528,12 +526,10 @@ else if($_REQUEST["Type"]=="LoadEmail")
 					$getDetailQryRow=mysql_fetch_array($getDetailQryRs);
 					$introid=$getDetailQryRow['introid'];
 					$picture=GetName1("emoticons","picture","id",$introid);
-					$ret.='<table width="100%" border="0" cellspacing="2" cellpadding="2">
-						  <tr>
-							<td align="left" height="40" valign="top" width="60"><img src="images/icon1.jpg" width="50" height="50" /></td>
-							<td align="left" height="40" valign="top"><img src="Emoticons/'.$picture.'" width="200" height="200" /></td>
-						  </tr>
-						</table>';	
+					$ret.='<div style="height: 85%; display: flex;">
+							<div align="left" style="width: 60px;"><img src="images/icon1.jpg" style="width: 50px; height: 50px;" /></div>
+							<div align="left"><img  style="width: 100%;" src="Emoticons/'.$picture.'"/></div>
+						  </div>';
 				}		
 			}
 			else if($TYPE=='groups') //if introductio email 
@@ -642,14 +638,16 @@ else if($_REQUEST["Type"]=="LoadEmail")
 										</td>
 									 </tr>
 								</table>
-
 							</td>
 						  </tr>
-						  
-						 
 						</table>';
-						$ret.='<div style="margin-bottom:-45px;margin-top:40px;width:100%;cell-padding:0px;height:42px;"><a href="#" onclick="document.getElementById(\'CurrentSelectedUserId\').value='.$getchatsRow['userid_from'].';show_pop(\'popup_letsgoout.php\');"><img src="images/button_accept.jpg" border="0" /></a><a href="#" onclick="DeleteEmail('.$getchatsRow['id'].');"><img src="images/button_reject.jpg" border="0" /></a><a href="#" onclick="show_pop(\'popup_chat.php\');GETCHAT('.$getchatsRow['userid_from'].','.$getchatsRow['userid_to'].');"><img src="images/button_reply.jpg" border="0" /></a></div>';			
-				}		
+
+                    $ret.='<div style="width:100%;height:15%; text-align: center; display: flex;">
+                            <div style="width: 30%"><a href="#" onclick="document.getElementById(\'CurrentSelectedUserId\').value='.$getchatsRow['userid_from'].';show_pop(\'popup_letsgoout.php\');"><img src="images/button_accept.jpg" border="0" style="width:100%;"/></a></div>
+                            <div style="width: 30%"><a href="#" onclick="DeleteEmail('.$getchatsRow['id'].');"><img src="images/button_reject.jpg" border="0" style="width:100%;"/></a></div>
+                            <div style="width: 30%"><a href="#" onclick="show_pop(\'popup_chat.php\');GETCHAT('.$getchatsRow['userid_from'].','.$getchatsRow['userid_to'].');"><img src="images/button_reply.jpg" border="0" style="width:100%;"/></a></div>
+                        </div>';
+                }
 			}
 			else if($TYPE=='safe') //if introductio email 
 			{
@@ -657,39 +655,41 @@ else if($_REQUEST["Type"]=="LoadEmail")
 				$totgetDetailQry=mysql_affected_rows();
 				if($totgetDetailQry>0)
 				{	
-					$ret.='<div style="height:280px;overflow:auto;"><table width="100%" border="0" cellspacing="2" cellpadding="2">
-						  <tr>
-							<td align="left" height="40" valign="top" width="60"><img src="images/icon5.jpg" width="50" height="50" /></td>
-							<td align="left" height="40" valign="top">';
-							while($getDetailQryRow=mysql_fetch_array($getDetailQryRs))
-							{
-								$picture=GetName1("users_pics_videos","picture","id",$getDetailQryRow['id']);
-								$type=GetName1("users_pics_videos","type","id",$getDetailQryRow['id']);
-								if($type=='Picture')
-								{
-									$ret.='<img src="SafePicsVideos/'.$picture.'" width="250" height="250" /><br>';
-								}
-								if($type=='Video')
-								{
-									$ret.='<img src="images/icon-player.png" />';
-								}
-								if($type=='Music')
-								{
-									$auxPlay = "PlaySound('soundSharedMail')";
-									$auxStop = "StopSound('soundSharedMail')";
-									$ret.='<img src="images/icon-player.png" />
-									<button onclick=" ' . $auxPlay . ' " type="button">Play</button>
-									<button onclick=" ' . $auxStop . ' " type="button">Stop</button>
-									<audio tabindex="0" id="soundSharedMail">
-        								<source src="SafePicsVideos/'.$picture.'">
-    								</audio>';
+                    $ret.='<div style="height: 70%; width: 100%;">
+                            <img src="images/icon5.jpg" style="width: 50px;"/>';
+                    while($getDetailQryRow=mysql_fetch_array($getDetailQryRs))
+                    {
+                        $picture=GetName1("users_pics_videos","picture","id",$getDetailQryRow['id']);
+                        $type=GetName1("users_pics_videos","type","id",$getDetailQryRow['id']);
+                        if($type=='Picture')
+                        {
+                            $ret.='<div style="height: 70%;"><img src="SafePicsVideos/'.$picture.'" height="100%" width="100%"/></div>';
+                        }
+                        if($type=='Video')
+                        {
+                            $ret.='<div style="height: 70%;"><img src="images/shareVideo.png" height="100%" width="100%"/></div>';
+                        }
+                        if($type=='Music')
+                        {
+                            $auxPlay = "PlaySound('soundSharedMail')";
+                            $auxStop = "StopSound('soundSharedMail')";
+                            $ret.='<div style="height: 70%;">
+                                    <img src="images/icon_player.png" height="100%" width="100%"/>
+                                        <button onclick="'.$auxPlay.'" type="button">Play</button>
+                                        <button onclick="'.$auxStop.'" type="button">Stop</button>
+                                        <audio tabindex="0" id="soundSharedMail">
+                                            <source src="SafePicsVideos/'.$picture.'">
+                                        </audio>
+                                    </div>';
 
-								}
-							}	
-							$ret.='</td>
-						  </tr>
-						</table></div>';	
-					$ret.='<div style="margin-bottom:-45px;width:100%;cell-padding:0px;height:42px;"><a href="#" onclick="document.getElementById(\'CurrentSelectedUserId\').value='.$getchatsRow['userid_from'].';show_pop(\'popup_safe.php\');"><img src="images/button_accept.jpg" border="0" /></a><a href="#" onclick="DeleteEmail('.$getchatsRow['id'].');"><img src="images/button_reject.jpg" border="0" /></a><a href="#" onclick="show_pop(\'popup_chat.php\');GETCHAT('.$getchatsRow['userid_from'].','.$getchatsRow['userid_to'].');"><img src="images/button_reply.jpg" border="0" /></a></div>';		
+                        }
+                    }
+                    $ret.='</div>';
+                    $ret.='<div style="width:100%;height:15%; text-align: center; display: flex;">
+                            <div style="width: 30%"><a href="#" onclick="document.getElementById(\'CurrentSelectedUserId\').value='.$getchatsRow['userid_from'].';show_pop(\'popup_safe.php\');"><img src="images/button_accept.jpg" border="0" style="width:100%;"/></a></div>
+                            <div style="width: 30%"><a href="#" onclick="DeleteEmail('.$getchatsRow['id'].');"><img src="images/button_reject.jpg" border="0" style="width:100%;"/></a></div>
+                            <div style="width: 30%"><a href="#" onclick="show_pop(\'popup_chat.php\');GETCHAT('.$getchatsRow['userid_from'].','.$getchatsRow['userid_to'].');"><img src="images/button_reply.jpg" border="0" style="width:100%;"/></a></div>
+                        </div>';
 				}		
 			}
             else if($TYPE=='torb'){
@@ -699,14 +699,8 @@ else if($_REQUEST["Type"]=="LoadEmail")
 
                 $answerSelected = mysql_query("select * FROM torb_question_answers where id='".$splitRow[1]."'");
                 $answerSelectedArray = mysql_fetch_array($answerSelected);
-                $ret='<table width="100%" border="0" cellspacing="2" cellpadding="2">
-				  <tr>
-					<td style="    padding: 10px;border-bottom: solid;font-size: 24px;">'.$questionSelectedArray['torb_question'].'</td>
-				  </tr>
-				  <tr>
-					<td style="font-size: 22px;padding: 30px;">'.$answerSelectedArray['answer'].'</td>
-				  </tr>
-				</table>';
+                $ret.='<div style="width:100%; padding: 10px;border-bottom: solid;font-size: 3vh;">'.$questionSelectedArray['torb_question'].'</div>
+					<div style="width:100%;font-size: 2vh;padding: 30px;">'.$answerSelectedArray['answer'].'</div>';
             }else if($TYPE=='socialLinks'){
                 $userToFrom = mysql_query("SELECT * FROM users WHERE id=".$getchatsRow['userid_from']);
                 $userToFromArray = mysql_fetch_array($userToFrom);
@@ -715,53 +709,37 @@ else if($_REQUEST["Type"]=="LoadEmail")
                 $socialLinksArray = mysql_fetch_array($socialLinks);
 
 
-                $ret='<table width="100%" border="0" cellspacing="2" cellpadding="2">
-				  <tr>
-					<td style="    padding: 10px;border-bottom: solid;font-size: 24px;">'.$userToFromArray['username'].' has shared your social Links with you:</td>
-				  </tr>';
+                $ret.='<div style="width: 100%; height: 85%;">
+					<div style="    padding: 10px;border-bottom: solid;font-size: 4vh;">'.$userToFromArray['username'].' has shared your social Links with you:</div>';
 
                 if($socialLinksArray['social_fb_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_facebook.png" align="absmiddle" /> '.$userToFromArray['social_fb'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_facebook.png" align="absmiddle" /> '.$userToFromArray['social_fb'].'</div>';
                 }
 
                 if($socialLinksArray['social_twitter_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_twitter.png" align="absmiddle" /> '.$userToFromArray['social_twitter'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_twitter.png" align="absmiddle" /> '.$userToFromArray['social_twitter'].'</div>';
                 }
 
                 if($socialLinksArray['social_youtube_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_youtube.png" align="absmiddle" /> '.$userToFromArray['social_youtube'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_youtube.png" align="absmiddle" /> '.$userToFromArray['social_youtube'].'</div>';
                 }
 
                 if($socialLinksArray['social_in_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_linkdin.png" align="absmiddle" /> '.$userToFromArray['social_in'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_linkdin.png" align="absmiddle" /> '.$userToFromArray['social_in'].'</div>';
                 }
 
                 if($socialLinksArray['social_pinterest_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_pinterest.png" align="absmiddle" /> '.$userToFromArray['social_pinterest'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_pinterest.png" align="absmiddle" /> '.$userToFromArray['social_pinterest'].'</div>';
                 }
 
                 if($socialLinksArray['social_instagram_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_instagram.png" align="absmiddle" /> '.$userToFromArray['social_instagram'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_instagram.png" align="absmiddle" /> '.$userToFromArray['social_instagram'].'</div>';
                 }
 
                 if($socialLinksArray['social_rss_share']!='N'){
-                    $ret.='<tr>
-					<td style="font-size: 22px;"><img src="images/icon_rss.png" align="absmiddle" /> '.$userToFromArray['social_rss'].'</td>
-				  </tr>';
+                    $ret.='<div style="font-size: 3vh;"><img src="images/icon_rss.png" align="absmiddle" /> '.$userToFromArray['social_rss'].'</div>';
                 }
-                $ret.='</table>';
+                $ret.='</div>';
             }else if($TYPE=='musicShare'){
                 $getDetailQryRs=mysql_query("select * FROM $TYPE_TABLE where id in (".$TYPE_TABLE_ID.") ");
                 $totgetDetailQry=mysql_fetch_array($getDetailQryRs);

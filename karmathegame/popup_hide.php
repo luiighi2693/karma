@@ -36,14 +36,14 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 				<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt=""/>
 			</div>
 			<div class="container2">
-				<h1 style="text-align:left;"><input type="radio" name="neverwann" id="neverwann"  value="Y"/> <label for="neverwann" style="font-size:70%;">Click here if you never want to see this Player again</label></h1>
+				<h1 style="text-align:left;"><input style="zoom: 2;" type="radio" name="neverwann" id="neverwann"  value="Y"/> <label for="neverwann" style="font-size:70%;">Click here if you never want to see this Player again</label></h1>
 			<div align="left" class="whitetext" style="padding-top:10PX;">DOING THIS DOES NOT HARM THE OTHER PLAYER OR YOURSELF. IT HELPS YOU TO LOWER YOUR NUMBER AND GET CLOSER TO YOUR SOULMATES.</div>
 			
 			<div colspan="2" align="left" class="whitetext" style="padding-top:10PX;">TO TEMPORARILY HIDE YOURSELF FROM THE ENTIRE GAME CLICK THE BUTTONS BELOW. THIS DOES NOT PAUSE THE GAME.</div>
 			
-			<div><h1 style="text-align:left;"><input type="radio" name="hideme" id="hideme1"  <? if(GetName1("users","hideme","id",$_SESSION['UsErIdFrOnT'])=='Y'){?>checked<? } ?>  value="Y"/> <label for="hideme1">HIDE ME</label></h1></div>
-								<div><h1 style="text-align:left;"><input type="radio" name="hideme" id="hideme2"  <? if(GetName1("users","hideme","id",$_SESSION['UsErIdFrOnT'])=='N'){?>checked<? } ?>  value="N"/> <label for="hideme2">REVEAL ME</label></h1></div>
-			<span id="MessageId" style="color:#FF0000;bottom:0;float:right;">Sent sucessfully</span>	
+			<div><h1 style="text-align:left;"><input style="zoom: 2;" type="radio" name="hideme" id="hideme1"  <? if(GetName1("users","hideme","id",$_SESSION['UsErIdFrOnT'])=='Y'){?>checked<? } ?>  value="Y"/> <label for="hideme1">HIDE ME</label></h1></div>
+								<div><h1 style="text-align:left;"><input style="zoom: 2;" type="radio" name="hideme" id="hideme2"  <? if(GetName1("users","hideme","id",$_SESSION['UsErIdFrOnT'])=='N'){?>checked<? } ?>  value="N"/> <label for="hideme2">REVEAL ME</label></h1></div>
+<!--			<span id="MessageId" style="color:#FF0000;bottom:0;float:right;">Sent sucessfully</span>	-->
 			</div>	
 			 
 		</div>

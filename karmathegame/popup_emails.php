@@ -30,7 +30,7 @@ if (isset($_GET['mailid'])) {
 				<img src="images/icon_email.png" border="0" alt="">
 			</div>
 			<div class="text_holder">
-				SAFE
+				EMAIL
 			</div>
 			<div class="icon_holder"style="float:right;">
 				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
@@ -46,7 +46,7 @@ if (isset($_GET['mailid'])) {
 					<div style="width:33%; text-align: center">From</div>
 					<div style="width:33%; text-align: center">Type</div>
 				</div>
-				<div id="mailListmailList" style="width:100%;height: 70%; overflow:auto;background:white;box-shadow: 0px 0px 15px #000000;">
+				<div id="mailList" style="width:100%;height: 70%; overflow:auto;background:white;box-shadow: 0px 0px 15px #000000;">
 					<?
 
 					$getHidedusersQryRs=mysql_query("SELECT userid_to FROM users_hide WHERE userid_from='".$_SESSION['UsErIdFrOnT']."'");
