@@ -152,10 +152,10 @@ if($_POST['sharepics'])
 <script language="javascript">
 	function frmcheck()
 	{
-		if (document.frmsocial.picture.value.split(" ").join("")=='')
+		if (document.getElementById("picture").value.split(" ").join("")=='')
 		{
 			alert("Please select file.");
-			document.frmsocial.picture.focus();
+			document.getElementById("picture").focus();
 			return false;
 		}
 		document.getElementById('Hidsubmit').value='1';

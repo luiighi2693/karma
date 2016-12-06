@@ -8,90 +8,70 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title><? echo $SITE_TITLE;?></title>
-<link href="css/style.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title><? echo $SITE_TITLE;?></title>
+	<link href="css/style_popups.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 </head>
 <body style="text-align:center;">
 <form name="frmpopup" id="frmpopup" enctype="multipart/form-data" method="post">
-<table width="95%" style="text-align:center;margin-left:auto;margin-right:auto;" align="center" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
-		<table width="100%" align="center" border="0" cellspacing="3" cellpadding="3">
-		  <tr>
-			<td class="bottmborder_white">
-			<br />
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				  <tr>
-					<td width="8%" align="left"><img src="images/icon_star.png" border="0"/></td>
-					<td width="82%"><h1 style="text-align:left;">PLAY THE STARS</h1></td>
-					<td width="10%" align="right"><a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a></td>
-				  </tr>
-				</table>
-				<br />
-			</td>
-		  </tr>
-		  <tr>
-			<td style="padding-top:20px;">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				  <tr >
-					<td width="180" align="left" valign="top"  >
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						  <tr>
-							<td align="center" height="190" valign="middle">
-							<? if($CURRENTgetuserwryRow['avatarid']!='') { $avatarlogo=stripslashes(GetName1("avatars","picture","id",$CURRENTgetuserwryRow['avatarid']));?>
-								<img src="Avatars/<? echo $avatarlogo;?>" width="180" height="250" />
-							<? }?>
-							</td>
-						  </tr>
-						</table>
-					</td>
-					<td   align="left" valign="top" style="padding-left:10px;padding-right:10px;">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						  <tr>
-								<td align="left"><h1>HERE IS YOUR COMPATIBILITY READING</h1></td>
-						  </tr>
-						  <tr>
-								<td align="center"><iframe src="stars_reading.php?id=<? echo $_REQUEST['id'];?>&from=<? echo $_SESSION['UsErIdFrOnT'];?>&to=<? echo mysql_real_escape_string($_REQUEST['id']);?>" width="100%" height="250"  scrolling="yes"  frameborder="0"></iframe></td>
-						  </tr>
-						  <tr>
-								<td align="right" valign="top"><a href="http://cafeastrology.com/" target="_blank"><img src="images/cafe-astrology.png"  border="0" style="max-width:340px;"/></a></td>
-						  </tr>
-						</table>
-					</td>
-					<td width="180" align="left" valign="top"  >
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						  <tr>
-							<td align="center" height="190" valign="middle">
-							<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt="" width="180"  height="250"  />
-							</td>
-						  </tr>
-						</table>
-					</td>
-				  </tr>
-				  
-				  <tr>
-					<td colspan="3"   align="left" valign="bottom" style="padding-left:60px;" class="dashboard_whitetext">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						 
-						 <tr>
-							<td align="right" style="padding-top:20px;" colspan="2">
-							<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
-							<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
-							<?php /*?><input type="image" name="sendbutton" id="sendbutton" src="images/send-button-green.png" onclick="return POPUPfrmcheck('hidepop');" /><?php */?> <a href="#" onclick="hide_pop();return false;"><img src="images/close-button-green.png" border="0" /></a>
-							<span id="MessageId" style="color:#FF0000;"></span>
-							</td>
-						 </tr>
-						</table>
-					</td>
-				  </tr>
-				</table>
-			</td>
-		  </tr>
-		</table>
-	</td>
-  </tr>
-</table>
+	<div class="header">
+		<div class="top_info">
+			<div class="icon_holder">
+				<img src="images/icon_star.png" border="0"></img>
+			</div>
+			<div class="text_holder">
+				stars
+			</div>
+			<div class="icon_holder"style="float:right;">
+				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
+			</div>
+				 
+		</div>
+					
+	</div>	<!-- the header ends -->
+	<div class="middlesection">
+		<div class="centered_info">
+			<div class="avatar_pic" style="float:right;">
+				<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt=""/>
+			</div>
+			<div class="avatar_pic">
+				<? if($CURRENTgetuserwryRow['avatarid']!='') { $avatarlogo=stripslashes(GetName1("avatars","picture","id",$CURRENTgetuserwryRow['avatarid']));?>
+					<img src="Avatars/<? echo $avatarlogo;?>"/>
+				<? }?>
+			</div>
+			<div class="container" style="width:58%;margin-right:1%;">
+				<div style="text-align:center;font-size:4vh;">HERE IS YOUR COMPATIBILITY READING</div>
+				<div align="center"><iframe src="stars_reading.php?id=<? echo $_REQUEST['id'];?>&from=<? echo $_SESSION['UsErIdFrOnT'];?>&to=<? echo mysql_real_escape_string($_REQUEST['id']);?>" width="100%" height="80%"  scrolling="yes"  frameborder="0"></iframe>
+				</div>
+				<div style="float: right;width:58%;    margin-top: 1%;">
+					<a href="https://cafeastrology.com/" target="_blank" ><img src="images/cafeastrology.png" alt=""  style="width: 100%;"></a>
+				</div>
+			
+				<div id="MessageId" class="redtext"></div>
+
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="footer">
+		<div class="centered_info">
+			
+			<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
+			<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
+			<div class="button">
+				<a href="#" onclick="hide_pop();return false;">
+					<img src="images/button_close.png" border="0" />
+				</a>
+			</div>
+			<div class="button">
+				<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="return POPUPfrmcheck('hidepop');" />
+			</div>
+		
+		
+		</div>
+	</div>	
+
 </form>
 </body>
 </html>

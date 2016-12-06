@@ -30,12 +30,13 @@ if($profile_dob1!='' && $profile_dob1!='0000-00-00' && $profile_dob2!='' && $pro
 	$yy2=$exp2[2];
 	
 	$filecontent_1= file_get_contents("http://astro.cafeastrology.com/cgi-bin/astro/comp2f?d1day=".$dd1."&d1month=".$mm1."&d1year=".$yy1."&d2day=".$dd2."&d2month=".$mm2."&d2year=".$yy2."");
-	$filecontent_2=explode("<h1>Compare to another person</h1>",$filecontent_1);
+	$filecontent_2=explode("Inter-planetary aspects",$filecontent_1);
 	$filecontent_3=explode('<p><a href="http://cafeastrology.com/astrologyarticles.html">',$filecontent_2[1]);
 	?>
 	<table width="100%" border="0" cellspacing="2" cellpadding="2">
 		  <tr>
-			<td  align="left"><? echo str_replace("/cgi-bin/graphic/two2?dformat","http://astro.cafeastrology.com/cgi-bin/graphic/two2?dformat",$filecontent_3[0]);?></td>
+			<td  align="left">Inter-planetary aspects<br><? echo str_replace("/cgi-bin/graphic/two2?dformat","http://astro.cafeastrology.com/cgi-bin/graphic/two2?dformat",$filecontent_3[0]);?>
+			</td>
 		  </tr>
 		</table>
 	<?
