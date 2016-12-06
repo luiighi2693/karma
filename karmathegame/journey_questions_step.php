@@ -30,9 +30,15 @@ else
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="js/moment.js"></script>
+	<script src="js/combodate.js"></script>
+
 <script>
 $(function() {
-$( "#profile_dob" ).datepicker();
+$( "#profile_dob" ).combodate();
+$( "#profile_dob" ).change(function(){
+		SaveProfileAnswer('profile_dob',$( "#profile_dob" ).val());
+	})
 });
 </script>
 </head>
@@ -64,7 +70,7 @@ $( "#profile_dob" ).datepicker();
 				<p style="text-align:left;padding-left:15px;">
 					<label style="padding:0px;margin:0px;line-height:20px;">
 					Date of Birth<br />
-					<input type="text" class="register_textfield2" name="profile_dob" id="profile_dob" value="<? echo stripslashes($CURRENTgetuserwryRow['profile_dob']);?>" onblur="SaveProfileAnswer('profile_dob',this.value);" />
+					<input type="text" name="profile_dob" id="profile_dob" data-format="DD/MM/YYYY" data-template="D MMM YYYY" value="<? echo stripslashes($CURRENTgetuserwryRow['profile_dob']);?>"	/>
 					</label>
 				</p>
 				<p style="text-align:left;padding-left:15px;">
