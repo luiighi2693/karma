@@ -193,12 +193,12 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 		<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
 		<div class="button">
 			<a href="#" onclick="hide_pop();return false;">
-				<img src="images/close-button.png" border="0" />
+				<img src="images/button_close.png" border="0" />
 			</a>
 		</div>
 		
 		<div class="button">
-		 <input type="image" name="sendbutton" id="sendbutton"  src="images/send-button.png" align="top" onclick="document.getElementById('scrollchat').scrollTop = 10000;setTimeout(function(){ document.getElementById('scrollchat').scrollTop = 10000; }, 500);return POPUPfrmcheck('chat');" />
+		 <input type="image" name="sendbutton" id="sendbutton"  src="images/button_send.png" align="top" onclick="document.getElementById('scrollchat').scrollTop = 10000;setTimeout(function(){ document.getElementById('scrollchat').scrollTop = 10000; }, 500);return POPUPfrmcheck('chat');" />
 		</div>
 		
 		<br /><span id="MessageId" style="color:#FF0000;"></span>
