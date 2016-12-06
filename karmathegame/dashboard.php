@@ -1,5 +1,7 @@
 <? include("connect.php");
 include("checklogin.php");
+
+
 $avatarlogo = stripslashes(GetName1("avatars", "picture", "id", $CURRENTgetuserwryRow['avatarid']));
 
 if (isset($_GET["theme"])&&isset($_GET["soundoption"])) {
@@ -59,6 +61,8 @@ if ($_POST['Hidsubmit'] == '1') {
 <body>
 <!-- Background and hidden items -->
 <input value="" id="CurrentSelectedUserId" hidden></input>
+<div id="color1" hidden></div>
+<div id="color2" hidden></div>
 <div id="backg"
 	 style="position:absolute; width:100%; height:100%; z-index:1;background-size: 100% 100%; ">
 	<audio tabindex="0" id="sound">
@@ -83,8 +87,8 @@ if ($_POST['Hidsubmit'] == '1') {
 <div style="width:100%;height:100%;z-index:3;position:absolute;">
 	<div id="dashboard_box" >
 
-		<div style="height: 3%;width: 100%;font-size: 2.5vh;margin-top:.025vh; display: flex;border-bottom: 1px solid #848484;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
-			<div style="width: 45%; color:#848484; overflow: hidden;">
+		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
+			<div style="width: 45%; overflow: hidden;">
 				<? echo date("l, F j, Y");?>
 			</div>
 
@@ -92,17 +96,17 @@ if ($_POST['Hidsubmit'] == '1') {
 				<div style="text-align: center;"><a href="myfile.htm"><img width="20%" src="images/guru_logo.png"></a> </div>
 			</div>
 
-			<div style="width: 45%; text-align: right; color:#848484; overflow: hidden;">
+			<div style="width: 45%; text-align: right; overflow: hidden;">
 				<? echo TotalQuestionsAnswered();?>
 			</div>
 		</div>
 
-		<div style="height: 3%;width: 100%;font-size: 2vh;margin-top:.05vh;display: flex;border-bottom: 1px solid #848484;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
-			<div style="width: 50%; overflow: hidden; text-align: center; color:#848484;">
+		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
+			<div style="width: 50%; overflow: hidden; text-align: center;">
 				THE GRID
 			</div>
 
-			<div style="width: 50%; overflow: hidden; color:#848484; text-align: center;">
+			<div style="width: 50%; overflow: hidden; text-align: center;">
 				THE BOX
 			</div>
 		</div>
@@ -111,13 +115,13 @@ if ($_POST['Hidsubmit'] == '1') {
 			
 			<div id="left_buttons">
 				<div id="left_menu">
-					<div id="box1" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalHide($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_hide.php');"><img src="images/icon_hide.png" alt="" border="0"/></a></div>
-					<div id="box2"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_truthbomb.php');"><img src="images/icon_bomb.png"  alt="" border="0"/></a> </div>
-					<div id="box3"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_stars.php');"><img src="images/icon_star.png"  alt="" border="0"/></a> </div>
-					<div id="box4"><span class="notifier_box"></span><a href="#" onclick="show_pop('popup_challenge.php');"><img src="images/icon_challenge.png"  alt="" border="0"/></a></a> </div>
-					<div id="box5"><span class="notifier_box"></span><a href="#"><img src="images/icon_music.png"  alt="" border="0"/></a></a> </div>
-					<div id="box6"><span class="notifier_box"><? echo GetTotalZap($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_zap.php');"><img src="images/icon_zap.png"  alt="" border="0"/></a> </div>
-					<div id="box7"><a href="#" onclick="show_pop('popup_bail.php');"><img
+					<div id="box1" class="leftButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalHide($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_hide.php');"><img src="images/icon_hide.png" alt="" border="0"/></a></div>
+					<div id="box2" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_truthbomb.php');"><img src="images/icon_bomb.png"  alt="" border="0"/></a> </div>
+					<div id="box3" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_stars.php');"><img src="images/icon_star.png"  alt="" border="0"/></a> </div>
+					<div id="box4" class="leftButtons"><span class="notifier_box"></span><a href="#" onclick="show_pop('popup_challenge.php');"><img src="images/icon_challenge.png"  alt="" border="0"/></a></a> </div>
+					<div id="box5" class="leftButtons"><span class="notifier_box"></span><a href="#"><img src="images/icon_music.png"  alt="" border="0"/></a></a> </div>
+					<div id="box6" class="leftButtons"><span class="notifier_box"><? echo GetTotalZap($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_zap.php');"><img src="images/icon_zap.png"  alt="" border="0"/></a> </div>
+					<div id="box7" class="leftButtons"><a href="#" onclick="show_pop('popup_bail.php');"><img
 								src="images/icon_bail.png"  alt="BAIL" title="BAIL"
 								border="0"></a> </div>
 					
@@ -125,7 +129,7 @@ if ($_POST['Hidsubmit'] == '1') {
 			</div>   <!-- end #left_buttons -->
 			
 			
-			<div id="popup_box" style="position:relative;">
+			<div id="popup_box" style="position:relative; overflow: hidden;">
 				<div class="dashboardpopup" id='rightsidePOPUP_MAIN' style="display:none;width:100%;height:100%;">
 					<div id="pad_wrapper_newlife">
 						<div id="pad_newlife" style="border:0px solid gray;	border-radius:0px;max-width:100%;">
@@ -189,15 +193,15 @@ if ($_POST['Hidsubmit'] == '1') {
 				
 			<div id="right_buttons">
 				<div id="right_menu">
-					<div id="box8" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalIntro($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_introduction.php');"><img src="images/icon_intro.png"alt="INTRODUCTION" title="INTRODUCTION" border="0"/></a> </div>
-					<div id="box9"><span class="notifier_box"><? echo GetTotalChat($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_chat.php');Callchateverysec();"><img src="images/icon_chat.png" alt="CHAT" title="CHAT" border="0"/></a> </div>
-					<div id="box11"><span class="notifier_box"><? echo GetTotalGroups($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_groups.php');"><img src="images/icon_group.png"  margin-left:15%;" alt="GROUPS" title="GROUPS" border="0"/></a> </div>
-					<div id="box12"><span class="notifier_box"><? echo GetTotalGoOut($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_letsgoout.php');"><img src="images/outingWhiteFill.png" alt="LET'S GO OUT!!!" title="LET'S GO OUT!!!" border="0"/></a> </div>
-					<div id="box13"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_safe.php');"><img src="images/safeWhiteFill.png"  alt="SAFE" title="SAFE"  border="0"/></a> </div>
-					<div id="box14"> <a href="#"  onclick="show_pop('popup_calendar.php');"><img
+					<div id="box8" class="rightButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalIntro($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_introduction.php');"><img src="images/icon_intro.png"alt="INTRODUCTION" title="INTRODUCTION" border="0"/></a> </div>
+					<div id="box9"  class="rightButtons"><span class="notifier_box"><? echo GetTotalChat($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_chat.php');Callchateverysec();"><img src="images/icon_chat.png" alt="CHAT" title="CHAT" border="0"/></a> </div>
+					<div id="box11" class="rightButtons"><span class="notifier_box"><? echo GetTotalGroups($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_groups.php');"><img src="images/icon_group.png"  margin-left:15%;" alt="GROUPS" title="GROUPS" border="0"/></a> </div>
+					<div id="box12" class="rightButtons"><span class="notifier_box"><? echo GetTotalGoOut($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_letsgoout.php');"><img src="images/outingWhiteFill.png" alt="LET'S GO OUT!!!" title="LET'S GO OUT!!!" border="0"/></a> </div>
+					<div id="box13"  class="rightButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_safe.php');"><img src="images/safeWhiteFill.png"  alt="SAFE" title="SAFE"  border="0"/></a> </div>
+					<div id="box14" class="rightButtons"> <a href="#"  onclick="show_pop('popup_calendar.php');"><img
 								src="images/icon_calendar.png"  alt="CALENDAR"
 								title="CALENDAR" border="0"></a> </div>
-					<div id="box27"><a href="journeystats.php"><img src="images/icon_journeybook.png" alt="JOURNEY BOOK" title="JOURNEY BOOK"
+					<div id="box27"  class="rightButtons"><a href="journeystats.php"><img src="images/icon_journeybook.png" alt="JOURNEY BOOK" title="JOURNEY BOOK"
 																	border="0"></a> </div>
 					
 				</div>	<!-- end #right_menu -->
@@ -210,23 +214,23 @@ if ($_POST['Hidsubmit'] == '1') {
 			
 			<div id="bottom_menu">
 			
-				<div id="box15"><a href="#" onclick="show_pop('popup_options.php');"><img src="images/icon_gears.png"  alt="OPTIONS" title="OPTIONS" border="0"></a> </div>
-				<div id="box16"><a href="#" onClick="LoadFooterSoulmates('Infinity');"><img id="Infinity" src="images/icon_infinity.png" />
+				<div id="box15" class="leftButtons"><a href="#" onclick="show_pop('popup_options.php');"><img src="images/icon_gears.png"  alt="OPTIONS" title="OPTIONS" border="0"></a> </div>
+				<div id="box16" class="bottomleft"><a href="#" onClick=" clickOnIcon('Infinity');"><img id="Infinity" src="images/icon_infinity.png" />
 					</a> </div>
-				<div id="box17"><a href="#" onClick="LoadFooterSoulmates('ThumbsUp');"><img id="ThumbsUp" src="images/icon_like.png" border="0"/></a></div>
-				<div id="box18"><a href="#" onClick="LoadFooterSoulmates('Heart');"><img id="Heart"																					src="images/icon_heart.png" border="0"/></a> </div>
-				<div id="box19"><a href="#" onClick="LoadFooterSoulmates('Ideas');"><img id="Ideas" src="images/icon_idea.png" border="0"/></a> </div>
-				<div id="box20"><a href="myfile.htm"><img src="images/icon_search_white.png"></a> </div>
+				<div id="box17" class="bottomleft"><a href="#" onClick=" clickOnIcon('ThumbsUp');"><img id="ThumbsUp" src="images/icon_like.png" border="0"/></a></div>
+				<div id="box18" class="bottomleft"><a href="#" onClick=" clickOnIcon('Heart');"><img id="Heart"																					src="images/icon_heart.png" border="0"/></a> </div>
+				<div id="box19" class="bottomleft"><a href="#" onClick=" clickOnIcon('Ideas');"><img id="Ideas" src="images/icon_idea.png" border="0"/></a> </div>
+				<div id="box20" class="bottomcenter"><a onclick="searchUser()"><img src="images/icon_search_white.png"></a> </div>
 					
-				<div id="box21" style="background:black;"><input style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
+				<div id="box21" style="background:black;" class="bottomcenter"><input id="textToSearch" style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
 				</div> </div>
 					 
-			<div id="box22"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
-			<div id="box23"><a href="#" onclick="show_bucketlist();"><img   src="images/icon_bucketlist.png" border="0"></a> </div>
-			<div id="box24"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'3');openPreferencesPopup('540',document.getElementById('CurrentSelectedUserId').value)"><img   src="images/icon_journeybook.png" border="0"></a> </div>
-			<div id="box25"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'2');"><img
+			<div id="box22"  class="rightButtons"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
+			<div id="box23" class="bottomright"><a href="#" onClick="changefunctionForbucket(document.getElementById('CurrentSelectedUserId').value,10);"><img   src="images/icon_bucketlist.png" border="0"></a> </div>
+			<div id="box24" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'3');openPreferencesPopup('540',document.getElementById('CurrentSelectedUserId').value)"><img   src="images/icon_journeybook.png" border="0"></a> </div>
+			<div id="box25" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'2');"><img
 						src="images/icon_stats.png" border="0"></a> </div>
-			<div id="box26"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'1');"><img  src="images/footer_icon5.jpg" border="0">	</a> </div>
+			<div id="box26" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'1');"><img  src="images/footer_icon5.jpg" border="0">	</a> </div>
 										
 		</div>	<!-- end #bottom_menu -->
 				
@@ -239,7 +243,8 @@ if ($_POST['Hidsubmit'] == '1') {
         
 			
 		 
-                    
+           <input id="currentSelectedIcon" value="" hidden/>   
+          
 </div>  <!-- end #dashboard_box -->
 </div>
 		
@@ -275,6 +280,51 @@ fclose($txtfile);
 	var themeSelected=1;
 	var soundOptionSelected=2;
 	var userId = <?echo $_SESSION['UsErIdFrOnT'];?>;
+	var slideIndex = 1;
+	var ideaSelected = null;
+    
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function control3(id)
+{
+ var checks = document.getElementsByClassName("checks");
+ var i;
+ 
+  for (i = 0; i < checks.length; i++)
+   {
+ 
+  	if(checks[i].value!=id)
+  	{
+     		checks[i].checked = false; 
+  	}
+  	
+  	
+  	
+   }
+   if(document.getElementById(id)!=null)
+   {
+   document.getElementById(id).checked = true; 
+   }
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("photos");
+  
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+ 
+  slides[slideIndex-1].style.display = "block"; 
+
+}
 	$(document).ready(function () {
 		resizeDiv();
 		//myAudio = new Audio('music/looperman-l-0782612-0087385-40a-soul-link.wav');
@@ -362,6 +412,138 @@ fclose($txtfile);
 		var thissound = document.getElementById(soundobj);
 
 	}
+	function color(selected)
+	{
+		var checks = document.getElementsByClassName("leftButtons");
+		var checks2 = document.getElementsByClassName("rightButtons");
+		var checks3= document.getElementsByClassName("bottomright");
+		var checks4= document.getElementsByClassName("bottomleft");
+		var checks5= document.getElementsByClassName("bottomcenter");
+		
+		
+		var i;
+		switch(selected)
+		{
+			case 1:
+			document.getElementById('color1').style.backgroundColor="#199579";
+			document.getElementById('color2').style.backgroundColor="#5d4c46";
+ 			 for (i = 0; i < checks.length; i++)
+  			 {
+ 
+     					checks[i].style.backgroundColor = "#199579"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks2.length; i++)
+  			 {
+ 
+     					checks2[i].style.backgroundColor = "#5d4c46"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks3.length; i++)
+  			 {
+ 
+     					checks3[i].style.backgroundColor = "#199579"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks4.length; i++)
+  			 {
+ 
+     					checks4[i].style.backgroundColor = "#5d4c46"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks5.length; i++)
+  			 {
+ 
+     					checks5[i].style.backgroundColor = "black"; 
+  				
+  	
+  			}
+			break;
+			case 2:
+			document.getElementById('color1').style.backgroundColor="#199579";
+			document.getElementById('color2').style.backgroundColor="#5d4c46";
+ 			 for (i = 0; i < checks.length; i++)
+  			 {
+ 
+     					checks[i].style.backgroundColor = "transparent"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks2.length; i++)
+  			 {
+ 
+     					checks2[i].style.backgroundColor = "transparent"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks3.length; i++)
+  			 {
+ 
+     					checks3[i].style.backgroundColor = "transparent"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks4.length; i++)
+  			 {
+ 
+     					checks4[i].style.backgroundColor = "transparent"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks5.length; i++)
+  			 {
+ 
+     					checks5[i].style.backgroundColor = "transparent"; 
+  				
+  	
+  			}
+			break;
+			case 4:
+			document.getElementById('color1').style.backgroundColor="#721716";
+			document.getElementById('color2').style.backgroundColor="black";
+ 			 for (i = 0; i < checks.length; i++)
+  			 {
+ 
+     					checks[i].style.backgroundColor = "#721716"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks2.length; i++)
+  			 {
+ 
+     					checks2[i].style.backgroundColor = "black"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks3.length; i++)
+  			 {
+ 
+     					checks3[i].style.backgroundColor = "#721716"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks4.length; i++)
+  			 {
+ 
+     					checks4[i].style.backgroundColor = "black"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks5.length; i++)
+  			 {
+ 
+     					checks5[i].style.backgroundColor = "black"; 
+  				
+  	
+  			}
+			break;
+		}
+		
+	}
 	function control(selected) {
 		if (selected == 1) {
 			PlaySound("sound");
@@ -383,7 +565,7 @@ fclose($txtfile);
 	function show_pop(urls)
 	{
 		ivar=document.getElementById('CurrentSelectedUserId').value;
-		if((ivar>0 && ivar!='' && ivar!=<? echo $_SESSION['UsErIdFrOnT'];?>) || (urls=='popup_chat.php') || (urls=='popup_calendar.php') || (urls=='popup_emails.php') || (urls=='popup_options.php') || (urls=='popup_bail.php') || (urls=='popup_safe.php')|| (urls=='popup_challenge.php')|| (urls=='popup_menu.php') || (urls=='popup_bucketlist.php') || (urls=='popup_truthbomb2.php')|| (urls=='popup_dashboard.php')|| (urls=='popup_dashboard2.php') )
+		if((ivar>0 && ivar!='' && ivar!=<? echo $_SESSION['UsErIdFrOnT'];?>) || (urls=='popup_chat.php') || (urls=='popup_calendar.php') || (urls=='popup_emails.php') || (urls=='popup_options.php') || (urls=='popup_bail.php') || (urls=='popup_safe.php')|| (urls=='popup_challenge.php')|| (urls=='popup_menu.php') || (urls=='popup_bucketlist.php') || (urls=='popup_truthbomb2.php')|| (urls=='popup_dashboard.php')|| (urls=='popup_dashboard2.php') || (urls=='popup_music.php') )
 		{
 			jQuery.noConflict();
 			jQuery.ajax({
@@ -394,18 +576,18 @@ fclose($txtfile);
 				{
 					document.getElementById('rightsidePOPUP_MAIN').style.display='block';
 					document.getElementById('rightsidePOPUP').innerHTML=response;
-					if(urls=='popup_hide.php' || urls=='popup_stars.php' ||  urls=='popup_zap.php' || urls=='popup_bail.php'|| (urls=='popup_challenge.php') )
+					if(urls=='popup_hide.php' || urls=='popup_stars.php' ||  urls=='popup_zap.php' || urls=='popup_bail.php'|| (urls=='popup_challenge.php')  || (urls=='popup_truthbomb.php')  || (urls=='popup_music.php') || (urls=='popup_options.php'))
 					{
-						document.getElementById('pad_newlife').style.backgroundColor='#199579';
+						document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
 					}
 					else
 					{
 						if((urls=='popup_menu.php'))
 						{
 							document.getElementById('rightsidePOPUP2').innerHTML=response;
-							document.getElementById('pad_newlife').style.backgroundColor='#5D4C46';
+							document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
 						}else{
-							document.getElementById('pad_newlife').style.backgroundColor='#5D4C46';
+							document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
 						}
 					}
 				}
@@ -453,6 +635,7 @@ fclose($txtfile);
 					"method" : "addAnswer",
 					"id_question" :  questionId ,
 					"id_user" : userId,
+					"id_userTo" : userToId,
 					"answer" : document.getElementById("txtAreaUser").value
 				},
 				success: function(data){
@@ -552,8 +735,8 @@ fclose($txtfile);
 	function DeleteEmailList(){
 		var list =document.getElementById('mailList');
 		for (var i=0; i<list.childElementCount; i++){
-			if(list.children[i].children[3].children[0].checked){
-				DeleteEmail(list.children[i].children[3].children[0].id);
+			if(list.children[i].children[2].children[1].checked){
+				DeleteEmail(list.children[i].children[2].children[1].id);
 			}
 		}
 		setTimeout(function() {
@@ -568,23 +751,23 @@ fclose($txtfile);
 			document.getElementById('Hidwhomidea').value='YOUR IDEA'
 			document.getElementById('whomidea_2').checked=false;
          
-			if (document.getElementById('my_blist').style.display == "block") {
+			if (document.getElementById('my_blist').style.display == "inline-block") {
 				document.getElementById('my_blist').style.display = "none";
        		
 			}
        		
-			document.getElementById('other_list').style.display = "block";
+			document.getElementById('other_list').style.display = "inline-block";
        		 
 		}
         
 		if (selected == 2) {
 			document.getElementById('Hidwhomidea').value='MY IDEA'
 			document.getElementById('whomidea_1').checked=false;
-			if (document.getElementById('other_list').style.display == "block") {
+			if (document.getElementById('other_list').style.display == "inline-block") {
 				document.getElementById('other_list').style.display = "none";
 			}
        		
-			document.getElementById('my_blist').style.display = "block";
+			document.getElementById('my_blist').style.display = "inline-block";
        		 
 		}
       
@@ -637,7 +820,99 @@ fclose($txtfile);
 			}
 		});
 	}
-
+	function clickOnIcon(type)
+	{
+		var currentselected=document.getElementById("currentSelectedIcon").value;
+		RemoveYellowIcon(currentselected);
+		if(type==currentselected)
+		{
+			document.getElementById("currentSelectedIcon").value="";
+			type="";
+		}else{
+			setYellowIcon(type);
+			document.getElementById("currentSelectedIcon").value=type;
+			updateLeftSection(type);
+		}
+		updateLeftSection(type);
+		
+	
+	}
+	function updateLeftSection(type)
+	{
+	 var http4_1 = false;
+ 	 document.getElementById('grid_box').innerHTML= "<img src='images/loading.gif' />";
+  	if(navigator.appName == "Microsoft Internet Explorer") { http4_1 = new ActiveXObject("Microsoft.XMLHTTP");} else {  http4_1 = new XMLHttpRequest();	}
+ 		 http4_1.abort();
+ 		 http4_1.open("GET", "ajax_footersoulmates.php?type="+type+"&allselected="+type, true);
+ 		 http4_1.onreadystatechange=function()
+ 	 {
+	  if(http4_1.readyState == 4)
+	  {
+		  if(http4_1.responseText!="")
+		  {
+			  document.getElementById('grid_box').innerHTML=http4_1.responseText;
+			  return  false;
+		  }
+	  } 
+  }
+  http4_1.send(null);
+	
+	}
+	
+	function changefunctionForbucket(userid,slide)
+	{
+		if(ideaSelected != null){
+			insert_bucketlist(ideaSelected, <? echo $_SESSION['UsErIdFrOnT']; ?>);
+			ideaSelected = null;
+		}else{
+			Updatebox(userid, slide);
+		}
+	}
+	function RemoveYellowIcon(type)
+	{
+	switch(type)// removes the glow effect on
+		{
+			 case "Heart":
+        			document.getElementById('Heart').src="images/icon_heart.png";
+				
+      			  	break;
+      			  	
+   			 case "Infinity":
+   			 document.getElementById('Infinity').src="images/icon_infinity.png";
+				
+   			 	break;
+   			 	
+   			 case "ThumbsUp":
+        			document.getElementById('ThumbsUp').src="images/icon_like.png";
+				
+      			  	break;
+      			  	
+    			default:
+    			document.getElementById('Ideas').src="images/icon_idea.png";
+		}
+	}
+	function setYellowIcon(type)
+	{
+	switch(type)// adds the glow effect on
+		{
+			 case "Heart":
+        			document.getElementById('Heart').src="images/footer_icon3_blur.png";
+      			  	break;
+      			  	
+   			 case "Infinity":
+   			 document.getElementById('Infinity').src="images/footer_icon1_blur.png";
+   			 	break;
+   			 	
+   			 case "ThumbsUp":
+        			document.getElementById('ThumbsUp').src="images/footer_icon2_blur.png";
+      			  	break;
+      			  	
+    			default:
+			document.getElementById('Ideas').src="images/footer_icon4_blur.png";
+		}
+		
+	
+	}
 	function frmupdatesave() {
 		//document.getElementById('Hidsubmit').value = '1';
 		jQuery.ajax({
@@ -657,6 +932,43 @@ fclose($txtfile);
 			}
 		});
 	}
+
+	function searchUser() {
+		var textToSearch = document.getElementById('textToSearch').value;
+		if(textToSearch == ''){
+			location.reload();
+		}else{
+			jQuery.ajax({
+				type: "POST",
+				url: "util.php",
+				data: {
+					"method" : "searchUser",
+					"username" :  textToSearch
+				},
+				success: function(data){
+
+					if(data == "[]"){
+						alert('username not found');
+						document.getElementById('textToSearch').value="";
+					}else{
+						var result = JSON.parse(data);
+						var innerResult = '';
+						for (var i = 0; i < result.length; i++){
+							var idUser = result[i].split(',')[0];
+							var picture = result[i].split(',')[1];
+							var username = result[i].split(',')[2];
+							innerResult+='<li onClick="ClickAvatar('+idUser+',1);">' +
+											'<div class="icon_wrap" style="color:#ffffff;text-align:center;">'+username+'</div>' +
+											'<img src="Avatars/'+picture+'" width="75" height="114"/>' +
+										'</li>';
+						}
+						document.getElementById('SoulmateboxID').innerHTML = innerResult;
+					}
+				}
+			});
+		}
+	}
+
 	Updatebox(<? echo $_SESSION['UsErIdFrOnT'];?>, 1);
 
 </script>

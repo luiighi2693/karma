@@ -63,7 +63,7 @@ $answerSelectedArray = mysql_fetch_array($answerSelected);
                 </div>
                 <div style="width: 23%;">
                     <?
-                    echo '<h3 style="text-align: right;color: white;">'.$GetUsersQryRow['username'].'</h3>';
+                    echo '<h3 style="text-align: right;color: white;">'.$userFromArray['username'].'</h3>';
                     ?>
                 </div>
             </div>
@@ -93,7 +93,7 @@ $answerSelectedArray = mysql_fetch_array($answerSelected);
                     </div>
                 </div>
                 <div style="width: 23%;">
-                    <img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt="" width="100%"/>
+                    <img src="Avatars/<? echo GetName1("avatars","picture","id",$userFromArray['avatarid']);?>" alt="" width="100%"/>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@ $answerSelectedArray = mysql_fetch_array($answerSelected);
 
     <div class="footer">
         <div class="button" style="margin-right: 3%;">
-            <input  type="image" name="sendbutton" id="sendbutton" src="images/send-button.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$_REQUEST['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
+            <input  type="image" name="sendbutton" id="sendbutton" src="images/send-button.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$userFromArray['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
         </div>
         <span id="MessageId" style="color:#FF0000;"></span>
     </div>

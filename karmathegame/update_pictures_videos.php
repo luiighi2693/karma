@@ -67,7 +67,7 @@ if($_POST['sharepics'])
 	<link href="css/style_popups.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="text-align:center;overflow:scroll;background:#5d4c46;">
-<div class="dashboardpopup" style="width:100%;background-color:#5d4c46; font-size: 0vh;" >
+<form name="frmpopup" id="frmpopup" enctype="multipart/form-data" method="post" style="width:100%;background-color:#5d4c46; font-size: 0vh;" >
 	<div class="header">
 		<div class="top_info">
 			<div class="icon_holder">
@@ -77,7 +77,7 @@ if($_POST['sharepics'])
 				SAFE
 			</div>
 			<div class="icon_holder"style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
+				<a href="#" onclick="hide_pop();"><img src="images/popup_close.png" border="0" /></a>
 			</div>
 		</div>
 	</div>	<!-- the header ends -->
@@ -95,7 +95,9 @@ if($_POST['sharepics'])
 				</div>
 				<div style="width: 50%; float: right;">
 					<input type="image" name="sendbutton" id="sendbutton"  src="images/button_upload.png"  onclick="return frmcheck();"  align="absmiddle"/>
-					<a href="#" onclick="deleteShareMultimedia();"><img src="images/button_delete.png"  align="absmiddle" border="0" /></a>
+					<a href="#" onclick="deleteShareMultimedia();">
+						<img src="images/button_delete.png"  align="absmiddle" border="0" />
+					</a>
 				</div>
 			</div>
 			<div style="width: 100%;padding-top: 2%; display: flex;">
@@ -118,10 +120,10 @@ if($_POST['sharepics'])
 										<img src="<? echo "SafePicsVideos/".$getPicsQryRow['picture'];?>" style="width:100%;height:100px;" />
 									<? }?>
 									<? if($getPicsQryRow['type']=='Video'){?>
-										<img src="images/icon_player.png" style="width:100%;height:100px;"/>
+										<img src="images/shareVideo.png" style="width:100%;height:100px;"/>
 									<? }?>
 									<? if($getPicsQryRow['type']=='Music'){?>
-										<img src="images/icon_player.png" style="width:100%;height:100px;"/>
+										<img src="images/shareMusic.png" style="width:100%;height:100px;"/>
 									<? }?>
 									<br />
 									<input id="<?echo $getPicsQryRow['id']?>" type="checkbox" name="sharepiccheckbox[]" <? echo CheckEitherPICVIDEOShareOrNot($getPicsQryRow['id'],$_SESSION['UsErIdFrOnT'],mysql_real_escape_string($_REQUEST['userid_to']));?> value="<? echo $getPicsQryRow['id'];?>" style="margin-top:10px;" />
@@ -135,7 +137,7 @@ if($_POST['sharepics'])
 				</div>
 				<div style="width: 50%; float: right;">
 					<h3>Uploaded <? echo $_REQUEST['TYPE'];?>s!</h3>
-						<input id="shareMultimedia" onclick="shareMultimedia(<?echo $_SESSION['UsErIdFrOnT'].','.$_REQUEST['userid_to']?>)"
+						<input onclick="shareMultimedia(<?echo $_SESSION['UsErIdFrOnT'].','.$_REQUEST['userid_to']?>);"
 							   type="button" style="background-color: transparent;height: 50px;border: 1px solid white;
 										color: white;padding: 15px 5px 15px 5px;text-align: center;
 										text-decoration: none;display: inline-block;font-size: 20px;margin: 4px 2px;
@@ -147,18 +149,19 @@ if($_POST['sharepics'])
 
 	<div class="footer"></div>
 
-</div>
+</form>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script language="javascript">
 	function frmcheck()
 	{
-		if (document.getElementById("picture").value.split(" ").join("")=='')
+		if (document.getElementById("picture").value=='')
 		{
 			alert("Please select file.");
 			document.getElementById("picture").focus();
 			return false;
 		}
 		document.getElementById('Hidsubmit').value='1';
+		document.getElementById('sendbutton').submit();
 		return true;
 	}
 
@@ -234,6 +237,10 @@ if($_POST['sharepics'])
 		}else{
 			alert("Please, Select a element to delete");
 		}
+	}
+
+	function hide_pop() {
+		window.close();
 	}
 </script>
 </body>

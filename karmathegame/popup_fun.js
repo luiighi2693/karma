@@ -83,15 +83,15 @@ function POPUPfrmcheck(formid)
 			return false;
 		 }
 		  
-		 var selectedValue='';	
-		 for(var i = 0; i < document.frmpopup.hideme.length; i++)
+		 selectedValue='';
+		 for(var i = 0; i < document.getElementById('hideme').childElementCount; i++)
 		 {
-		  if(document.frmpopup.hideme[i].checked)
+		  if(document.getElementById("hideme"+(i+1)).checked)
 		  {
-			var selectedValue = document.frmpopup.hideme[i].value;
+			var selectedValue =document.getElementById("hideme"+(i+1)).value;
 		  }
 	 	}
-		SAVE_POPUP_ZAP(document.frmpopup.userid_from.value,document.frmpopup.userid_to.value,document.frmpopup.neverwann.checked,selectedValue);
+		SAVE_POPUP_ZAP(document.getElementById("userid_from").value,document.getElementById("userid_to").value,document.getElementById('neverwann').checked,selectedValue);
 	}
 	return false;
 }

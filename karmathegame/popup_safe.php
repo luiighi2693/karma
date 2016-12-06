@@ -31,10 +31,10 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 	<div class="middlesection">
 		<div class="centered_info">
 			<div class="text1"><strong><? echo $username;?></strong></div>
-			<div style="width: 20%; height:71%;background-color: white;display:inline-block;float:left;">
+			<div style="width: 20%; height:71%;display:inline-block;float:left;">
 				<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt="" style="width: 100%;"/>
 			</div>
-			<div style="width: 20%; height:71%;display:inline-block;float:left;">
+			<div style="width: 20%; height:100%;display:inline-block;float:left;overflow: auto;">
 				<div class="text1" style="padding-left: 2%;padding-bottom: 10%;"><strong>HAS SHARED...</strong></div>
 				<?
 				$getusers_sociallinks_shareRs=mysql_query("SELECT * FROM users_sociallinks_share WHERE userid_from='".$_REQUEST['id']."' and userid_to='".mysql_real_escape_string($_SESSION['UsErIdFrOnT'])."'");
@@ -82,13 +82,13 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 					<? if($TotgetPics2>0){
 					$getPicsQryRow2=mysql_fetch_array($getPicsQryRs2);
 					?>
-					<? if($getPicsQryRow2['type']=='Video'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainVideo" src="images/icon-player.png" width="100%" height="100" /><? }?>
+					<? if($getPicsQryRow2['type']=='Video'){?><img style="padding-bottom: 5%;padding-left: 2%; padding-top: 5%;" id="MainVideo" src="images/shareVideo.png" width="100%" height="100" /><? }?>
 					<a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Video','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO VIEW VIDEOS</a>
 				<? }?>
 					<? if($TotgetPics3>0){
 					$getPicsQryRow3=mysql_fetch_array($getPicsQryRs3);
 					?>
-					<? if($getPicsQryRow3['type']=='Music'){?><img style="padding-bottom: 5%;padding-left: 2%;" id="MainMusic" src="images/icon_player.png" width="100%" height="100"/><? }?><a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Music','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO VIEW MUSIC</a>
+					<? if($getPicsQryRow3['type']=='Music'){?><img style="padding-bottom: 5%;padding-left: 2%; padding-top: 5%;" id="MainMusic" src="images/shareMusic.png" width="100%" height="100"/><? }?><a href="#" onClick="openWinFullwidth('viewpics.php?userid_from=<? echo $_REQUEST['id'];?>&userid_to=<? echo mysql_real_escape_string($_SESSION['UsErIdFrOnT']);?>&type=Music','usedadasr<?=rand();?>',1024,480,'yes','yes')"  class="dashboard_whitetext" style="font-size:10px;text-decoration:none;float: left; padding-left: 2%;">CLICK TO VIEW MUSIC</a>
 				<? }?>
 				<? }?>
 			</div>
@@ -103,9 +103,9 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 						<a href="#" onClick="openWin2('update_sociallinks.php?userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"  ><img src="images/icon_rss.png" border="0" /></a>
 					</div>
 					<div style="width: 100%;">
-						<img src="images/sharePict.jpg" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Picture&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
-						<img src="images/shareVid.jpg" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Video&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
-						<img src="images/icon_player.png" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Music&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
+						<img src="images/sharePicture.png" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Picture&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
+						<img src="images/shareVideo.png" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Video&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
+						<img src="images/shareMusic.png" href="#" width="33%" onClick="openWinFullwidth('update_pictures_videos.php?TYPE=Music&userid_to=<? echo $_REQUEST['id'];?>','usedadasr<?=rand();?>',700,480,'yes','yes')"/>
 					</div>
 			</div>
 		</div>
