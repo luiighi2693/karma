@@ -14,7 +14,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 <script language="javascript" src="popup_fun.js?rnd=<? echo rand();?>"></script>
 <script language="javascript" src="ajax_validation.js?rnd=<? echo rand();?>"></script>
 </head>
-<body style="text-align:center;">
+<body style="text-align:center;>
 <div id="pad_newlife" style="border:0px solid gray;	border-radius:0px;max-width:100%;">
 					
 <script language="javascript">

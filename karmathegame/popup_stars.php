@@ -41,7 +41,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 			</div>
 			<div class="container" style="width:58%;margin-right:1%;">
 				<div style="text-align:center;font-size:4vh;">HERE IS YOUR COMPATIBILITY READING</div>
-				<div align="center"><iframe src="stars_reading.php?id=<? echo $_REQUEST['id'];?>&from=<? echo $_SESSION['UsErIdFrOnT'];?>&to=<? echo mysql_real_escape_string($_REQUEST['id']);?>" width="100%" height="80%"  scrolling="yes"  frameborder="0"></iframe>
+				<div align="center"><iframe id="holamundo" src="stars_reading.php?id=<? echo $_REQUEST['id'];?>&from=<? echo $_SESSION['UsErIdFrOnT'];?>&to=<? echo mysql_real_escape_string($_REQUEST['id']);?>" width="100%" height="80%"  scrolling="yes"  frameborder="0"></iframe>
 				</div>
 				<div style="float: right;width:58%;    margin-top: 1%;">
 					<a href="https://cafeastrology.com/" target="_blank" ><img src="images/cafeastrology.png" alt=""  style="width: 100%;"></a>

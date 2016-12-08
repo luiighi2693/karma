@@ -57,7 +57,7 @@ $Tot2=mysql_affected_rows();
 						{?>
 						<li class="listItem"  onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
 							<div class="idea_info_left">
-								<span style="color:#FFFFFF;font-size:1.2vh;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span><br />
+								<span style="color:#FFFFFF;font-size:1vw;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span><br />
 								<span style="color:#FFFFFF;font-size:2vh;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['startdate']));?></span><br />
 								<div style="font-size:12px;text-transform:none;">through</div>
 								<span style="color:#FFFFFF;font-size:2vh;"><? echo date("l",strtotime($GetUsersQryRow3['enddate']));?></span><br />

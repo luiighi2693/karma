@@ -34,8 +34,10 @@ if ($_POST['Hidsubmit'] == '1') {
 <head>
 	<title><? echo $SITE_TITLE; ?></title>
 	<link href="css/style.css?rnd=<? echo rand(); ?>" rel="stylesheet" type="text/css"/>
+	<link href="dhtmlgoodies_calendar.css" rel="stylesheet" type="text/css"/>
 	<script language="javascript" src="popup_fun.js?rnd=<? echo rand(); ?>"></script>
 	<script language="javascript" src="ajax_validation.js?rnd=<? echo rand(); ?>"></script>
+	<script src="dhtmlgoodies_calendar.js"></script>
 	<? if ($_SERVER['HTTP_HOST'] == 'yogs') { ?>
 		<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
 	<? }else{ ?>
@@ -115,14 +117,14 @@ if ($_POST['Hidsubmit'] == '1') {
 			
 			<div id="left_buttons">
 				<div id="left_menu">
-					<div id="box1" class="leftButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalHide($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_hide.php');"><img src="images/icon_hide.png" alt="" border="0"/></a></div>
-					<div id="box2" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_truthbomb.php');"><img src="images/icon_bomb.png"  alt="" border="0"/></a> </div>
-					<div id="box3" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_stars.php');"><img src="images/icon_star.png"  alt="" border="0"/></a> </div>
-					<div id="box4" class="leftButtons"><span class="notifier_box"></span><a href="#" onclick="show_pop('popup_challenge.php');"><img src="images/icon_challenge.png"  alt="" border="0"/></a></a> </div>
-					<div id="box5" class="leftButtons"><span class="notifier_box"></span><a href="#"><img src="images/icon_music.png"  alt="" border="0"/></a></a> </div>
-					<div id="box6" class="leftButtons"><span class="notifier_box"><? echo GetTotalZap($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_zap.php');"><img src="images/icon_zap.png"  alt="" border="0"/></a> </div>
+					<div id="box1" class="leftButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalHide($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_hide.php');"><img id="iconhide" src="images/icon_hide.png" alt="" border="0"/></a></div>
+					<div id="box2" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_truthbomb.php');"><img src="images/icon_bomb.png" id="iconbomb"  alt="" border="0"/></a> </div>
+					<div id="box3" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_stars.php');"><img src="images/icon_star.png" id="iconstar"  alt="" border="0"/></a> </div>
+					<div id="box4" class="leftButtons"><span class="notifier_box"></span><a href="#" onclick="show_pop('popup_challenge.php');"><img src="images/icon_challenge.png"  id="iconchallenge" alt="" border="0"/></a></a> </div>
+					<div id="box5" class="leftButtons"><span class="notifier_box"></span><a href="#"><img src="images/icon_music.png" id="iconmusic" alt="" border="0"/></a></a> </div>
+					<div id="box6" class="leftButtons"><span class="notifier_box"><? echo GetTotalZap($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_zap.php');"><img src="images/icon_zap.png" id="iconzap"  alt="" border="0"/></a> </div>
 					<div id="box7" class="leftButtons"><a href="#" onclick="show_pop('popup_bail.php');"><img
-								src="images/icon_bail.png"  alt="BAIL" title="BAIL"
+								src="images/icon_bail.png" id="iconbail" alt="BAIL" title="BAIL"
 								border="0"></a> </div>
 					
 				</div>	<!-- end #left_menu -->
@@ -193,15 +195,15 @@ if ($_POST['Hidsubmit'] == '1') {
 				
 			<div id="right_buttons">
 				<div id="right_menu">
-					<div id="box8" class="rightButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalIntro($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_introduction.php');"><img src="images/icon_intro.png"alt="INTRODUCTION" title="INTRODUCTION" border="0"/></a> </div>
-					<div id="box9"  class="rightButtons"><span class="notifier_box"><? echo GetTotalChat($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_chat.php');Callchateverysec();"><img src="images/icon_chat.png" alt="CHAT" title="CHAT" border="0"/></a> </div>
-					<div id="box11" class="rightButtons"><span class="notifier_box"><? echo GetTotalGroups($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_groups.php');"><img src="images/icon_group.png"  margin-left:15%;" alt="GROUPS" title="GROUPS" border="0"/></a> </div>
-					<div id="box12" class="rightButtons"><span class="notifier_box"><? echo GetTotalGoOut($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_letsgoout.php');"><img src="images/outingWhiteFill.png" alt="LET'S GO OUT!!!" title="LET'S GO OUT!!!" border="0"/></a> </div>
-					<div id="box13"  class="rightButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_safe.php');"><img src="images/safeWhiteFill.png"  alt="SAFE" title="SAFE"  border="0"/></a> </div>
+					<div id="box8" class="rightButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalIntro($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_introduction.php');"><img src="images/icon_intro.png" id="iconintro" alt="INTRODUCTION" title="INTRODUCTION" border="0"/></a> </div>
+					<div id="box9"  class="rightButtons"><span class="notifier_box"><? echo GetTotalChat($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_chat.php');Callchateverysec();"><img src="images/icon_chat.png" id="iconchat" alt="CHAT" title="CHAT" border="0"/></a> </div>
+					<div id="box11" class="rightButtons"><span class="notifier_box"><? echo GetTotalGroups($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_groups.php');"><img src="images/icon_group.png" id="icongroup" margin-left:15%;" alt="GROUPS" title="GROUPS" border="0"/></a> </div>
+					<div id="box12" class="rightButtons"><span class="notifier_box"><? echo GetTotalGoOut($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_letsgoout.php');"><img src="images/outingWhiteFill.png" id="iconout" alt="LET'S GO OUT!!!" title="LET'S GO OUT!!!" border="0"/></a> </div>
+					<div id="box13"  class="rightButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_safe.php');"><img src="images/safeWhiteFill.png" id="iconsafe" alt="SAFE" title="SAFE"  border="0"/></a> </div>
 					<div id="box14" class="rightButtons"> <a href="#"  onclick="show_pop('popup_calendar.php');"><img
-								src="images/icon_calendar.png"  alt="CALENDAR"
+								src="images/icon_calendar.png" id="iconcalendar" alt="CALENDAR"
 								title="CALENDAR" border="0"></a> </div>
-					<div id="box27"  class="rightButtons"><a href="journeystats.php"><img src="images/icon_journeybook.png" alt="JOURNEY BOOK" title="JOURNEY BOOK"
+					<div id="box27"  class="rightButtons"><a href="journeystats.php"><img src="images/icon_journeybook.png" id="iconjourneybook2" alt="JOURNEY BOOK" title="JOURNEY BOOK"
 																	border="0"></a> </div>
 					
 				</div>	<!-- end #right_menu -->
@@ -214,23 +216,23 @@ if ($_POST['Hidsubmit'] == '1') {
 			
 			<div id="bottom_menu">
 			
-				<div id="box15" class="leftButtons"><a href="#" onclick="show_pop('popup_options.php');"><img src="images/icon_gears.png"  alt="OPTIONS" title="OPTIONS" border="0"></a> </div>
-				<div id="box16" class="bottomleft"><a href="#" onClick=" clickOnIcon('Infinity');"><img id="Infinity" src="images/icon_infinity.png" />
+				<div id="box15" class="leftButtons"><a href="#" onclick="show_pop('popup_options.php');"><img src="images/icon_gears.png" id="icongears" alt="OPTIONS" title="OPTIONS" border="0"></a> </div>
+				<div id="box16" class="bottomleft"><a href="#" onClick=" clickOnIcon('Infinity');"><img id="Infinity" src="images/icon_infinity.png"id="iconinfinity" />
 					</a> </div>
 				<div id="box17" class="bottomleft"><a href="#" onClick=" clickOnIcon('ThumbsUp');"><img id="ThumbsUp" src="images/icon_like.png" border="0"/></a></div>
 				<div id="box18" class="bottomleft"><a href="#" onClick=" clickOnIcon('Heart');"><img id="Heart"																					src="images/icon_heart.png" border="0"/></a> </div>
-				<div id="box19" class="bottomleft"><a href="#" onClick=" clickOnIcon('Ideas');"><img id="Ideas" src="images/icon_idea.png" border="0"/></a> </div>
-				<div id="box20" class="bottomcenter"><a onclick="searchUser()"><img src="images/icon_search_white.png"></a> </div>
+				<div id="box19" class="bottomleft"><a href="#" onClick=" clickOnIcon('Ideas');"><img id="Ideas" src="images/icon_idea.png"   border="0"/></a> </div>
+				<div id="box20" class="bottomcenter"><a onclick="searchUser()"><img src="images/icon_search_white.png" id="iconsearch"></a> </div>
 					
 				<div id="box21" style="background:black;" class="bottomcenter"><input id="textToSearch" style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
 				</div> </div>
 					 
-			<div id="box22"  class="rightButtons"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
-			<div id="box23" class="bottomright"><a href="#" onClick="changefunctionForbucket(document.getElementById('CurrentSelectedUserId').value,10);"><img   src="images/icon_bucketlist.png" border="0"></a> </div>
-			<div id="box24" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'3');openPreferencesPopup('540',document.getElementById('CurrentSelectedUserId').value)"><img   src="images/icon_journeybook.png" border="0"></a> </div>
+			<div id="box22"  class="rightButtons"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png" id="iconemail"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
+			<div id="box23" class="bottomright"><a href="#" onClick="changefunctionForbucket(document.getElementById('CurrentSelectedUserId').value,10);"><img   src="images/icon_bucketlist.png" id="iconbucketlist" border="0"></a> </div>
+			<div id="box24" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'3');openPreferencesPopup('540',document.getElementById('CurrentSelectedUserId').value)"><img   src="images/icon_journeybook.png" id="iconjourneybook" border="0"></a> </div>
 			<div id="box25" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'2');"><img
-						src="images/icon_stats.png" border="0"></a> </div>
-			<div id="box26" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'1');"><img  src="images/footer_icon5.jpg" border="0">	</a> </div>
+						src="images/icon_stats.png" id="iconstats" border="0"></a> </div>
+			<div id="box26" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'1');"><img  src="images/footer_icon5.jpg" id="iconavatar" border="0">	</a> </div>
 										
 		</div>	<!-- end #bottom_menu -->
 				
@@ -412,8 +414,87 @@ function showSlides(n) {
 		var thissound = document.getElementById(soundobj);
 
 	}
+	function setwhiteicons()
+	{
+		document.getElementById("iconhide").src = "images/icon_hide.png";
+		document.getElementById("iconbomb").src = "images/icon_bomb.png";
+		document.getElementById("iconstar").src = "images/icon_star.png";
+		document.getElementById("iconchallenge").src = "images/icon_challenge.png";
+		document.getElementById("iconmusic").src = "images/icon_music.png";
+		document.getElementById("iconzap").src = "images/icon_zap.png";
+		document.getElementById("iconbail").src = "images/icon_bail.png";
+		document.getElementById("icongears").src = "images/icon_gears.png";
+		document.getElementById("Infinity").src = "images/icon_infinity.png";
+		document.getElementById("ThumbsUp").src = "images/icon_like.png";
+		document.getElementById("Heart").src = "images/icon_heart.png";
+		document.getElementById("Ideas").src = "images/icon_idea.png";
+		document.getElementById("iconsearch").src = "images/icon_search.png";
+		document.getElementById("iconemail").src = "images/icon_email.png";
+		document.getElementById("iconbucketlist").src = "images/icon_bucketlist.png";
+		document.getElementById("iconjourneybook").src = "images/icon_journeybook.png";
+		document.getElementById("iconstats").src = "images/icon_stats.png";
+		document.getElementById("iconavatar").src = "images/footer_icon5.jpg";
+		document.getElementById("iconintro").src = "images/icon_intro.png";
+		document.getElementById("iconcalendar").src = "images/icon_calendar.png";
+		document.getElementById("icongroup").src = "images/icon_group.png";
+		document.getElementById("iconjourneybook2").src = "images/icon_journeybook.png";
+		document.getElementById("iconsafe").src = "images/safeWhiteFill.png";
+		document.getElementById("iconchat").src = "images/icon_chat.png";
+		document.getElementById("iconout").src = "images/icon_like.png";
+
+
+		
+	}
+	
+	function setblackicons()
+	{
+		document.getElementById("iconhide").src = "images/icon_hide_black.png";
+		document.getElementById("iconbomb").src = "images/icon_bomb_black.png";
+		document.getElementById("iconstar").src = "images/icon_stars_black.png";
+		document.getElementById("iconchallenge").src = "images/icon_challenge_black.png";
+		document.getElementById("iconmusic").src = "images/icon_music_black.png";
+		document.getElementById("iconzap").src = "images/icon_zap_black.png";
+		document.getElementById("iconbail").src = "images/icon_bail_black.png";
+		document.getElementById("icongears").src = "images/icon_gears_black.png";
+		document.getElementById("Infinity").src = "images/icon_infinity_black.png";
+		document.getElementById("ThumbsUp").src = "images/icon_like_black.png";
+		document.getElementById("Heart").src = "images/icon_heart_black.png";
+		document.getElementById("Ideas").src = "images/icon_idea_black.png";
+		document.getElementById("iconsearch").src = "images/icon_search_black.png";
+		document.getElementById("iconemail").src = "images/icon_email_black.png";
+		document.getElementById("iconbucketlist").src = "images/icon_bucketlist_black.png";
+		document.getElementById("iconjourneybook").src = "images/icon_journeybook_black.png";
+		document.getElementById("iconstats").src = "images/icon_stats_black.png";
+		document.getElementById("iconavatar").src = "images/icon_avatar_black.png";
+		document.getElementById("iconintro").src = "images/icon_intro_black.png";
+		document.getElementById("iconcalendar").src = "images/icon_calendar_black.png";
+		document.getElementById("icongroup").src = "images/icon_group_black.png";
+		document.getElementById("iconjourneybook2").src = "images/icon_journeybook_black.png";
+		document.getElementById("iconsafe").src = "images/icon_safe_black.png";
+		document.getElementById("iconchat").src = "images/icon_chat_black.png";
+		document.getElementById("iconout").src = "images/icon_like_black.png";
+
+
+		
+	}
+	function geticon(currenticon)
+	{
+		var result="";
+		switch(currenticon)
+		{
+			case "gears":
+				alert(document.getElementById('icongears').src);
+				
+			break;
+		}
+		return result;
+	}
 	function color(selected)
 	{
+		if(selected==3)
+		{
+		 setblackicons();
+		}
 		var checks = document.getElementsByClassName("leftButtons");
 		var checks2 = document.getElementsByClassName("rightButtons");
 		var checks3= document.getElementsByClassName("bottomright");
@@ -466,6 +547,7 @@ function showSlides(n) {
 			case 2:
 			document.getElementById('color1').style.backgroundColor="#199579";
 			document.getElementById('color2').style.backgroundColor="#5d4c46";
+			setwhiteicons();
  			 for (i = 0; i < checks.length; i++)
   			 {
  
@@ -542,23 +624,44 @@ function showSlides(n) {
   			}
 			break;
 		}
+		document.getElementById('musicoptions').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
+		document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
+		document.getElementById('grid_box').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
+		document.getElementById('detail_box_updating').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
+		document.getElementById('detail_box').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
 		
 	}
 	function control(selected) {
 		if (selected == 1) {
 			PlaySound("sound");
 			document.forms[0].radio2.checked = false;
-			document.forms[0].radio3.checked = false;
+			
 		}
+		
 		if (selected == 2) {
 			StopSound("sound");
 			document.forms[0].radio1.checked = false;
-			document.forms[0].radio3.checked = false;
+			
 		}
 		if (selected == 3) {
 			when_needed(sound);
-			document.forms[0].radio1.checked = false;
-			document.forms[0].radio2.checked = false;
+			document.forms[0].radio4.checked = false;
+			
+		}
+		if (selected == 4) {
+			when_needed(sound);
+			document.forms[0].radio3.checked = false;
+			
+		}
+		if (selected == 5) {
+			
+			document.forms[0].radio6.checked = false;
+			
+		}
+		if (selected == 6) {
+			
+			document.forms[0].radio5.checked = false;
+			
 		}
 		soundOptionSelected=selected;
 	}
@@ -579,6 +682,7 @@ function showSlides(n) {
 					if(urls=='popup_hide.php' || urls=='popup_stars.php' ||  urls=='popup_zap.php' || urls=='popup_bail.php'|| (urls=='popup_challenge.php')  || (urls=='popup_truthbomb.php')  || (urls=='popup_music.php') || (urls=='popup_options.php'))
 					{
 						document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
+						
 					}
 					else
 					{
@@ -589,6 +693,9 @@ function showSlides(n) {
 						}else{
 							document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
 						}
+					}
+					if((urls=='popup_options.php')){
+					document.getElementById('musicoptions').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
 					}
 				}
 			});

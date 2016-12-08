@@ -33,15 +33,15 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 	<div class="middlesection" style="width: 100%;">
 		<div class="centered_info">
 			<div style="width: 100%; display: flex;">
-				<div style="width: 23%; margin-right: 2%;">
+				<div style="width: 25%; margin-right: 2%;margin-top:1%;">
 					<? if($CURRENTgetuserwryRow['avatarid']!='') { $avatarlogo=stripslashes(GetName1("avatars","picture","id",$CURRENTgetuserwryRow['avatarid']));?>
 						<?$actualUser=mysql_query('select * FROM users where id='.$_SESSION['UsErIdFrOnT']);
 						$actualUserArray=mysql_fetch_array($actualUser);
 						echo '<h3 style="text-align: left;color: white;    padding-bottom: 10px;">'.$actualUserArray['username'].'</h3>';?>
 					<? }?>
 				</div>
-				<div style="width: 50%; margin-right: 2%;">
-					<h3 style="color: white;">
+				<div style="width: 50%; margin-right: 2%;margin-top:1%;">
+					<h3 style="color: white;font-size:3.5vh;">
 						<?
 						$questions = mysql_query('select * FROM torb_questions');
 						$questionsArray = mysql_fetch_array($questions);
@@ -67,14 +67,14 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 						?>
 					</h3>
 				</div>
-				<div style="width: 23%;">
+				<div style="width: 24.5%;margin-top:1%;">
 					<?
 						echo '<h3 style="text-align: right;color: white;">'.$GetUsersQryRow['username'].'</h3>';
 					?>
 				</div>
 			</div>
-			<div style="width: 100%; display: flex;">
-				<div style="width: 23%; margin-right: 2%;">
+			<div style="width: 100%; display: flex; margin-top:3%;">
+				<div class="avatar_pic" style="margin-right:4%;">
 					<? if($CURRENTgetuserwryRow['avatarid']!='') { $avatarlogo=GetName1("avatars","picture","id",$CURRENTgetuserwryRow['avatarid']);?>
 						<?$actualUser=mysql_query('select * FROM users where id='.$_SESSION['UsErIdFrOnT']);
 						$actualUserArray=mysql_fetch_array($actualUser);
@@ -82,7 +82,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 						<img src="Avatars/<? echo $avatarlogo;?>" width="100%" alt=""/>
 					<? }?>
 				</div>
-				<div style="width: 23%; margin-right: 2%;">
+				<div style="width: 24.5%; margin-right: 2%;">
 					<div style="width:100%;color: black;background-color: white;">
 						<h3 style="padding-left: 5%;padding-top: 5%;">You Say</h3>
 					</div>
@@ -90,7 +90,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 						<textarea id="txtAreaUser" style="border-top: hidden;border-left: none;border-right: none; width: 100%; height: 70%;"></textarea>
 					</div>
 				</div>
-				<div style="width: 23%; margin-right: 2%;">
+				<div style="width: 25%; margin-right: 2%;">
 					<div style="width:100%;color: black;background-color: white;">
 						<h3 style="padding-left: 5%;padding-top: 5%;">They Say</h3>
 					</div>
@@ -98,7 +98,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 						<textarea id="txtAreaUserForSend" style="border-top: hidden;border-left: none;border-right: none; width: 100%; height: 70%;"></textarea>
 					</div>
 				</div>
-				<div style="width: 23%;">
+				<div class="avatar_pic" style="float:right;margin-left:2%;">
 					<img src="<? echo GetAvatarImage($GetUsersQryRow['avatarid'],'big');?>" alt="" width="100%"/>
 				</div>
 			</div>
@@ -107,7 +107,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 
 	<div class="footer">
 		<div class="button" style="margin-right: 3%;">
-			<input  type="image" name="sendbutton" id="sendbutton" src="images/send-button.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$_REQUEST['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
+			<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$_REQUEST['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
 		</div>
 		<span id="MessageId" style="color:#FF0000;"></span>
 	</div>

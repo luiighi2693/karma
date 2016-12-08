@@ -70,7 +70,7 @@ $( "#profile_dob" ).change(function(){
 				<p style="text-align:left;padding-left:15px;">
 					<label style="padding:0px;margin:0px;line-height:20px;">
 					Date of Birth<br />
-					<input type="text" name="profile_dob" id="profile_dob" data-format="DD/MM/YYYY" data-template="D MMM YYYY" value="<? echo stripslashes($CURRENTgetuserwryRow['profile_dob']);?>"	/>
+					<input type="text" name="profile_dob" id="profile_dob" data-format="DD/MM/YYYY" data-template="D MMM YYYY" value="<? echo stripslashes($CURRENTgetuserwryRow['profile_dob']);?>"/>
 					</label>
 				</p>
 				<p style="text-align:left;padding-left:15px;">

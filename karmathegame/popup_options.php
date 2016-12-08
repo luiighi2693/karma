@@ -15,7 +15,7 @@
  <div class="header">
         <div class="top_info">
             <div class="icon_holder">
-                <img src="images/icon_gears.png" border="0" alt="">
+                <img src="images/icon_gears.png" id="icongears" border="0" alt="">
             </div>
             <div class="text_holder" style="width:48%">
 		Options
@@ -35,39 +35,77 @@
     </div>
     <div class="middlesection">
         <div class="centered_info">
-        	<div class="blocks_3" style="height:100%; margin-top:1%;">
-        		<div class="verticalsplit" style="text-align:center;display:inline-block; float:top;">
-        			<p style="color:white; font-size:3vh;">Layout
-        			 
-        			
-                		
-              			  <div style="margin-top:2%;">
-                   		 <img src="images/layout1.png" border="0" style="height:40%;width:80%;">
-                		</div>
-        		</div>
+        	<div class="blocks_3" style="height:100%; margin-top:1%;text-align:center;">
         		
-        	<div class="verticalsplit" style="margin-top:5%;">
-        			<div class="musicoptions" >
-               				 <p style="color:white;font-size:3vh;">AI AUDIO</p>
-
-               			 <form style="text-align:left; margin-left:47%;">
-                   		 <br/>
-                   		 <input type="checkbox" id="radio1" name="radio1" onclick="control(1);" style="background:gray;"/>
-                  		  <label id="text3vh" for="radio1"><span>Yes</span></label>
-                   		 <br/>
-                   		 <input type="checkbox" id="radio2" onclick="control(2);" name="radio2"/>
-                   		 <label id="text3vh" for="radio2"><span>No</span></label>
-                    		<br/>
-                    		<input type="checkbox" id="radio3" name="radio3" onclick="control(3);"/>
-                    		<label  style="font-size:1vw;" for="radio3"><span>When asked</span></label>
-                </form>
-
+        	<p style="color:white; font-size:3vh;">audio</p>	
+        	<div class="verticalsplit" style="margin-top:1%;">
+        	
+        			<div class="musicoptions" id="musicoptions" >
+               				 <div class="centered_info" style="padding-top:2%;">
+               			<div class="row" >	 
+               				<p style="color:white;font-size:2vh;">music</p>
+				</div>
+				<div class="row"  style="height:20%;">
+               				<div class="icon_holder" style="width:10%;">
+               				<img src="images/icon_guitar_white.png" border="0" alt=""/>
+               				</div>
+               			 <div style="display:inline-block;width:70%;float:right;">
+               					<div class="row" style="height:50%;">
+               						<p style="color:white;font-size:2vh;">on / off</p>
+                    				</div>
+               					<div class="row" style="height:50%;margin-left:2%;">
+               						<input type="checkbox" id="radio5" name="radio1" onclick="control(1);"/>
+                    					<input type="checkbox" id="radio5" name="radio2" onclick="control(2);"/>
+                    				</div>
+                  			 </div>
+               			 
+               			 </div>
+               			 
+               			 <div class="row" style="margin-top:2%;" >	 
+               				<p style="color:white;font-size:2vh;">Sound Effects</p>
+				</div>
+                   		<div class="row" style="height:20%;margin-top:2%;">
+                   		 	<div class="icon_holder" style="width:10%;">
+               				<img id="iconmute" src="images/icon_mute_white.png" border="0" alt=""/>
+               				</div>
+               				 <div style="display:inline-block;width:70%;float:right;">
+               					<div class="row" style="height:50%;">
+               						<p style="color:white;font-size:2vh;">on / off</p>
+                    				</div>
+               					<div class="row" style="height:50%;margin-left:2%;">
+               						<input type="checkbox" id="radio3" name="radio5" onclick="control(3);"/>
+                    					<input type="checkbox" id="radio4" name="radio5" onclick="control(4);"/>
+                    				</div>
+                  			 </div>
+                  		  </div>
+                  		  <div class="row" style="margin-top:2%;">
+                  		  	 
+               				<p style="color:white;font-size:2vh;">Voices and Ai</p>
+					</div>
+                  		  <div class="row" style="height:20%;margin-top:2%;">
+                   		 	<div class="icon_holder" style="width:10%;">
+               				<img src="images/icon_talking_white.png" border="0" alt=""/>
+               				</div>
+               				<div style="display:inline-block;width:70%;float:right;">
+               					<div class="row" style="height:50%;">
+               						<p style="color:white;font-size:2vh;">on / off</p>
+                    				</div>
+               					<div class="row" style="height:50%;margin-left:2%;">
+               						<input type="checkbox" id="radio5" name="radio5" onclick="control(5);"/>
+                    					<input type="checkbox" id="radio5" name="radio5" onclick="control(6);"/>
+                    				</div>
+                  			 </div>
+                   		 </div>
+                   		
+                    		
+               			 </form>
+			 </div>
             </div>
         		</div>
         	</div>
         	
         	<div class="blocks_3" style="height:100%;margin-top:1%;text-align:center;">
-        		<p style="color:white; font-size:3vh;">Color</p>
+        		<p style="color:white; font-size:3vh;">Themes</p>
         	  	<div class="themes-list">
                     		<ul class="list4themes">
                        			 <li><a href="#" onclick="color(1);"><img src="images/color1.png" alt="color1"
@@ -116,7 +154,7 @@
  	<div class="centered_info">
 		 <div class="button">
 			<a href="#" onclick="hide_pop();return false;">
-				<img src="images/close-button.png" border="0" />
+				<img src="images/button_close.png" border="0" />
 			</a>
 		</div>
 		<div class="button">

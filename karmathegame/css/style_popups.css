@@ -224,7 +224,7 @@ font-weight:300; letter-spacing:1px;
 .ideaslist
 {
 	margin-top:1%;
-	width:60%;
+	width:70%;
 	height:100%;
 	display:inline-block;
 
@@ -239,7 +239,7 @@ font-weight:300; letter-spacing:1px;
 .listItem
 {
 	width:94%;
-	height:100px;
+	height:150px;
 	border:none;
 	margin-bottom:10px;
 	background:none;
@@ -280,10 +280,9 @@ font-weight:300; letter-spacing:1px;
 .radios2theright
 {
 	display:inline:block;
-	width:38%;
+	width:28%;
 	height:80%;
 	float:right;
-	
 	margin-top:2%;
 
 }
@@ -314,7 +313,7 @@ font-weight:300; letter-spacing:1px;
 .musicoptions
 {
 	height:100%;
-	text-align:center;
+	text-align:left;
 	vertical-align:bottom;
 
 }

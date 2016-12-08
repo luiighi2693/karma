@@ -33,7 +33,7 @@ if($profile_dob1!='' && $profile_dob1!='0000-00-00' && $profile_dob2!='' && $pro
 	$filecontent_2=explode("Inter-planetary aspects",$filecontent_1);
 	$filecontent_3=explode('<p><a href="http://cafeastrology.com/astrologyarticles.html">',$filecontent_2[1]);
 	?>
-	<table width="100%" border="0" cellspacing="2" cellpadding="2">
+	<table id="contentStars" width="100%" border="0" cellspacing="2" cellpadding="2">
 		  <tr>
 			<td  align="left">Inter-planetary aspects<br><? echo str_replace("/cgi-bin/graphic/two2?dformat","http://astro.cafeastrology.com/cgi-bin/graphic/two2?dformat",$filecontent_3[0]);?>
 			</td>
