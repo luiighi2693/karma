@@ -13,17 +13,17 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 	<link href="css/style_popups.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 </head>
 <body style="text-align:center;">
-<form name="frmpopup" id="frmpopup" enctype="multipart/form-data" method="post">
+<div id="starsFrom">
 	<div class="header">
 		<div class="top_info">
 			<div class="icon_holder">
-				<img src="images/icon_star.png" border="0"></img>
+				<img alt="" src="images/icon_star.png" border="0">
 			</div>
 			<div class="text_holder">
 				stars
 			</div>
-			<div class="icon_holder"style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
+			<div class="icon_holder" style="float:right;">
+				<a href="#" onclick="hide_pop();return false;"><img alt="" src="images/popup_close.png" border="0" /></a>
 			</div>
 				 
 		</div>
@@ -36,42 +36,38 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 			</div>
 			<div class="avatar_pic">
 				<? if($CURRENTgetuserwryRow['avatarid']!='') { $avatarlogo=stripslashes(GetName1("avatars","picture","id",$CURRENTgetuserwryRow['avatarid']));?>
-					<img src="Avatars/<? echo $avatarlogo;?>"/>
+					<img alt="" src="Avatars/<? echo $avatarlogo;?>"/>
 				<? }?>
 			</div>
 			<div class="container" style="width:58%;margin-right:1%;">
 				<div style="text-align:center;font-size:4vh;">HERE IS YOUR COMPATIBILITY READING</div>
-				<div align="center"><iframe id="holamundo" src="stars_reading.php?id=<? echo $_REQUEST['id'];?>&from=<? echo $_SESSION['UsErIdFrOnT'];?>&to=<? echo mysql_real_escape_string($_REQUEST['id']);?>" width="100%" height="80%"  scrolling="yes"  frameborder="0"></iframe>
+				<div align="center"><iframe id="iframeStars" src="stars_reading.php?id=<? echo $_REQUEST['id'];?>&from=<? echo $_SESSION['UsErIdFrOnT'];?>&to=<? echo mysql_real_escape_string($_REQUEST['id']);?>" width="100%" height="80%"  scrolling="yes"  frameborder="0"></iframe>
 				</div>
 				<div style="float: right;width:58%;    margin-top: 1%;">
 					<a href="https://cafeastrology.com/" target="_blank" ><img src="images/cafeastrology.png" alt=""  style="width: 100%;"></a>
 				</div>
-			
 				<div id="MessageId" class="redtext"></div>
-
 			</div>
-			
 		</div>
 	</div>
 	
 	<div class="footer">
 		<div class="centered_info">
-			
 			<input type="hidden" id="userid_to" name="userid_to" value="<? echo mysql_real_escape_string($_REQUEST['id']);?>" />
 			<input type="hidden" id="userid_from" name="userid_from" value="<? echo $_SESSION['UsErIdFrOnT'];?>" />
+			<input type="hidden" id="userid_from_birthdate" name="userid_from_birthdate" value="<? echo $CURRENTgetuserwryRow['profile_dob'];?>" />
+			<input type="hidden" id="userid_to_birthdate" name="userid_to_birthdate" value="<? echo $GetUsersQryRow['profile_dob'];?>" />
 			<div class="button">
 				<a href="#" onclick="hide_pop();return false;">
-					<img src="images/button_close.png" border="0" />
+					<img alt="" src="images/button_close.png" border="0" />
 				</a>
 			</div>
 			<div class="button">
-				<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="return POPUPfrmcheck('hidepop');" />
+				<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="checkBirthDates();" />
 			</div>
-		
-		
 		</div>
 	</div>	
 
-</form>
+</div>
 </body>
 </html>

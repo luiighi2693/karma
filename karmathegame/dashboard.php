@@ -1076,6 +1076,32 @@ function showSlides(n) {
 		}
 	}
 
+	function checkBirthDates() {
+		var result
+		if(document.getElementById("userid_from_birthdate").value == ""){
+			result = prompt("If you want to send this user an email to PLAY THE STARS you should enter your Birhday first", "yes");
+			if(result != null){
+				if(result=="Yes" || result=="yes" || result == "y"){
+					window.location = "http://www.karmathegame.org/karmathegame//journey_questions_step.php?grp=2&subgrp=1";
+				}
+			}
+		}else{
+			if(document.getElementById("userid_to_birthdate").value == ""){
+				result = prompt("Sorry! Birthdate not provided by this user.. Write 'yes' if you want to let them know you tried to PLAY THE STARS with you", "yes");
+				if(result != null){
+					if(result=="Yes" || result=="yes" || result == "y"){
+						alert("send succefully;");
+					}
+				}
+			}else{
+				alert("send succefully;");
+				console.log(document.getElementById("iframeStars").contentDocument.getElementById("contentStars").children[0].children[0].children[0].textContent.substring(23, 523));
+			}
+		}
+
+		console.log(document.getElementById("userid_from_birthdate").value+"%%%%"+document.getElementById("userid_to_birthdate").value);
+	}
+
 	Updatebox(<? echo $_SESSION['UsErIdFrOnT'];?>, 1);
 
 </script>
