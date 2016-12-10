@@ -380,6 +380,10 @@ function GetMessageTypeIcon($type){
     {
         $ret="<img src='images/icon_music.png' align='absmiddle' border=0 width='25' height='30' />";
     }
+    else if($type=='stars')
+    {
+        $ret="<img src='images/icon_star.png' align='absmiddle' border=0 width='25' height='30' />";
+    }
     return $ret;
 }
 

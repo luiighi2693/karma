@@ -84,65 +84,68 @@ if($_POST['sharepics'])
 
 	<div class="middlesection">
 		<div class="centered_info">
-			<div style="width: 100%;padding-top: 2%; margin-bottom: 5%;display: flex;">
-				<div style="width: 50%;">
+			<div style="width: 100%;padding-top: 2%;">
+				<div style="width: 100%; display: flex;">
 					<? if($_REQUEST['msg']=='yes'){?>
 						<div style="color:#FF0000">Uploaded Sucessfully!></div>
 					<? }?>
-					<div class="dashboard_whitetext" >Select <? echo $_REQUEST['TYPE'];?>:&nbsp;<input type="file" name="picture" id="picture" class="inputbox" style="color:#FFFFFF;"   />&nbsp;
-							<input type="hidden" name="Hidsubmit" id="Hidsubmit" value="0" />
+					<div style="color: white;font-size: 3vh;">
+						Select <? echo $_REQUEST['TYPE'];?>
+						<input type="file" name="picture" id="picture"/>
+						<input type="hidden" name="Hidsubmit" id="Hidsubmit" value="0" />
 					</div>
-				</div>
-				<div style="width: 50%; float: right;">
 					<input type="image" name="sendbutton" id="sendbutton"  src="images/button_upload.png"  onclick="return frmcheck();"  align="absmiddle"/>
 					<a href="#" onclick="deleteShareMultimedia();">
 						<img src="images/button_delete.png"  align="absmiddle" border="0" />
 					</a>
 				</div>
-			</div>
-			<div style="width: 100%;padding-top: 2%; display: flex;">
-				<div style="width: 50%;">
-					<?
-					$getPicsQryRs=mysql_query("SELECT * FROM users_pics_videos WHERE userid='".$_SESSION['UsErIdFrOnT']."' and type='".$_REQUEST['TYPE']."' ORDER BY id DESC");
-					$TotgetPics=mysql_affected_rows();
-					if($TotgetPics>0)
-					{
-						?>
-						<div id="shareMultimediaList">
-							<?
-							$TTT=0;
-							while($getPicsQryRow=mysql_fetch_array($getPicsQryRs))
-							{
-								//if($TTT%6==0){echo "</tr><tr>";}
-								?>
-								<div align="center"  style="width:33%;float:left;">
-									<? if($getPicsQryRow['type']=='Picture'){?>
-										<img src="<? echo "SafePicsVideos/".$getPicsQryRow['picture'];?>" style="width:100%;height:100px;" />
-									<? }?>
-									<? if($getPicsQryRow['type']=='Video'){?>
-										<img src="images/shareVideo.png" style="width:100%;height:100px;"/>
-									<? }?>
-									<? if($getPicsQryRow['type']=='Music'){?>
-										<img src="images/shareMusic.png" style="width:100%;height:100px;"/>
-									<? }?>
-									<br />
-									<input id="<?echo $getPicsQryRow['id']?>" type="checkbox" name="sharepiccheckbox[]" <? echo CheckEitherPICVIDEOShareOrNot($getPicsQryRow['id'],$_SESSION['UsErIdFrOnT'],mysql_real_escape_string($_REQUEST['userid_to']));?> value="<? echo $getPicsQryRow['id'];?>" style="margin-top:10px;" />
-									<br /><br />
-								</div>
-								<?
-								$TTT++;
-							}
-							?></div>
-					<? } ?>
-				</div>
-				<div style="width: 50%; float: right;">
-					<h3>Uploaded <? echo $_REQUEST['TYPE'];?>s!</h3>
+				<div style="width: 100%; display: flex;text-align: left;padding-top: 2%;">
+					<div style="width: 50%; color: white; font-size: 3vh;">
+						<h3>Uploaded <? echo $_REQUEST['TYPE'];?>s!</h3>
+					</div>
+					<div style="width: 50%;">
 						<input onclick="shareMultimedia(<?echo $_SESSION['UsErIdFrOnT'].','.$_REQUEST['userid_to']?>);"
 							   type="button" style="background-color: transparent;height: 50px;border: 1px solid white;
 										color: white;padding: 15px 5px 15px 5px;text-align: center;
 										text-decoration: none;display: inline-block;font-size: 20px;margin: 4px 2px;
 										cursor: pointer;" value="SHARE WITH <? echo GetUserName($_REQUEST['userid_to']);?>" name="sharepics" id="sharepics" />
+					</div>
+
 				</div>
+			</div>
+			<div style="width: 100%;padding-top: 2%; display: flex;">
+				<?
+				$getPicsQryRs=mysql_query("SELECT * FROM users_pics_videos WHERE userid='".$_SESSION['UsErIdFrOnT']."' and type='".$_REQUEST['TYPE']."' ORDER BY id DESC");
+				$TotgetPics=mysql_affected_rows();
+				if($TotgetPics>0)
+				{
+					?>
+					<div id="shareMultimediaList">
+						<?
+						$TTT=0;
+						while($getPicsQryRow=mysql_fetch_array($getPicsQryRs))
+						{
+							//if($TTT%6==0){echo "</tr><tr>";}
+							?>
+							<div align="center"  style="width:10%;float:left;">
+								<? if($getPicsQryRow['type']=='Picture'){?>
+									<img src="<? echo "SafePicsVideos/".$getPicsQryRow['picture'];?>" style="width:100%;height:150px;" />
+								<? }?>
+								<? if($getPicsQryRow['type']=='Video'){?>
+									<img src="images/shareVideo.png" style="width:100%;height:150px;"/>
+								<? }?>
+								<? if($getPicsQryRow['type']=='Music'){?>
+									<img src="images/shareMusic.png" style="width:100%;height:150px;"/>
+								<? }?>
+								<br />
+								<input id="<?echo $getPicsQryRow['id']?>" type="checkbox" name="sharepiccheckbox[]" <? echo CheckEitherPICVIDEOShareOrNot($getPicsQryRow['id'],$_SESSION['UsErIdFrOnT'],mysql_real_escape_string($_REQUEST['userid_to']));?> value="<? echo $getPicsQryRow['id'];?>" style="margin-top:10px;" />
+								<br /><br />
+							</div>
+							<?
+							$TTT++;
+						}
+						?></div>
+				<? } ?>
 			</div>
 		</div>
 	</div>
