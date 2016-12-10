@@ -732,6 +732,25 @@ else if($_REQUEST["Type"]=="LoadEmail")
 					</td>
 				  </tr>
 				</table>';
+            }else if($TYPE = "stars"){
+                $getDetailQryRow=mysql_fetch_array($getDetailQryRs);
+
+                if($getDetailQryRow['content'] != "N"){
+                    $pop = 'show_pop(\'popup_stars.php\');';
+                    $avatar = 'ClickAvatar2('.$getDetailQryRow['userid_from'].',\'1\');';
+                    $ret.='<div style="margin-left: 3%; margin-right: 3%;">
+                            <div style="width: 100%; margin-bottom: 3%;">Hey, look we go together!</div>
+                            <div style="width: 100%; margin-bottom: 3%;">'.$getDetailQryRow['content'].'</div>
+                            <a href="#" onclick="'.$avatar.'hide_pop();'.$pop.'">MORE</a>
+                        </div>';
+                }else{
+                    $ret.='<div style="margin-left: 3%; margin-right: 3%;">
+                            <div style="width: 100%; margin-bottom: 3%;">'.GetUserName($getchatsRow['userid_from']).'
+                             tried to play stars with you, but your birthdate isn\'t in your JourneyBook. do you want to 
+                             add the birthdate now?</div>
+                            <a href="http://www.karmathegame.org/karmathegame//journey_questions_step.php?grp=2&subgrp=1">ADD BITHDATE</a>
+                        </div>';
+                }
             }
 		}
 		else

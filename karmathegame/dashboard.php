@@ -89,7 +89,7 @@ if ($_POST['Hidsubmit'] == '1') {
 <div style="width:100%;height:100%;z-index:3;position:absolute;">
 	<div id="dashboard_box" >
 
-		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
+		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: white; font-weight: 600;">
 			<div style="width: 45%; overflow: hidden;">
 				<? echo date("l, F j, Y");?>
 			</div>
@@ -98,12 +98,12 @@ if ($_POST['Hidsubmit'] == '1') {
 				<div style="text-align: center;"><a href="myfile.htm"><img width="20%" src="images/guru_logo.png"></a> </div>
 			</div>
 
-			<div style="width: 45%; text-align: right; overflow: hidden;">
+			<div style="width: 45%; text-align: right; overflow: hidden;color:white;">
 				<? echo TotalQuestionsAnswered();?>
 			</div>
 		</div>
 
-		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: #5d4c46; font-weight: 600;">
+		<div style="height: 3%;width: 100%;display: flex;border-bottom: 1px solid #5d4c46;font-family: Helvitica, Arial, sans-serif;color: white; font-weight: 600;">
 			<div style="width: 50%; overflow: hidden; text-align: center;">
 				THE GRID
 			</div>
@@ -224,7 +224,7 @@ if ($_POST['Hidsubmit'] == '1') {
 				<div id="box19" class="bottomleft"><a href="#" onClick=" clickOnIcon('Ideas');"><img id="Ideas" src="images/icon_idea.png"   border="0"/></a> </div>
 				<div id="box20" class="bottomcenter"><a onclick="searchUser()"><img src="images/icon_search_white.png" id="iconsearch"></a> </div>
 					
-				<div id="box21" style="background:black;" class="bottomcenter"><input id="textToSearch" style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
+				<div id="box21"  class="bottomcenter"><input id="textToSearch" style="width:85%; height:50%;margin-left:7.5%;margin-top:10%; border-radius:10px;padding: 5px 5px 5px 25px;" type="text" value="" placeholder="Who you looking for...">
 				</div> </div>
 					 
 			<div id="box22"  class="rightButtons"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png" id="iconemail"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
@@ -284,7 +284,9 @@ fclose($txtfile);
 	var userId = <?echo $_SESSION['UsErIdFrOnT'];?>;
 	var slideIndex = 1;
 	var ideaSelected = null;
-    
+	var iconcolor="white";
+
+
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
@@ -416,6 +418,7 @@ function showSlides(n) {
 	}
 	function setwhiteicons()
 	{
+		iconcolor="white";
 		document.getElementById("iconhide").src = "images/icon_hide.png";
 		document.getElementById("iconbomb").src = "images/icon_bomb.png";
 		document.getElementById("iconstar").src = "images/icon_star.png";
@@ -448,6 +451,7 @@ function showSlides(n) {
 	
 	function setblackicons()
 	{
+		iconcolor="black";
 		document.getElementById("iconhide").src = "images/icon_hide_black.png";
 		document.getElementById("iconbomb").src = "images/icon_bomb_black.png";
 		document.getElementById("iconstar").src = "images/icon_stars_black.png";
@@ -980,22 +984,43 @@ function showSlides(n) {
 	switch(type)// removes the glow effect on
 		{
 			 case "Heart":
-        			document.getElementById('Heart').src="images/icon_heart.png";
+
+        			if(iconcolor=="white"){
+					document.getElementById('Heart').src="images/icon_heart_white.png";
+				}else{
+					document.getElementById('Heart').src="images/icon_heart_black.png";
+				}
 				
       			  	break;
       			  	
    			 case "Infinity":
-   			 document.getElementById('Infinity').src="images/icon_infinity.png";
+   			 	if(iconcolor=="white"){
+					document.getElementById('Infinity').src="images/icon_infinity_white.png";
+				}else{
+					document.getElementById('Infinity').src="images/icon_infinity_black.png";
+				}
+
 				
    			 	break;
    			 	
    			 case "ThumbsUp":
-        			document.getElementById('ThumbsUp').src="images/icon_like.png";
+   			 if(iconcolor=="white"){
+					document.getElementById('ThumbsUp').src="images/icon_like_white.png";
+				}else{
+					document.getElementById('ThumbsUp').src="images/icon_like_black.png";
+				}
+
+
 				
       			  	break;
       			  	
     			default:
-    			document.getElementById('Ideas').src="images/icon_idea.png";
+    			if(iconcolor=="white"){
+					document.getElementById('Ideas').src="images/icon_idea.png";
+				}else{
+					document.getElementById('Ideas').src="images/icon_idea_black.png";
+				}
+
 		}
 	}
 	function setYellowIcon(type)
@@ -1077,7 +1102,7 @@ function showSlides(n) {
 	}
 
 	function checkBirthDates() {
-		var result
+		var result;
 		if(document.getElementById("userid_from_birthdate").value == ""){
 			result = prompt("If you want to send this user an email to PLAY THE STARS you should enter your Birhday first", "yes");
 			if(result != null){
@@ -1086,20 +1111,39 @@ function showSlides(n) {
 				}
 			}
 		}else{
+			var control = true;
+			var content = null;
 			if(document.getElementById("userid_to_birthdate").value == ""){
 				result = prompt("Sorry! Birthdate not provided by this user.. Write 'yes' if you want to let them know you tried to PLAY THE STARS with you", "yes");
 				if(result != null){
 					if(result=="Yes" || result=="yes" || result == "y"){
-						alert("send succefully;");
+						content = "N";
+					}else{
+						control = false;
 					}
 				}
 			}else{
-				alert("send succefully;");
-				console.log(document.getElementById("iframeStars").contentDocument.getElementById("contentStars").children[0].children[0].children[0].textContent.substring(23, 523));
-			}
-		}
+				content = document.getElementById("iframeStars").contentDocument.getElementById("contentStars").children[0].children[0].children[0].textContent.substring(23, 523);
+            }
 
-		console.log(document.getElementById("userid_from_birthdate").value+"%%%%"+document.getElementById("userid_to_birthdate").value);
+            if(control){
+				jQuery.ajax({
+					type: "POST",
+					url: "util.php",
+					data: {
+						"method" : "saveStarsContent",
+						"userid_from" :  document.getElementById("userid_from").value,
+						"userid_to" :  document.getElementById("userid_to").value,
+						"content": content
+					},
+					success: function(data){
+						sendEmail(document.getElementById("userid_to").value, document.getElementById("userid_from").value, "stars", "users_stars", data, "N");
+						alert("send succefully;");
+					}
+				});
+			}
+
+		}
 	}
 
 	Updatebox(<? echo $_SESSION['UsErIdFrOnT'];?>, 1);

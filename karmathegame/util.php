@@ -116,6 +116,12 @@ if($_POST['method']=='deleteUserAccount'){
 
 }
 
+if($_POST['method']=='saveStarsContent'){
+
+    saveStarsContent();
+
+}
+
 
 
 function addAnswer(){
@@ -502,6 +508,25 @@ function deleteUserAccount(){
 
     echo 'good bye';
 
+}
+
+function saveStarsContent(){
+    $userid_to = $_POST['userid_to'];
+    $userid_from = $_POST['userid_from'];
+    $content = $_POST['content'];
+    $idResult = null;
+
+    $query = mysql_query("SELECT * FROM users_stars WHERE userid_from=".$userid_from." AND userid_to=".$userid_to);
+    $rows = mysql_affected_rows();
+    if ($rows>0){
+        $queryArray = mysql_fetch_array($query);
+        $resultQuery = mysql_query("UPDATE users_stars set content='".$content."' WHERE id='".$queryArray['id']."'");
+        $idResult = $queryArray['id'];
+    }else{
+        $resultQuery = mysql_query("INSERT INTO users_stars SET userid_from=".$userid_from.", userid_to=".$userid_to.", content='".$content."'");
+        $idResult = mysql_insert_id();
+    }
+    echo $idResult;
 }
 
 ?>
