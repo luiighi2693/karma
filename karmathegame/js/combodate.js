@@ -474,7 +474,7 @@
         template: 'D / MMM / YYYY   H : mm',
         //initial value, can be `new Date()`    
         value: null,                       
-        minYear: 1970,
+        minYear: 1940,
         maxYear: 2015,
         yearDescending: true,
         minuteStep: 5,
