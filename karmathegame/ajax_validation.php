@@ -575,33 +575,22 @@ else if($_REQUEST["Type"]=="LoadEmail")
 					if($payby=='YOU PAY'){$payby_2='checked';}
 					if($payby=='SPLIT'){$payby_3='checked';}
 					if($payby=='T.C. OF Y.'){$payby_4='checked';}
+
+                    list($day,$month, $year) = split('[/.-]', $getDetailQryRow['outdate']);
+					$date = date("D, M j, Y", mktime(0,0,0,$month, $day, $year));
 					
-					$ret.='<div style="height: 70%; display: flex;">
-								<div style="width: 10%;"><img src="images/icon4.jpg" width="50" height="50" /></div>
-								 <div style="background-color:#5D4C46; width: 90%; padding-left: 3%;">
-									 <div  style="color:#fff;font-size: 3vh;width: 100%; padding-bottom: 2%;padding-top: 2%;">
-										  <input type="radio" name="outtype" id="outtype_1" value="DATE" '.$outtype_1.'  /><label for="outtype_1" style="margin-right: 3%;">DATE</label>
-										  <input type="radio" name="outtype" id="outtype_2" value="EVENT" '.$outtype_2.'/><label for="outtype_2" style="margin-right: 3%;">EVENT</label> 
-										  <input type="radio" name="outtype" id="outtype_3" value="GROUP" '.$outtype_3.' /><label for="outtype_3">GROUP</label>
-									</div>
-									 <div  style="color:#fff;font-size: 3vh;width: 100%;padding-bottom: 2%;">
-										  <input type="radio" name="relationtype" id="relationtype_1" value="RELATIONSHIP" '.$relationtype_1.'/><label for="relationtype_1" style="margin-right: 3%;">RELATIONSHIP</label>
-										  <input type="radio" name="relationtype" id="relationtype_2" value="FRIENDSHIP" '.$relationtype_2.'/><label for="relationtype_2">FRIENDSHIP</label>
-									  </div>
-									  
-									   <div   style="color:#fff;font-size: 3vh;width: 100%;padding-bottom: 2%;">WHEN 
-									   		<input type="text" name="outdate" value="'.$getDetailQryRow['outdate'].'"  id="outdate" placeholder="mm/dd/yyyy" style="margin-right: 3%;"/>
-									   		<input type="radio" name="whomidea" id="whomidea_1" value="YOUR IDEA"  '.$whomidea_1.'  /><label for="whomidea_1" style="margin-right: 3%;">YOUR IDEA</label>
-											<input type="radio" name="whomidea" id="whomidea_2" value="MY IDEA"  '.$whomidea_2.'  /><label for="whomidea_2">MY IDEA</label>
-										</div>
+					$ret.='<div style="height: 70%; display: block;">
+								<div style="width: 100%; background-color: #5e4b45; display: inline-flex;">
+								    <img src="images/icon4.jpg" width="50" height="50"/> 
+								    <h3 style="font-size: 3vh;padding-top: 2%; color: #FFF;">Let\'s GoOut</h3>
+								 </div>
+								 <div style="width: 100%;">
+									 <div style="margin-top: 4%;padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$outtype.'</div>
+									 <div style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$date.' - '.$getDetailQryRow['outdatetime'].'</div>
+									 <div  style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$relationtype.'</div>
+									 <div  style="margin-bottom: 4%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$payby.'</div>  
 										<div style="width: 100%;padding-bottom: 2%;">
-										 	<img src="images/goout_holder.jpg" width="70%" />
-										</div>
-										<div   style="color:#fff;font-size: 3vh;width: 100%;">
-											  <input type="radio" name="payby" id="payby_1" value="I WILL PAY" '.$payby_1.'   /><label for="payby_1" style="margin-right: 3%;">I\'LL PAY</label>
-											  <input type="radio" name="payby" id="payby_2" value="YOU PAY" '.$payby_2.'  /><label for="payby_2" style="margin-right: 3%;">YOU PAY</label>
-											  <input type="radio" name="payby" id="payby_3" value="SPLIT" '.$payby_3.'  /><label for="payby_3" style="margin-right: 3%;">SPLIT</label>
-											  <input type="radio" name="payby" id="payby_4" value="T.C. OF Y." '.$payby_4.' /><label for="payby_4">T.C. OF Y.</label>		  
+										 	<img src="images/goout_holder.jpg" width="90%" />
 										</div>
 								</div>
 							</div>';

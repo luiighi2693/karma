@@ -122,9 +122,9 @@ function ClickAvatar2(id,slide)
 {
 	if(slide==''){slide=1;}
 	document.getElementById('CurrentSelectedUserId').value=id;
-	DisplayGraph(id);
+	// DisplayGraph(id);
 	Updatebox(id,slide);
-	DisplayGraphPercent(id);
+	// DisplayGraphPercent(id);
 
 	displayGraph(id);
 }

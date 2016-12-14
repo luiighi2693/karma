@@ -22,22 +22,23 @@ if($_REQUEST['slide']=='1' || $_REQUEST['slide']=='')
 {
 ?>
 <div style="display:inline;margin-top:0px;" id="AVATAR_ID">
-	<div class="clearfix">
-		<div class="journey_book" style="display:inline;width:100%;float:left;text-align:left;">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			  <tr>
-				<td align="left" style="line-height:32px;color:#FFFFFF">&nbsp;<? echo $username;?></td>
-				<td align="right" style="line-height:32px;"><img src="images/icon_like.png" style="margin-right:5px;margin-top:-2px;width:30px;height:30px;" /><img src="images/icon_infinity.png" style="margin-top:-2px;width:30px;height:30px;"  /></td>
-			  </tr>
-			</table>
+	
+<div class="clearfix"  id="journey_book">
+		<div class="journey_book"  onload="updatecolor1('journey_book');" style="display:inline;width:100%;float:left;text-align:left;">
+			<div  width="100%" border="0" cellspacing="0" cellpadding="0">
+			  
+				<div style="line-height:32px;color:#FFFFFF;display:inline-block;width:90%;">&nbsp;<? echo $username;?></div>
+				<div style="line-height:32px;color:#FFFFFF;display:inline-block;width:10%;float:right;"><img src="images/icon_like.png" style="margin-right:5px;width:40%;height:80%;margin-top:4%;" /><img src="images/icon_infinity.png" style="width:40%;height:80%;margin-top:4%;"  /></div>
+			 
+			</div>
 		</div>
 	</div>
 
-	<div style="height:35px;line-height:35px;background-color:#EFEFEE;width:100%;" >
+<div style="height:35px;line-height:35px;background-color:#EFEFEE;width:100%;" >
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		  <tr>
-			<td align="left" style="line-height:35px;width:80%;vertical-align:top"><? if($GetUsersQryRow['aboutme']!=''){?>&nbsp;<? echo stripslashes($GetUsersQryRow['aboutme']);?><? }?></td>
-			  <td align="right" style="line-height:35px;width:20%;vertical-align:top"><span id="MessageIdNew" style="color:#FF0000;font-size:10px;margin-right:10px;"></span>
+			<td align="left" style="line-height:35px;width:70%;vertical-align:top"><? if($GetUsersQryRow['aboutme']!=''){?>&nbsp;<? echo stripslashes($GetUsersQryRow['aboutme']);?><? }?></td>
+			  <td align="right" style="line-height:35px;width:30%;vertical-align:top"><span id="MessageIdNew" style="color:#FF0000;font-size:1vw;"></span>
 				  <input onclick="SaveLikedTagged('<? echo $_SESSION['UsErIdFrOnT'];?>','<? echo $_REQUEST['userid'];?>','LIKE',this.checked);" type="checkbox" name="liked" id="liked" value="Y" <? echo GetLikeTaggedChecked($_SESSION[ 'UsErIdFrOnT'],$_REQUEST[ 'userid'], 'LIKE');?> />
 				  <input type="checkbox" onclick="SaveLikedTagged('<? echo $_SESSION['UsErIdFrOnT'];?>','<? echo $_REQUEST['userid'];?>','TAGGED',this.checked);" name="tagged" id="tagged" value="Y" <? echo GetLikeTaggedChecked($_SESSION[ 'UsErIdFrOnT'],$_REQUEST[ 'userid'], 'TAGGED');?> />&nbsp;&nbsp;
 			  </td>
@@ -45,8 +46,10 @@ if($_REQUEST['slide']=='1' || $_REQUEST['slide']=='')
 		</table>
 
 	</div>
+
+	
 	<div style="width:100%;height:46%;margin-top:1%;position:relative">
-		<div style="z-index:1; background:white; opacity:0.5; width:100%; height:100%;position:absolute;">
+		<div style="z-index:1;   width:100%; height:100%;position:absolute;">
 		</div>
 		
 		<div  style="width:40%;height:96%;margin-top:1.8%;z-index:3;position:absolute;margin-left:2%;" >
@@ -59,18 +62,18 @@ if($_REQUEST['slide']=='1' || $_REQUEST['slide']=='')
 					<div style="width:59%;height:100%;display:inline-block;margin-right:1%;">
 					</div>
 
-					<div style="width:39%;height:100%;display:block;position:relative; right: -60%; top: -100%;">
-						<div style="height:100%; width:100%; z-index:1; background:white; opacity:0.5;position:relative;display:inline-block;">
+					<div style="width:39%;height:100%;display:block;position:relative; right: -50%; top: -100%;">
+						<div style="height:100%; width:100%; z-index:1;position:relative;display:inline-block;">
 						</div>
-						<div  style="height:100%; width:95%;margin-left:5%; z-index:100;position:relative;display:inline-block; top: -110%;">
-							<div class="status" style="visibility:hidden" id="Graphs_BOTH">
+						<div  style="height:100%; width:95%;margin-left:5%; z-index:100;position:relative;display:inline-block; top: -95%;">
+							<div class="status" style="" id="Graphs_BOTH">
 								<span style="height: 10%;" class="blue_bar" id="Graphs_BOTH_1">&nbsp;</span><br/>
 								<span style="height: 10%;" class="yellow_bar" id="Graphs_BOTH_2">&nbsp;</span><?php /*?> 097%<br /><?php */ ?><br/>
 								<span style="height: 10%;" class="pink_bar" id="Graphs_BOTH_3">&nbsp;</span>
 							</div>
-							<div class="user_status" style="visibility:hidden" id="Graphs_YOU">
+							<div class="user_status" style="margin-top:7%;" id="Graphs_YOU">
 								<div class="clearfix">
-									<div style="height: 30%;line-height: 2;" class="user_box" id="Graphs_YOU_4">you</div>
+									<div style="height: 33%;line-height: 2;" class="user_box" id="Graphs_YOU_4">you</div>
 									<div class="user_stat">
 										<span style="height: 10%;" class="blue_bar" id="Graphs_YOU_2">&nbsp;</span><br/>
 										<span style="height: 10%;" class="yellow_bar" id="Graphs_YOU_1">&nbsp;</span><br/>
@@ -80,7 +83,7 @@ if($_REQUEST['slide']=='1' || $_REQUEST['slide']=='')
 							</div>
 							<div class="user_status" id="Graphs_ME" style="opacity:1;z-index:10;">
 								<div class="clearfix" style="cursor:pointer">
-									<div style="height: 30%;line-height: 2;" class="user_box" <? echo GetMyColor($_SESSION['UsErIdFrOnT']); ?>
+									<div style="height: 33%;line-height: 2;" class="user_box" <? echo GetMyColor($_SESSION['UsErIdFrOnT']); ?>
 										 onClick="Updatebox(<? echo $_SESSION['UsErIdFrOnT']; ?>,1);document.getElementById('CurrentSelectedUserId').value='<? echo $_SESSION['UsErIdFrOnT']; ?>';">
 										me
 									</div>
@@ -94,17 +97,44 @@ if($_REQUEST['slide']=='1' || $_REQUEST['slide']=='')
 
 						</div></div></div>
 
-				<div style="height:49%;width:100%;background:white;margin-top:1%;opacity: 0.7;">
+				<div style="height:49%;width:100%;margin-top:1%;">
 				</div>
 			</div>
 		</div>	<!-- end #detail_box -->
 
 	</div>
 	<div style="width:100%;height:43%;margin-top:1%;position:relative;">
-		<div style="z-index:1; background:white; opacity:0.5; width:100%; height:100%;position:absolute;">
+		<div style="z-index:1;  width:100%; height:100%;position:absolute;">
 		</div>
 		<div style="z-index:3;width:100%; height:100%;position:absolute;">
-		hola
+			<div style="width:95%;margin-left:2.5%;height:100%;">
+				<div align="left" style="font-size:1.5vw;width:80%;vertical-align:top;color:white;"><strong><? if($GetUsersQryRow['aboutme']!=''){?>&nbsp;<? echo stripslashes($GetUsersQryRow['aboutme']);?><? }?></strong></div>
+				
+				<div style="width:95%;margin-left:2.5%;height:100%;margin-top:4%;">
+				<? if($GetUSerWantQryRow['my_gender']!=''){?>
+			<? if($GetUSerWantQryRow['want_gender1']!='' && $GetUSerWantQryRow['lookingfor1']!=''){?>
+				<h1 style="font-size:1vw;font-weight:normal;color:white;"><strong><? echo $GetUSerWantQryRow['my_gender'];?> seeks <? echo $GetUSerWantQryRow['want_gender1'];?> for <? echo GetName1("lookingfor","name","id",$GetUSerWantQryRow['lookingfor1']);?></strong></h1>
+			<? }?>
+			
+			<? if($GetUSerWantQryRow['want_gender2']!='' && $GetUSerWantQryRow['lookingfor2']!=''){?>
+				<h1 style="font-size:1vw;font-weight:normal;color:white;margin-top:1%;"><strong><? echo $GetUSerWantQryRow['my_gender'];?> seeks <? echo $GetUSerWantQryRow['want_gender2'];?> for <? echo GetName1("lookingfor","name","id",$GetUSerWantQryRow['lookingfor2']);?></strong></h1>
+			<? }?>
+			<? if($GetUSerWantQryRow['want_gender3']!='' && $GetUSerWantQryRow['lookingfor3']!=''){?>
+				<h1 style="font-size:1vw;font-weight:normal;color:white;margin-top:1%;"><strong><? echo $GetUSerWantQryRow['my_gender'];?> seeks <? echo $GetUSerWantQryRow['want_gender3'];?> for <? echo GetName1("lookingfor","name","id",$GetUSerWantQryRow['lookingfor3']);?></strong></h1>
+			<? }?>
+			<? if($GetUSerWantQryRow['want_gender4']!='' && $GetUSerWantQryRow['lookingfor4']!=''){?>
+				<h1 style="font-size:1vw;font-weight:normal;color:white;margin-top:1%;"><strong><? echo $GetUSerWantQryRow['my_gender'];?> seeks <? echo $GetUSerWantQryRow['want_gender4'];?> for <? echo GetName1("lookingfor","name","id",$GetUSerWantQryRow['lookingfor4']);?></strong></h1>
+			<? }?>
+			<? if($GetUSerWantQryRow['want_gender5']!='' && $GetUSerWantQryRow['lookingfor5']!=''){?>
+				<h1 style="font-size:1vw;font-weight:normal;color:white;margin-top:1%;"><strong><? echo $GetUSerWantQryRow['my_gender'];?> seeks <? echo $GetUSerWantQryRow['want_gender5'];?> for <? echo GetName1("lookingfor","name","id",$GetUSerWantQryRow['lookingfor5']);?></strong></h1>
+			<? }?>
+			<? if($GetUSerWantQryRow['want_gender6']!='' && $GetUSerWantQryRow['lookingfor6']!=''){?>
+				<h1 style="font-size:1vw;font-weight:normal;color:white;margin-top:1%;"><strong><? echo $GetUSerWantQryRow['my_gender'];?> seeks <? echo $GetUSerWantQryRow['want_gender6'];?> for <? echo GetName1("lookingfor","name","id",$GetUSerWantQryRow['lookingfor6']);?></strong></h1>
+			<? }?>
+	  <? }?>
+				</div>
+				
+			</div>
 		</div>
 	</div>
 
@@ -245,32 +275,42 @@ else if($_REQUEST['slide']=='10')
 			{
 		while($GetUsersQryRow3=mysql_fetch_array($GetUsersQryRs3))
 		{
-		
-		?><li  style="width:93%;height:110px; vertical-align: top; margin-bottom:10px;" onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="display:inline-block;height:100px; vertical-align: top;">
-				  <tr style="height:100px; vertical-align: top;">
-					<td style="height:100px;background-color:gray;text-transform:uppercase;width:20%;" align="center" nowrap="nowrap">
-						<span style="color:#FFFFFF;font-size:12px;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span><br />
-						<span style="color:#FFFFFF;font-size:20px;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['startdate']));?></span><br />
-						<div style="font-size:12px;text-transform:none;">through</div>
-						<span style="color:#FFFFFF;font-size:12px;"><? echo date("l",strtotime($GetUsersQryRow3['enddate']));?></span><br />
-						<span style="color:#FFFFFF;font-size:20px;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['enddate']));?></span>
-					</td>
-					<td width="45%"><? if($GetUsersQryRow3['picture']!='' && file_exists("Ideas/".$GetUsersQryRow3['picture'])){?><img src="Ideas/<? echo $GetUsersQryRow3['picture'];?>" style="height:110px; vertical-align: top;width:100%;margin-top:0px;" /><? }else{?>&nbsp;<? } ?></td>
-					<td width="35%" height="60%">
-					<div style="width:95%;height:100%;margin-left:10px;border-style:solid; border-color:black;height:50%; background:black;position:relative;margin-bottom:5px;">
-					<span style="color:#999999;font-size:11px;"><? echo stripslashes($GetUsersQryRow3['place']);?></span><br />
-					<span style="color:#FFFFFF;font-size:12px;"><? echo stripslashes($GetUsersQryRow3['title']);?></span><br />
-					</div>
-					<div style="position:relative;width:62px;height:62px; display:inline-block;margin-left:10px;background:black;position:relative;"><? if($GetUsersQryRow3['amb_picture_main']!='' && file_exists("ambassador/".$GetUsersQryRow3['amb_picture_main'])){?>		
-			<img src="ambassador/<? echo$GetUsersQryRow3['amb_picture_main'];?>" height="52" width="52" style="margin-top:5px; margin-left:5px;" border="0" /><? } ?>
-					</div>
-					<div style="color:#F88129;font-size:24px;text-align:right;width:calc(100% - 73px);display:inline-block;float:right;background:black;position:relative;height:62px;" >
-					<br /> <span style="font-size:12px;text-align:center;">$</span><strong><? echo stripslashes($GetUsersQryRow3['cost']);?></strong></div>
-					</td>
+		 
+		?>
+		<li class="listItem2"  onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
+				<div class="idea_info_left2">
+								<span style="color:#FFFFFF;font-size:2vh;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span>			<br />
+								<span style="color:#FFFFFF;font-size:2vh;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['startdate']));?></span><br />
+								<div style="font-size:12px;text-transform:none;">through</div>
+								<span style="color:#FFFFFF;font-size:2vh;"><? echo date("l",strtotime($GetUsersQryRow3['enddate']));?></span><br />
+								<span style="color:#FFFFFF;font-size:2vh;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['enddate']));?></span>
+				</div>
+					<div class="idea_pic2" onclick="setIdeaSelected(<? echo $GetUsersQryRow3['id']?>);ClickIdeas(<? echo $GetUsersQryRow3['id']?>);">
+							<? if($GetUsersQryRow3['picture']!='' && file_exists("Ideas/".$GetUsersQryRow3['picture'])){?><img src="Ideas/<? echo $GetUsersQryRow3['picture'];?>" height="100%" width="100%" style="margin-top:0px;" /><? }else{?>&nbsp;<? } ?>
+					<td width="35%" height="60px" style="vertical-align:top;">
 					
-				  </tr>
-				</table>
+					</div>
+		
+		<div class="idea_info_rigth2">
+								<div style="width:100%;height:49%; background:black;position:relative;margin-bottom:1%;padding-top:3%;">
+									<div class="row" style="margin-top:5%;height:20%;min-height:20%;margin-top:2%;
+height:auto !important;">
+										<span style="color:#999999;font-size:0.95vw;"><? echo stripslashes($GetUsersQryRow3['place']);?></span>
+									</div>
+									<div class="row" style="margin-top:3%;">
+										<span style="color:#FFFFFF;font-size:1vw;"><? echo stripslashes($GetUsersQryRow3['title']);?></span>
+									</div>
+								</div>
+					<div style="position:relative;width:39%;height:49%; display:inline-block;background:black;position:relative;"><? if($GetUsersQryRow3['amb_picture_main']!='' && file_exists("ambassador/".$GetUsersQryRow3['amb_picture_main'])){?>		
+			<img src="ambassador/<? echo$GetUsersQryRow3['amb_picture_main'];?>" height="90%" width="90%" style="margin-top:5%; margin-left:5%;" onclick="UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,'11');currentSlide(1);" border="0" /><? } ?>
+			
+					</div>
+					<div style="color:#F88129;font-size:2vh;text-align:right;width:59%;display:inline-block;float:right;background:black;position:relative;height:49%;" >
+					<div class="row" style="height:39%;"> </div>
+					<div class="row" style="float:bottom;font-size:2.5vh;text-align:center;"> <span style="font-size:1.5vw;">$</span><strong><? echo stripslashes($GetUsersQryRow3['cost']);?></strong></div></div>
+							</div>
+	
+					
 			
 			</li>
 			
