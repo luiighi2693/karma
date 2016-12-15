@@ -550,8 +550,8 @@ else if($_REQUEST["Type"]=="LoadEmail")
 			else if($TYPE=='goout') //if introductio email 
 			{
 				if($totgetDetailQry>0)
-				{	
-				
+				{
+                    error_reporting(E_ERROR | E_PARSE);
 				
 					$getDetailQryRow=mysql_fetch_array($getDetailQryRs);
 					$SEL="SELECT * from ideas where id='".$getDetailQryRow['bucket_id']."'";
@@ -576,7 +576,7 @@ else if($_REQUEST["Type"]=="LoadEmail")
 					if($payby=='SPLIT'){$payby_3='checked';}
 					if($payby=='T.C. OF Y.'){$payby_4='checked';}
 
-                    list($day,$month, $year) = split('[/.-]', $getDetailQryRow['outdate']);
+                    list($month, $day, $year) = split('[/.-]', $getDetailQryRow['outdate']);
 					$date = date("D, M j, Y", mktime(0,0,0,$month, $day, $year));
 					
 					$ret.='<div style="height: 70%; display: block;">
@@ -586,8 +586,8 @@ else if($_REQUEST["Type"]=="LoadEmail")
 								 </div>
 								 <div style="width: 100%;">
 									 <div style="margin-top: 4%;padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$outtype.'</div>
-									 <div style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$date.' - '.$getDetailQryRow['outdatetime'].'</div>
 									 <div  style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$relationtype.'</div>
+									 <div style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$date.' - '.$getDetailQryRow['outdatetime'].'</div>
 									 <div  style="margin-bottom: 4%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$payby.'</div>  
 										<div style="width: 100%;padding-bottom: 2%;">
 										 	<img src="images/goout_holder.jpg" width="90%" />

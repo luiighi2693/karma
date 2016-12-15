@@ -137,15 +137,7 @@ function addAnswer(){
     $query = "INSERT INTO torb_question_answers SET id_question=".$id_question.", userid_from=".$id_user.", userid_to=".$id_userTo.", answer='".$answer."'";
 
     $q = mysql_query($query);
-
-
-
-    $query = mysql_query("SELECT * FROM torb_question_answers WHERE id_question=".$id_question." and userid_from=".$id_user);
-
-    $queryArray = mysql_fetch_array($query);
-
-    echo $queryArray['id'];
-
+    echo mysql_insert_id();
 }
 
 

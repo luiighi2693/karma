@@ -24,7 +24,7 @@ $Tot2=mysql_affected_rows();
 <div class="header">
 			<div class="top_info">
 				<div class="icon_holder">
-				<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_outing.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_outing_black.png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
+				<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_outing_white.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_outing_black.png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
 				
 				</div>
 				<div class="text_holder">

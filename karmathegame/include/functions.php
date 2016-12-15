@@ -362,11 +362,11 @@ function GetMessageTypeIcon($type){
     }
     else if($type=='goout')
     {
-        $ret="<img src='images/outingWhiteFill.png' align='absmiddle' border=0 width='25' height='30' />";
+        $ret="<img src='images/icon_outing_white.png' align='absmiddle' border=0 width='25' height='30' />";
     }
     else if($type=='safe')
     {
-        $ret="<img src='images/safeWhiteFill.png' align='absmiddle' border=0 width='25' height='30' />";
+        $ret="<img src='images/icon_safe.png' align='absmiddle' border=0 width='25' height='30' />";
     }
     else if($type=='socialLinks')
     {

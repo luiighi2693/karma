@@ -46,7 +46,12 @@ function POPUPfrmcheck(formid)
 	}
 	else if(formid=='goout')
 	{
-		SAVE_POPUP_GOOUT(document.frmpopup.userid_from.value,document.frmpopup.userid_to.value,document.frmpopup.Hidouttype.value,document.frmpopup.Hidrelationtype.value,document.frmpopup.Hidwhomidea.value,document.frmpopup.Hidpayby.value,document.frmpopup.outdate.value, document.getElementById('goOutTime').value, document.getElementById('id_bucket').value);
+		if(document.getElementById("goOutTime").value == ""){
+			alert('please, complete all the fields');
+			return false;
+		}else{
+			SAVE_POPUP_GOOUT(document.frmpopup.userid_from.value,document.frmpopup.userid_to.value,document.frmpopup.Hidouttype.value,document.frmpopup.Hidrelationtype.value,document.frmpopup.Hidwhomidea.value,document.frmpopup.Hidpayby.value,document.frmpopup.outdate.value, document.getElementById('goOutTime').value, document.getElementById('id_bucket').value);
+		}
 	}
 	else if(formid=='chat')
 	{

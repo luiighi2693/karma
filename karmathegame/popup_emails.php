@@ -30,10 +30,7 @@ if (isset($_GET['mailid'])) {
 				<img src="images/icon_email.png" border="0" alt="">
 			</div>
 			<div class="text_holder">
-				EMAIL
-			</div>
-			<div class="icon_holder"style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
+				email
 			</div>
 		</div>
 	</div>
@@ -94,14 +91,6 @@ if (isset($_GET['mailid'])) {
 						</div>
 					<? }?>
 				</div>
-				<div style="width:100%; height:30%;  font-size:3vh;display: inline-block;margin-top: 3%;">
-					<a href="#"  onclick="DeleteEmailList();">
-						<img src="images/button_delete.png" border="0" style="width:30%;" >
-					</a>
-					<a href="#"  onclick="reply(mailSelected);">
-						<img src="images/button_reply.png" border="0" style="width:30%;" >
-					</a>
-				</div>
 			</div>
 			<div style="width: 55%; display: block;">
 				<div style="width:100%; text-align: center" >MESSAGE</div>
@@ -110,15 +99,41 @@ if (isset($_GET['mailid'])) {
 						Please select message from left side.
 					</div>
 				</div>
-				<div>
-					<img id="haloIcon" onclick="promptChat()" style="width: 10%;border: solid 1px;margin-top: 1%;float: right;display: none;" src="images/halo_glint_transp.png" alt=""/>
-					<img id="bombIcon" onclick="hideUser()" style="width: 10%;border: solid 1px;margin-top: 1%;float: right;display: none;" src="images/bomb_expl_transp.png" alt=""/>
-				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="footer"></div>
+	<div class="footer">
+		<div class="centered_info">
+			<div class="button">
+				<a href="#" onclick="hide_pop();return false;">
+					<img src="images/button_close.png" border="0" />
+				</a>
+			</div>
+			<div class="button">
+				<a href="#"  onclick="reply(mailSelected);">
+					<img src="images/button_reply.png" border="0"" >
+				</a>
+			</div>
+			<!--todo profile here-->
+			<div class="button">
+				<a href="#"  onclick="DeleteEmailList();">
+					<img src="images/button_delete.png" border="0"" >
+				</a>
+			</div>
+			<div id="bombIcon" class="button" style="border: solid 1px;display: none;">
+				<a href="#"  onclick="hideUser();">
+					<img src="images/bomb_expl_transp.png" border="0"" >
+				</a>
+			</div>
+			<div id="haloIcon" class="button" style="border: solid 1px;display: none;">
+				<a href="#"  onclick="promptChat();">
+					<img src="images/halo_glint_transp.png" border="0"" >
+				</a>
+			</div>
+
+		</div>
+	</div>
 </form>	
 </body>
 </html>

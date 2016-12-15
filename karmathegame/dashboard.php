@@ -821,7 +821,7 @@ function showSlides(n) {
 	}
 
 	function saveAnswer(userId, questionId, userToId, type, typeTable, typeTableId, accepted) {
-	    if (questionId = null){
+	    if (questionId == null){
 	        alert("Sorry, you don't have a question without answer with this user now!");
         }
 		if(document.getElementById("txtAreaUser").value == ""){
@@ -838,6 +838,7 @@ function showSlides(n) {
 					"answer" : document.getElementById("txtAreaUser").value
 				},
 				success: function(data){
+					console.log(data);
 					sendEmail(userToId, userId, type, typeTable, typeTableId+","+data, accepted);
 				}
 			});
