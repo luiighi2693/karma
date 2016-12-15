@@ -1144,23 +1144,26 @@ function showSlides(n) {
 	
 	}
 	function frmupdatesave() {
-		//document.getElementById('Hidsubmit').value = '1';
-		jQuery.ajax({
-			type: "POST",
-			url: "util.php",
-			data: {
-				"method" : "updateInfoUser",
-				"userId" :  userId,
-				"username": document.getElementById("username").value,
-				"password": document.getElementById("passwordUser").value,
-				"aboutme": document.getElementById("aboutmeUser").value
-			},
-			success: function(data){
-				console.log(data);
-				hide_pop();
-				show_pop('popup_dashboard2.php');
-			}
-		});
+		if(document.getElementById("username").value == "" || document.getElementById("passwordUser").value == ""){
+			alert("please, complete all the fields");
+		}else{
+			jQuery.ajax({
+				type: "POST",
+				url: "util.php",
+				data: {
+					"method" : "updateInfoUser",
+					"userId" :  userId,
+					"username": document.getElementById("username").value,
+					"password": document.getElementById("passwordUser").value,
+					"aboutme": document.getElementById("aboutmeUser").value
+				},
+				success: function(data){
+					console.log(data);
+					hide_pop();
+					show_pop('popup_dashboard2.php');
+				}
+			});
+		}
 	}
 
 	function searchUser() {
