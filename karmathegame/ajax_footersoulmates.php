@@ -75,31 +75,40 @@ if($_REQUEST['type']=='Ideas' && $allselected!='')
 		while($GetUsersQryRow3=mysql_fetch_array($GetUsersQryRs3))
 		{
 		
-		?><li  style="width:100%;height:100px;border:none;margin-bottom:10px;background:none;position:relative;vertical-align: top;" onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
-				<table width="100%" height="100%;" border="0" cellspacing="0" cellpadding="0" style="display:inline-block;vertical-align:top;">
-				  <tr>
-					<td style="vertical-align: top;background-color:gray;text-transform:uppercase;width:20%;height:100px;" align="center" onclick="ClickIdeas(<? echo $GetUsersQryRow3['id']?>)">
-						<span style="color:#FFFFFF;font-size:12px;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span><br />
-						<span style="color:#FFFFFF;font-size:20px;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['startdate']));?></span><br />
-						<div style="font-size:12px;text-transform:none;">through</div>
-						<span style="color:#FFFFFF;font-size:12px;"><? echo date("l",strtotime($GetUsersQryRow3['enddate']));?></span><br />
-						<span style="color:#FFFFFF;font-size:20px;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['enddate']));?></span>
-					</td>
-					<td  onclick="setIdeaSelected(<? echo $GetUsersQryRow3['id']?>);ClickIdeas(<? echo $GetUsersQryRow3['id']?>);"><? if($GetUsersQryRow3['picture']!='' && file_exists("Ideas/".$GetUsersQryRow3['picture'])){?><img src="Ideas/<? echo $GetUsersQryRow3['picture'];?>" style="margin-top:0px; height:100px;width:100%;" /><? }else{?>&nbsp;<? } ?></td>
-					<td style="vertical-align: top;" width="35%" height="60%">
-					<div style="width:95%;height:100%;margin-left:10px;border-style:solid; border-color:black;height:50%; background:black;position:relative;margin-bottom:5px;">
-					<span style="color:#999999;font-size:11px;"><? echo stripslashes($GetUsersQryRow3['place']);?></span><br />
-					<span style="color:#FFFFFF;font-size:12px;"><? echo stripslashes($GetUsersQryRow3['title']);?></span><br />
-					</div>
-					<div style="position:relative;width:62px;height:62px; display:inline-block;margin-left:10px;background:black;position:relative;"><? if($GetUsersQryRow3['amb_picture_main']!='' && file_exists("ambassador/".$GetUsersQryRow3['amb_picture_main'])){?>		
-			<img <? if( $GetUsersQryRow3['ambassador']!='') {?> onclick="UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,'11');currentSlide(1);" <? } ?> src="ambassador/<? echo$GetUsersQryRow3['amb_picture_main'];?>" height="52" width="52" style="margin-top:5px; margin-left:5px;" border="0" /><? } ?>
-					</div>
-					<div style="color:#F88129;font-size:24px;text-align:right;width:calc(100% - 73px);display:inline-block;float:right;background:black;position:relative;height:62px;" >
-					<br /> <span style="font-size:12px;text-align:center;">$</span><strong><? echo stripslashes($GetUsersQryRow3['cost']);?></strong></div>
-					</td>
+		?><li class="listItem2"  onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
+				<div class="idea_info_left2" onclick="ClickIdeas(<? echo $GetUsersQryRow3['id']?>)">
+								<span style="color:#FFFFFF;font-size:2vh;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span>			<br />
+								<span style="color:#FFFFFF;font-size:2vh;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['startdate']));?></span><br />
+								<div style="font-size:12px;text-transform:none;">through</div>
+								<span style="color:#FFFFFF;font-size:2vh;"><? echo date("l",strtotime($GetUsersQryRow3['enddate']));?></span><br />
+								<span style="color:#FFFFFF;font-size:2vh;font-weight:bold;"><? echo date("M d",strtotime($GetUsersQryRow3['enddate']));?></span>
+				</div>
+					<div class="idea_pic2" onclick="setIdeaSelected(<? echo $GetUsersQryRow3['id']?>);ClickIdeas(<? echo $GetUsersQryRow3['id']?>);">
+							<? if($GetUsersQryRow3['picture']!='' && file_exists("Ideas/".$GetUsersQryRow3['picture'])){?><img src="Ideas/<? echo $GetUsersQryRow3['picture'];?>" height="100%" width="100%" style="margin-top:0px;" /><? }else{?>&nbsp;<? } ?>
+					<td width="35%" height="60px" style="vertical-align:top;">
 					
-				  </tr>
-				</table>
+					</div>
+		
+		<div class="idea_info_rigth2">
+								<div style="width:100%;height:49%; background:black;position:relative;margin-bottom:1%;padding-top:3%;">
+									<div class="row" style="margin-top:5%;height:20%;min-height:20%;margin-top:2%;
+height:auto !important;">
+										<span style="color:#999999;font-size:0.95vw;"><? echo stripslashes($GetUsersQryRow3['place']);?></span>
+									</div>
+									<div class="row" style="margin-top:3%;">
+										<span style="color:#FFFFFF;font-size:1vw;"><? echo stripslashes($GetUsersQryRow3['title']);?></span>
+									</div>
+								</div>
+					<div style="position:relative;width:39%;height:49%; display:inline-block;background:black;position:relative;"><? if($GetUsersQryRow3['amb_picture_main']!='' && file_exists("ambassador/".$GetUsersQryRow3['amb_picture_main'])){?>		
+			<img src="ambassador/<? echo$GetUsersQryRow3['amb_picture_main'];?>" height="90%" width="90%" style="margin-top:5%; margin-left:5%;" onclick="UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,'11');currentSlide(1);" border="0" /><? } ?>
+			
+					</div>
+					<div style="color:#F88129;font-size:2vh;text-align:right;width:59%;display:inline-block;float:right;background:black;position:relative;height:49%;" >
+					<div class="row" style="height:39%;"> </div>
+					<div class="row" style="float:bottom;font-size:2.5vh;text-align:center;"> <span style="font-size:1.5vw;">$</span><strong><? echo stripslashes($GetUsersQryRow3['cost']);?></strong></div></div>
+							</div>
+	
+					
 			
 			</li>
 			

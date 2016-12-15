@@ -9,8 +9,8 @@ function openWin2(pageToLoad, winName, width, height, center,scrollbar){
 }
 function openWinFullwidth(pageToLoad, winName, width, height, center,scrollbar){
 	  if ((parseInt(navigator.appVersion) >= 4 ) && (center)){
-		        xposition = (screen.width - width) / 2;
-		        yposition = (screen.height - height) / 2;
+		        xposition = 0;
+		        yposition =0;
 	args = "width=" + screen.width + "," + "height=" + screen.height + "," + "location=0," + "menubar=0," + "resizable=0," + "scrollbars=" + scrollbar + "," + "status=1," + "titlebar=0," + "toolbar=0," + "hotkeys=0," + "screenx=" + xposition + "," + "screeny=" + yposition + "," + "left=" + xposition + "," + "top=" + yposition;
 	newWindow = window.open(pageToLoad,winName,args)
 	window.focus
@@ -122,9 +122,9 @@ function ClickAvatar2(id,slide)
 {
 	if(slide==''){slide=1;}
 	document.getElementById('CurrentSelectedUserId').value=id;
-	DisplayGraph(id);
+	// DisplayGraph(id);
 	Updatebox(id,slide);
-	DisplayGraphPercent(id);
+	// DisplayGraphPercent(id);
 
 	displayGraph(id);
 }

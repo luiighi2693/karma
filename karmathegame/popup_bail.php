@@ -16,18 +16,16 @@ include("checklogin.php");
                 <img src="images/icon_bail.png" border="0" alt="">
             </div>
             <div class="text_holder">
-                BAIL
+               bail
             </div>
-            <div class="icon_holder"style="float:right;">
-                <a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" alt=""/></a>
-            </div>
+            
         </div>
     </div>
 
     <div class="middlesection">
         <div class="centered_info">
             <div style="text-align:center;margin-left:auto;margin-right:auto; background-color: #c1c1bf; width: 70%;">
-                <h1 style="text-align:center;font-size: 3vh;color: black;    padding-top: 1%;">IF YOU WOULD LIKE TO DESTROY YOUR AVATAR AND DELETE THE PROFILE, YOU MAY CHECK THE BOX BELOW THEN PRESS THE DESTROY BUTTON. ALL CHATS, PICTURES, FRIENDS LINKS AND EMAILS WILL BE DELETED FROM THE SYSTEM. THIS CANNOT BE UNDEONE.</h1>
+                <h1 style="text-align:center;font-size: 3vh;color: black;    padding-top: 1%;">IF YOU WOULD LIKE TO DESTROY YOUR AVATAR AND DELETE THE PROFILE, YOU MAY CHECK THE BOX BELOW THEN PRESS THE DESTROY BUTTON. ALL CHATS, PICTURES, FRIENDS LINKS AND EMAILS WILL BE DELETED FROM THE SYSTEM. THIS CANNOT BE UNDONE.</h1>
 
                 <div style="    width: 100%;padding-top: 1%;padding-bottom: 7%;">
                     <input id="checkboxToDeleteAccount" style="zoom:2;

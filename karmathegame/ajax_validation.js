@@ -490,7 +490,7 @@ function LoadFooterSoulmates(type)
 		}
 		document.getElementById('Ideas').src="images/icon_idea.png";
 		var str=document.getElementById("FooterSoulmates").value;
-		
+		var iconcolor=document.getElementById('iconcolor').value;
 		if(str.indexOf(type)>=0)
 		{
 			str=str.replace(type,'');
@@ -506,8 +506,13 @@ function LoadFooterSoulmates(type)
 				document.getElementById('ThumbsUp_TOP').style.display='none';
 			}
 			if(type=='Heart')
-			{
-				document.getElementById('Heart').src="images/icon_heart.png";
+			{	
+				if(iconcolor=='white'){
+					document.getElementById('Heart').src="images/icon_heart_white.png";
+				}else{
+					document.getElementById('Heart').src="images/icon_heart_black.png";
+				}	
+					
 				document.getElementById('Heart_TOP').style.display='none';
 			}
 		}

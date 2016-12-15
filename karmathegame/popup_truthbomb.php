@@ -22,11 +22,9 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 				<img src="images/icon_bomb.png" border="0" alt="">
 			</div>
 			<div class="text_holder">
-				TRUTH OR BOMB
+				truth or bomb
 			</div>
-			<div class="icon_holder"style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
-			</div>
+
 		</div>
 	</div>
 
@@ -43,25 +41,36 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 				<div style="width: 50%; margin-right: 2%;margin-top:1%;">
 					<h3 style="color: white;font-size:3.5vh;">
 						<?
-						$questions = mysql_query('select * FROM torb_questions');
-						$questionsArray = mysql_fetch_array($questions);
-						$cantQuestions= mysql_num_rows($questions);
+						$questions = mysql_query('select id FROM torb_questions ORDER BY id');
+						while($row = mysql_fetch_array($questions)){
+							$questionsArray[] = (string)$row['id'];
+						}
 
-						$questionWithAnswer = false;
-						$cont = 0;
-						while (!$questionWithAnswer){
-							$questionNumber = rand(1,$cantQuestions);
-							$verifyAnswerUser = mysql_query('select * FROM torb_question_answers WHERE id_question='.$questionNumber.', id_user='.$actualUserArray['id']);
-							if(empty($verifyAnswerUser)){
-								$questionSelected =  mysql_query('select * FROM torb_questions WHERE id='.$questionNumber);
-								$questionSelectedArray = mysql_fetch_array($questionSelected);
-								echo $questionSelectedArray['torb_question'];
-								$questionWithAnswer=true;
+						$questionsWithAnswer = mysql_query('SELECT DISTINCT id_question from torb_question_answers WHERE userid_from='.$actualUserArray['id'].' AND userid_to='.$_REQUEST['id'].' ORDER BY id_question');
+						while($row = mysql_fetch_array($questionsWithAnswer)){
+							$questionsWithAnswerArray[] = (string)$row['id_question'];
+						}
+
+						if(mysql_num_rows($questions) <= mysql_num_rows($questionsWithAnswer)){
+							echo 'you don\'t have a question without answer with this user now!';
+							$questionSelectedArray['id'] = null;
+						}else{
+//							echo count($questionsWithAnswerArray);
+							if(count($questionsWithAnswerArray)==0){
+								$result[] = $questionsArray;
 							}else{
-								$cont++;
-								if($cont>999){
-									$questionWithAnswer=true;
+								$result[] = array_diff($questionsArray, $questionsWithAnswerArray);
+							}
+							$questionNumberAvailable = rand(0,count($result[0])-1);
+							$count = 0;
+							foreach ($result[0] as $value){
+								if ($count == $questionNumberAvailable){
+									$questionSelected =  mysql_query('select * FROM torb_questions WHERE id='.$value);
+									$questionSelectedArray = mysql_fetch_array($questionSelected);
+									echo $questionSelectedArray['torb_question'];
+									break;
 								}
+								$count++;
 							}
 						}
 						?>
@@ -106,7 +115,13 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 	</div>
 
 	<div class="footer">
-		<div class="button" style="margin-right: 3%;">
+	<div class="centered_info">
+	<div class="button" >
+				<a href="#" onclick="hide_pop();return false;">
+					<img alt="" src="images/button_close.png" border="0" />
+				</a>
+			</div>
+		<div class="button" >
 			<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$_REQUEST['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
 		</div>
 		<span id="MessageId" style="color:#FF0000;"></span>

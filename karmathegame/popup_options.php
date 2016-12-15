@@ -15,7 +15,8 @@
  <div class="header">
         <div class="top_info">
             <div class="icon_holder">
-                <img src="images/icon_gears.png" id="icongears" border="0" alt="">
+            <? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_gears.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_gears_black.png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
+               
             </div>
             <div class="text_holder" style="width:48%">
 		Options
@@ -28,9 +29,7 @@
 		 >aDvAnCeD
             </div>
           
-            <div class="icon_holder"style="float:right;">
-                <a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" alt=""/></a>
-            </div>
+           
         </div>
     </div>
     <div class="middlesection">
@@ -40,20 +39,41 @@
         	<p style="color:white; font-size:3vh;">audio</p>	
         	<div class="verticalsplit" style="margin-top:1%;">
         	
+        		<div class="musicoptions" id="musicoptions" style="float:right;padding-left:1%;margin-top:5%;" >
+        			<div style="font-size:1vw;" class="row" style="margin-top:5%;">
+        				<div class="blocks_4">
+        				soft
+        				</div>
+        				<div class="blocks_4">
+        				folk
+        				</div>
+        				<div class="blocks_4" style="width:22%;">
+        				ska
+        				</div>
+        				<div class="blocks_4" style="font-size:0.9vw;">
+        				techno
+        				</div>
+        			
+        			</div>
+        		<input type="range" class="range1"  onchange=" changesong(this.value);" name="range_control" min="0" max="3" value="0" /> <output for="range_control" name="range_control_value" ></output>
+        		
+        		</div>
         			<div class="musicoptions" id="musicoptions" >
+        			<form>
                				 <div class="centered_info" style="padding-top:2%;">
                			<div class="row" >	 
-               				<p style="color:white;font-size:2vh;">music</p>
+               				<p style="color:white;font-size:1vw;">music</p>
 				</div>
-				<div class="row"  style="height:20%;">
-               				<div class="icon_holder" style="width:10%;">
-               				<img src="images/icon_guitar_white.png" border="0" alt=""/>
+				<div class="row"  style="height:20%;margin-top:2%;">
+               				<div class="icon_holder" style="width:20%;">
+               				<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_guitar_white.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_guitar_black.png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
+               				
                				</div>
-               			 <div style="display:inline-block;width:70%;float:right;">
+               			 <div style="display:inline-block;width:70%;float:right;text-align:right;">
                					<div class="row" style="height:50%;">
-               						<p style="color:white;font-size:2vh;">on / off</p>
+               						<p style="color:white;font-size:1vw;">on / off</p>
                     				</div>
-               					<div class="row" style="height:50%;margin-left:2%;">
+               					<div class="row" style="height:50%;margin-right:2%;">
                						<input type="checkbox" id="radio5" name="radio1" onclick="control(1);"/>
                     					<input type="checkbox" id="radio5" name="radio2" onclick="control(2);"/>
                     				</div>
@@ -61,38 +81,40 @@
                			 
                			 </div>
                			 
-               			 <div class="row" style="margin-top:2%;" >	 
-               				<p style="color:white;font-size:2vh;">Sound Effects</p>
+               			 <div class="row" style="margin-top:5%;" >	 
+               				<p style="color:white;font-size:1vw;">Sound Effects</p>
 				</div>
                    		<div class="row" style="height:20%;margin-top:2%;">
-                   		 	<div class="icon_holder" style="width:10%;">
-               				<img id="iconmute" src="images/icon_mute_white.png" border="0" alt=""/>
+                   		 	<div class="icon_holder" style="width:20%;">
+                   		 	<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_dove_white.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_dove_black.png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
+               				
                				</div>
-               				 <div style="display:inline-block;width:70%;float:right;">
+               				 <div style="display:inline-block;width:70%;float:right;text-align:right;">
                					<div class="row" style="height:50%;">
-               						<p style="color:white;font-size:2vh;">on / off</p>
+               						<p style="color:white;font-size:1vw;">on / off</p>
                     				</div>
-               					<div class="row" style="height:50%;margin-left:2%;">
-               						<input type="checkbox" id="radio3" name="radio5" onclick="control(3);"/>
-                    					<input type="checkbox" id="radio4" name="radio5" onclick="control(4);"/>
+               					<div class="row" style="height:50%;margin-right:2%;">
+               						<input type="checkbox" id="radio3" name="radio3" onclick="control(3);"/>
+                    					<input type="checkbox" id="radio4" name="radio4" onclick="control(4);"/>
                     				</div>
                   			 </div>
                   		  </div>
-                  		  <div class="row" style="margin-top:2%;">
+                  		  <div class="row" style="margin-top:5%;">
                   		  	 
-               				<p style="color:white;font-size:2vh;">Voices and Ai</p>
+               				<p style="color:white;font-size:1vw;">Voices and Ai</p>
 					</div>
                   		  <div class="row" style="height:20%;margin-top:2%;">
-                   		 	<div class="icon_holder" style="width:10%;">
-               				<img src="images/icon_talking_white.png" border="0" alt=""/>
+                   		 	<div class="icon_holder" style="width:20%;">
+                   		 	<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_talking_white.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_talking_black.png".png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
+               				
                				</div>
-               				<div style="display:inline-block;width:70%;float:right;">
+               				<div style="display:inline-block;width:70%;float:right;text-align:right;">
                					<div class="row" style="height:50%;">
-               						<p style="color:white;font-size:2vh;">on / off</p>
+               						<p style="color:white;font-size:1vw;">on / off</p>
                     				</div>
-               					<div class="row" style="height:50%;margin-left:2%;">
+               					<div class="row" style="height:50%;margin-right:2%;">
                						<input type="checkbox" id="radio5" name="radio5" onclick="control(5);"/>
-                    					<input type="checkbox" id="radio5" name="radio5" onclick="control(6);"/>
+                    					<input type="checkbox" id="radio6" name="radio6" onclick="control(6);"/>
                     				</div>
                   			 </div>
                    		 </div>
@@ -116,6 +138,8 @@
                                                                   title="color3" border="0"/></a></li>
                                         <li><a href="#" onclick="color(4);"><img src="images/color4.png" alt="color4"
                                                                   title="color4" border="0"/></a></li>
+                                        <li><a href="#" onclick="color(6);"><img src="images/color6.png" alt="color5"
+                                                                  title="color6" border="0"/></a></li>
                                          <li><a href="#" onclick="color(5);"><img src="images/color5.png" alt="color5"
                                                                   title="color5" border="0"/></a></li>
                       			 
@@ -138,9 +162,9 @@
                                                                   title="Theme4" border="0"/></a></li>
                         		<li><a href="#" onclick="theme2(5);"><img src="images/theme5-small.jpg" alt="Theme5"
                                                                   title="Theme5" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(7);"><img src="images/theme6-small.jpg" alt="Theme6"
+                        		<li><a href="#" onclick="theme2(6);"><img src="images/theme6.jpg" alt="Theme6"
                                                                   title="Theme6" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(6);"><img src="images/theme7-small.jpg" alt="Theme7"
+                        		<li><a href="#" onclick="theme2(7);"><img src="images/theme7-small.jpg" alt="Theme7"
                                                                   title="Theme7" border="0"/></a></li>
                         		<li><a href="#" onclick="theme2(8);"><img src="images/theme8-small.jpg" alt="Theme8"
                                                                   title="Theme8" border="0"/></a></li>

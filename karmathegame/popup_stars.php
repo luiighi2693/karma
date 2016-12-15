@@ -22,9 +22,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 			<div class="text_holder">
 				stars
 			</div>
-			<div class="icon_holder" style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img alt="" src="images/popup_close.png" border="0" /></a>
-			</div>
+			
 				 
 		</div>
 					

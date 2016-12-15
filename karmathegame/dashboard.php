@@ -4,8 +4,8 @@ include("checklogin.php");
 
 $avatarlogo = stripslashes(GetName1("avatars", "picture", "id", $CURRENTgetuserwryRow['avatarid']));
 
-if (isset($_GET["theme"])&&isset($_GET["soundoption"])) {
-	$updateQry = mysql_query("UPDATE options set theme_number=".$_GET["theme"].", music=".$_GET["soundoption"]."  WHERE id=" . $_SESSION['UsErIdFrOnT']);
+if (isset($_GET["theme"])&&isset($_GET["soundoption"])&&isset($_GET["background"])) {
+	$updateQry = mysql_query("UPDATE options set theme_number=".$_GET["theme"].", music=".$_GET["soundoption"].",background=".$_GET["background"]." , audio=".$_GET["audio"]." WHERE id=" . $_SESSION['UsErIdFrOnT']);
 	header("location:dashboard.php");
 }
 
@@ -198,8 +198,8 @@ if ($_POST['Hidsubmit'] == '1') {
 					<div id="box8" class="rightButtons" style="margin-top: 0;"><span class="notifier_box"><? echo GetTotalIntro($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_introduction.php');"><img src="images/icon_intro.png" id="iconintro" alt="INTRODUCTION" title="INTRODUCTION" border="0"/></a> </div>
 					<div id="box9"  class="rightButtons"><span class="notifier_box"><? echo GetTotalChat($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_chat.php');Callchateverysec();"><img src="images/icon_chat.png" id="iconchat" alt="CHAT" title="CHAT" border="0"/></a> </div>
 					<div id="box11" class="rightButtons"><span class="notifier_box"><? echo GetTotalGroups($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_groups.php');"><img src="images/icon_group.png" id="icongroup" margin-left:15%;" alt="GROUPS" title="GROUPS" border="0"/></a> </div>
-					<div id="box12" class="rightButtons"><span class="notifier_box"><? echo GetTotalGoOut($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_letsgoout.php');"><img src="images/outingWhiteFill.png" id="iconout" alt="LET'S GO OUT!!!" title="LET'S GO OUT!!!" border="0"/></a> </div>
-					<div id="box13"  class="rightButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_safe.php');"><img src="images/safeWhiteFill.png" id="iconsafe" alt="SAFE" title="SAFE"  border="0"/></a> </div>
+					<div id="box12" class="rightButtons"><span class="notifier_box"><? echo GetTotalGoOut($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_letsgoout.php');"><img src="images/icon_outing_white.png" id="iconout" alt="LET'S GO OUT!!!" title="LET'S GO OUT!!!" border="0"/></a> </div>
+					<div id="box13"  class="rightButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_safe.php');"><img src="images/icon_safe.png" id="iconsafe" alt="SAFE" title="SAFE"  border="0"/></a> </div>
 					<div id="box14" class="rightButtons"> <a href="#"  onclick="show_pop('popup_calendar.php');"><img
 								src="images/icon_calendar.png" id="iconcalendar" alt="CALENDAR"
 								title="CALENDAR" border="0"></a> </div>
@@ -280,12 +280,14 @@ fclose($txtfile);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js?ver=1.6.1"></script>
 <script language="javascript">
 	var themeSelected=1;
+	var backgroundselected=1;
 	var soundOptionSelected=2;
 	var userId = <?echo $_SESSION['UsErIdFrOnT'];?>;
 	var slideIndex = 1;
 	var ideaSelected = null;
 	var iconcolor="white";
-
+	var audioselected=0;
+	
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -344,17 +346,23 @@ function showSlides(n) {
 		if ($numero_filas == 0) {
 			$sql = "INSERT INTO options SET 
 				id=" . $_SESSION['UsErIdFrOnT'] . ",
-				layout_number=1, theme_number=1, music=1";
+				layout_number=1, theme_number=1, music=1, sound_effects=1, voices_and_ai=1, audio=1, background=1";
 			$q = mysql_query($sql);
+			echo 'theme2(1);';
 		}else{
+			
 			$array=mysql_fetch_array($result);
 			if($array['music']=="1"){
-				echo 'PlaySound("sound");';
+				
+				
+				echo 'changesong('.$array['audio'].');';
 				echo 'soundOptionSelected=1;';
 			}else{
 				echo 'soundOptionSelected=2;';
 			}
-			echo 'theme2('.$array['theme_number'].');';
+			
+			echo 'theme2('.$array['background'].');';
+			echo 'color('.$array['theme_number'].');';
 		}
 		?>
 
@@ -416,6 +424,36 @@ function showSlides(n) {
 		var thissound = document.getElementById(soundobj);
 
 	}
+	
+	function changesound(soundobj,songname)
+	{
+		StopSound(soundobj);
+		document.getElementById(soundobj).src="music/"+songname;
+		
+	}
+	function changesong(option)
+	{
+	audioselected=option;
+			if(option==3){
+				changesound("sound","looperman-l-1879947-0101629-kingmswati-bieber-hall.wav");
+				PlaySound("sound");
+			}
+			if(option==2){
+				changesound("sound","looperman-l-1929922-0101649-alabafruit-disorted-hip-hop-drums-90-bpm.wav");
+				PlaySound("sound");
+			}
+			if(option==1){
+				changesound("sound","looperman-l-0159051-0101634-minor2go-guitars-unlimited-reflective-poetry.wav");
+				PlaySound("sound");
+			}
+			if(option==0){
+				changesound("sound","looperman-l-0159051-0101593-minor2go-piano-quality-on-the-way-home.wav");
+				PlaySound("sound");
+			}
+		
+	
+	}
+	
 	function setwhiteicons()
 	{
 		iconcolor="white";
@@ -441,9 +479,9 @@ function showSlides(n) {
 		document.getElementById("iconcalendar").src = "images/icon_calendar.png";
 		document.getElementById("icongroup").src = "images/icon_group.png";
 		document.getElementById("iconjourneybook2").src = "images/icon_journeybook.png";
-		document.getElementById("iconsafe").src = "images/safeWhiteFill.png";
+		document.getElementById("iconsafe").src = "images/icon_safe.png";
 		document.getElementById("iconchat").src = "images/icon_chat.png";
-		document.getElementById("iconout").src = "images/icon_like.png";
+		document.getElementById("iconout").src = "images/icon_outing_white.png";
 
 
 		
@@ -476,7 +514,7 @@ function showSlides(n) {
 		document.getElementById("iconjourneybook2").src = "images/icon_journeybook_black.png";
 		document.getElementById("iconsafe").src = "images/icon_safe_black.png";
 		document.getElementById("iconchat").src = "images/icon_chat_black.png";
-		document.getElementById("iconout").src = "images/icon_like_black.png";
+		document.getElementById("iconout").src = "images/icon_outing_black.png";
 
 
 		
@@ -495,6 +533,7 @@ function showSlides(n) {
 	}
 	function color(selected)
 	{
+	themeSelected=selected;
 		if(selected==3)
 		{
 		 setblackicons();
@@ -509,6 +548,7 @@ function showSlides(n) {
 		var i;
 		switch(selected)
 		{
+		
 			case 1:
 			document.getElementById('color1').style.backgroundColor="#199579";
 			document.getElementById('color2').style.backgroundColor="#5d4c46";
@@ -590,7 +630,7 @@ function showSlides(n) {
 			break;
 			case 4:
 			document.getElementById('color1').style.backgroundColor="#721716";
-			document.getElementById('color2').style.backgroundColor="black";
+			document.getElementById('color2').style.backgroundColor="#000000";
  			 for (i = 0; i < checks.length; i++)
   			 {
  
@@ -627,14 +667,56 @@ function showSlides(n) {
   	
   			}
 			break;
+			case 6:
+			document.getElementById('color1').style.backgroundColor="#111674";
+			document.getElementById('color2').style.backgroundColor="#111674";
+ 			 for (i = 0; i < checks.length; i++)
+  			 {
+ 
+     					checks[i].style.backgroundColor = "#111674"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks2.length; i++)
+  			 {
+ 
+     					checks2[i].style.backgroundColor = "#111674"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks3.length; i++)
+  			 {
+ 
+     					checks3[i].style.backgroundColor = "#111674"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks4.length; i++)
+  			 {
+ 
+     					checks4[i].style.backgroundColor = "#111674"; 
+  				
+  	
+  			}
+  			for (i = 0; i < checks5.length; i++)
+  			 {
+ 
+     					checks5[i].style.backgroundColor = "#111674"; 
+  				
+  	
+  			}
+			break;
 		}
-		document.getElementById('musicoptions').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
+		
 		document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
-		document.getElementById('grid_box').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
-		document.getElementById('detail_box_updating').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
-		document.getElementById('detail_box').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
+		
+		//document.getElementById('grid_box').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
+		//document.getElementById('detail_box_updating').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
+		//document.getElementById('detail_box').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
 		
 	}
+	
+	
 	function control(selected) {
 		if (selected == 1) {
 			PlaySound("sound");
@@ -672,13 +754,17 @@ function showSlides(n) {
 	function show_pop(urls)
 	{
 		ivar=document.getElementById('CurrentSelectedUserId').value;
+		 color1=document.getElementById('color2').style.backgroundColor;
 		if((ivar>0 && ivar!='' && ivar!=<? echo $_SESSION['UsErIdFrOnT'];?>) || (urls=='popup_chat.php') || (urls=='popup_calendar.php') || (urls=='popup_emails.php') || (urls=='popup_options.php') || (urls=='popup_bail.php') || (urls=='popup_safe.php')|| (urls=='popup_challenge.php')|| (urls=='popup_menu.php') || (urls=='popup_bucketlist.php') || (urls=='popup_truthbomb2.php')|| (urls=='popup_dashboard.php')|| (urls=='popup_dashboard2.php') || (urls=='popup_music.php') )
 		{
 			jQuery.noConflict();
 			jQuery.ajax({
 				type: "GET",
 				url: urls,
-				data: { id:ivar } ,
+				data: { id:ivar,
+					"iconcolor": iconcolor,
+					"color1" : color1 } ,
+					
 				success: function( response )
 				{
 					document.getElementById('rightsidePOPUP_MAIN').style.display='block';
@@ -699,7 +785,7 @@ function showSlides(n) {
 						}
 					}
 					if((urls=='popup_options.php')){
-					document.getElementById('musicoptions').style.backgroundColor=document.getElementById('color2').style.backgroundColor;
+					
 					}
 				}
 			});
@@ -735,7 +821,9 @@ function showSlides(n) {
 	}
 
 	function saveAnswer(userId, questionId, userToId, type, typeTable, typeTableId, accepted) {
-		//alert(userId+" "+questionId+" "+document.getElementById("txtAreaUser").value);
+	    if (questionId = null){
+	        alert("Sorry, you don't have a question without answer with this user now!");
+        }
 		if(document.getElementById("txtAreaUser").value == ""){
 			alert("empty answer");
 		}else{
@@ -756,7 +844,10 @@ function showSlides(n) {
 		}
 	}
 
-
+	function openInNewTab(url) {
+  	var win = window.open(url, '_blank');
+ 	 win.focus();
+	}
 	function sendEmail(userIdTo, userIdFrom, type, typeTable, typeTableId, accepted) {
 		jQuery.ajax({
 			type: "POST",
@@ -885,13 +976,19 @@ function showSlides(n) {
         
 	}
 	function theme2(int) {
+		if(int==0)
+		{
+		document.getElementById('backg').style.backgroundImage = "url(images/theme1.jpg)";
+		window.location.href = window.location.href + "?theme=1";
+		}else{
 		document.getElementById('backg').style.backgroundImage = "url(images/theme" + int + ".jpg)";
 //		window.location.href = window.location.href + "?theme=" + int;
-		themeSelected = int;
+		backgroundselected = int;
+		}
 	}
 
 	function save() {
-		window.location = "http://www.karmathegame.org/karmathegame/dashboard.php?theme=" + themeSelected+"&soundoption=" + soundOptionSelected;
+		window.location = "http://www.karmathegame.org/karmathegame/dashboard.php?background=" + backgroundselected+"&soundoption=" + soundOptionSelected+"&theme="+themeSelected+"&audio="+audioselected;
 	}
 
 	function insert_bucketlist(ideaid, userid)

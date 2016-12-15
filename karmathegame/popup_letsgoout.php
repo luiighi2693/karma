@@ -24,14 +24,13 @@ $Tot2=mysql_affected_rows();
 <div class="header">
 			<div class="top_info">
 				<div class="icon_holder">
-				<img src="images/outingWhiteFill.png" border="0"></img>
+				<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_outing.png" height="100%" width="100%" style="margin-top:0px;" /><? }else{?><img src="images/icon_outing_black.png" height="100%" width="100%" style="margin-top:0px;" /><? } ?>
+				
 				</div>
 				<div class="text_holder">
 					let's go out!!!
 				</div>
-				<div class="icon_holder" style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
-				</div>
+				
 				 
 			</div>
 					
@@ -172,7 +171,8 @@ $Tot2=mysql_affected_rows();
 				</div>
 				<div class="row">
 					 <input type="radio" name="payby" id="payby_3" value="SPLIT" onclick="document.getElementById('Hidpayby').value='SPLIT'"/>&nbsp;<label for="payby_3">SPLIT</label>
-				</div>										  <input type="radio" name="payby" id="payby_4" value="T.C. OF Y." onclick="document.getElementById('Hidpayby').value='T.C. OF Y.'"/>&nbsp;<label for="payby_4">T.C. OF Y.</label>
+				</div>	
+				<div class="row">									  <input type="radio" name="payby" id="payby_4" value="T.C. OF Y." onclick="document.getElementById('Hidpayby').value='T.C. OF Y.'"/>&nbsp;<label for="payby_4">T.C. OF Y.</label>
 				</div>		
 			</div>	
 		</div>	

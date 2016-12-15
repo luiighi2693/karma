@@ -18,14 +18,12 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 	<div class="header">
 		<div class="top_info">
 			<div class="icon_holder">
-				<img src="images/icon_intro.png" border="0"></img>
+				<? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_intro.png"  /><? }else{?><img src="images/icon_intro_black.png".png"  /><? } ?>
 			</div>
 			<div class="text_holder">
 				intro
 			</div>
-			<div class="icon_holder"style="float:right;">
-				<a href="#" onclick="hide_pop();return false;"><img src="images/popup_close.png" border="0" /></a>
-			</div>
+			
 				 
 		</div>
 					
