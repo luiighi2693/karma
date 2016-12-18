@@ -100,15 +100,15 @@ a.nextPage:hover div.arrow{
 }
 
 </style>
-<body>
+<body style="background:<? echo $_REQUEST['color1'];?>;">
 <div class="scrollcontain"> 
-<div class="SliderName_2Description" style="">
+<div class="SliderName_2Description"  style="background:<? echo $_REQUEST['color1'];?>;">
 <? echo GetUserName(mysql_real_escape_string($_REQUEST['userid_from']));?><br /><? echo stripslashes(GetName1("users","aboutme","id",mysql_real_escape_string($_REQUEST['userid_from'])));?>
 </div>
 
   <div class="scrollable" id="scrollable_ID">
     <a class="prevPage browse left"><div class="SliderNamePrev_2"></div></a>
-	<div class="items">
+	<div id="items" class="items">
      <?
 		  $GetsharedPicRs=mysql_query("SELECT * FROM users_pics_videos_share WHERE  userid_from='".mysql_real_escape_string($_REQUEST['userid_from'])."' and userid_to='".mysql_real_escape_string($_REQUEST['userid_to'])."'");
 		  $TotGetsharedPicRs=mysql_affected_rows();
@@ -131,7 +131,7 @@ a.nextPage:hover div.arrow{
 				  ?>
       						<div class="oneitem"> <a  href="#">
 							<? if($getPicsQryRow['type']=='Picture'){?>
-								<img class="wheel_img_border" src="<? echo "SafePicsVideos/".$getPicsQryRow['picture']."";?>" id="IMG_<? echo $getPicsQryRow['id'];?>" onload="resizeheight('IMG_<? echo $getPicsQryRow['id'];?>')"  border="0"  />
+								<img class="wheel_img_border"  src="<? echo "SafePicsVideos/".$getPicsQryRow['picture']."";?>" id="IMG_<? echo $getPicsQryRow['id'];?>" onload="resizeheight('IMG_<? echo $getPicsQryRow['id'];?>')"  border="0"  />
 							<? }?>
 							<? if($getPicsQryRow['type']=='Video'){?>
 								<img class="wheel_img_border" src="images/icon-player.png" id="IMG_<? echo $getPicsQryRow['id'];?>" onload="resizeheight('IMG_<? echo $getPicsQryRow['id'];?>')"  border="0"  />
@@ -150,12 +150,17 @@ a.nextPage:hover div.arrow{
   </div>
 </body>
 <script type="text/javascript" charset="utf-8">
-$(function() {
+$(document).ready(function () {
 	$("div.scrollable").scrollable({
-size:1
-}); 
-}); 
-function resizeheight(imgid) 
+		size:1
+	});
+
+	for(var i =0; i	< document.getElementById('items').childElementCount; i++){
+		//console.log(document.getElementById('items').children[i].children[0].children[0].id);
+		resizeheight(document.getElementById('items').children[i].children[0].children[0].id);
+	}
+});
+function resizeheight(imgid)
 {
    document.getElementById(imgid).style.height=(screen.height-50)+"px";
 }
