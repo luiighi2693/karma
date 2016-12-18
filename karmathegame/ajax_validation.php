@@ -187,7 +187,7 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_INTRODUCTION")
 }
 else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 {
-	function validate($userid_from,$userid_to,$outtype,$relationtype,$whomidea,$payby,$outdate,$outdatetime, $bucket_id, $output="false",$massage="")
+	function validate($userid_from,$userid_to,$outtype,$relationtype,$whomidea,$payby,$outdate,$outdatetime, $bucket_id, $output="false",$massage)
 	{
 		global $SITE_URL;
 		if($massage!=""){
@@ -208,22 +208,22 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 		
 		$insertedrecord=mysql_insert_id();
 		}
-		else{
-		$query = "insert into users_goout
-				 set 
-				 userid_from = '".addslashes($userid_from)."',
-				 userid_to ='".addslashes($userid_to)."',
-				 outtype ='".addslashes($outtype)."',
-				 relationtype ='".addslashes($relationtype)."',
-				 whomidea ='".addslashes($whomidea)."',
-				 payby ='".addslashes($payby)."',
-				 outdate ='".addslashes($outdate)."',
-				 outdatetime ='".addslashes($outdatetime)."',
-				 bucket_id ='".addslashes($bucket_id)."',
-				 addeddate =now(),
-				 ipaddress = '".get_client_ip()."'";
-		mysql_query($query) or die(mysql_error()); 
-		}
+//		else{
+//		$query = "insert into users_goout
+//				 set
+//				 userid_from = '".addslashes($userid_from)."',
+//				 userid_to ='".addslashes($userid_to)."',
+//				 outtype ='".addslashes($outtype)."',
+//				 relationtype ='".addslashes($relationtype)."',
+//				 whomidea ='".addslashes($whomidea)."',
+//				 payby ='".addslashes($payby)."',
+//				 outdate ='".addslashes($outdate)."',
+//				 outdatetime ='".addslashes($outdatetime)."',
+//				 bucket_id ='".addslashes($bucket_id)."',
+//				 addeddate =now(),
+//				 ipaddress = '".get_client_ip()."'";
+//		mysql_query($query) or die(mysql_error());
+//		}
 		$insertedrecord=mysql_insert_id();
 		///ADD RECORD FOR MESSAGE TABLE
 		$query = "insert into users_emails 
@@ -261,26 +261,27 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 			</tr>
 		</table>';
 		//echo $toemail."<br>";echo $subject1."<br>";echo $mailcontent1."<br>";echo $from1."<br>";exit;
-		if($_SERVER['HTTP_HOST']!="yogs")
-		{
-			$headers  = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-			$headers .= "From: Karma <$from1>" . "\r\n";	
-			mail($toemail, $subject1, $mailcontent1, $headers);	
-		}
-		if($output=="output"){
-			return "SUCCESS";
-		}
-		else	return "SUCCESS";
+//		if($_SERVER['HTTP_HOST']!="yogs")
+//		{
+//			$headers  = "MIME-Version: 1.0" . "\r\n";
+//			$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+//			$headers .= "From: Karma <$from1>" . "\r\n";
+//			mail($toemail, $subject1, $mailcontent1, $headers);
+//		}
+//		if($output=="output"){
+//			return "SUCCESS";
+//		}
+//		else
+		    return "SUCCESS";
 	}
-	if($_REQUEST['output'])
-	{
-	echo validate(trim($_REQUEST['userid_from']),trim($_REQUEST['userid_to']),trim($_REQUEST['outtype']),trim($_REQUEST['relationtype']),trim($_REQUEST['whomidea']),trim($_REQUEST['payby']),trim($_REQUEST['outdate']),trim($_REQUEST['outdatetime']),trim($_REQUEST['bucket_id']),trim($_REQUEST['output']),trim($_REQUEST['massage']));
-	}
-	else
-	{
-	echo validate(trim($_REQUEST['userid_from']),trim($_REQUEST['userid_to']),trim($_REQUEST['outtype']),trim($_REQUEST['relationtype']),trim($_REQUEST['whomidea']),trim($_REQUEST['payby']),trim($_REQUEST['outdate']),trim($_REQUEST['outdatetime']),trim($_REQUEST['bucket_id']));
-	}
+//    if($_REQUEST['output'])
+//    {
+        echo validate(trim($_REQUEST['userid_from']),trim($_REQUEST['userid_to']),trim($_REQUEST['outtype']),trim($_REQUEST['relationtype']),trim($_REQUEST['whomidea']),trim($_REQUEST['payby']),trim($_REQUEST['outdate']),trim($_REQUEST['outdatetime']),trim($_REQUEST['bucket_id']),trim($_REQUEST['output']),trim($_REQUEST['massage']));
+//    }
+//    else
+//    {
+//        echo validate(trim($_REQUEST['userid_from']),trim($_REQUEST['userid_to']),trim($_REQUEST['outtype']),trim($_REQUEST['relationtype']),trim($_REQUEST['whomidea']),trim($_REQUEST['payby']),trim($_REQUEST['outdate']),trim($_REQUEST['outdatetime']),trim($_REQUEST['bucket_id']));
+//    }
 }
 else if($_REQUEST["Type"]=="SAVE_POPUP_CHAT")
 {

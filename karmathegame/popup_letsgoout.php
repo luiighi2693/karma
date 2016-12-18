@@ -43,7 +43,7 @@ $Tot2=mysql_affected_rows();
 			</div>
 			<div class="container2">
 				
-				<div class="row" style="width:60%;">
+				<div class="row" style="width:60%;margin-bottom:0%;">
 					 <input type="radio" name="whomidea" id="whomidea_1" value="YOUR IDEA" checked="checked" onclick="control2(1);"/>&nbsp;<label for="whomidea_1" style="font-size:2vh;">YOUR IDEA</label>
 					 <input type="radio" style="margin-left:5%;" name="whomidea" id="whomidea_2" value="MY IDEA" onclick="control2(2);"/>&nbsp;<label for="whomidea_2" style="font-size:2vh;">MY IDEA</label>
 				</div>
@@ -138,42 +138,48 @@ $Tot2=mysql_affected_rows();
            
 				</div>
 				<div class="radios2theright">
-				<div class="row">
+				<div class="row" margin-top:0%;>
 					<input style="font-size:1.2vh;" type="radio" name="outtype" id="outtype_1" value="DATE" checked="checked" onclick="document.getElementById('Hidouttype').value='DATE'"/>&nbsp;<label  style="font-size:100%;" for="outtype_1">DATE</label>
 				</div>
-					<div class="row">
+					<div class="row" margin-top:3%;">
 					<input   type="radio" name="outtype" id="outtype_2" value="EVENT" onclick="document.getElementById('Hidouttype').value='EVENT'"/>&nbsp;<label  style="font-size:100%;" for="outtype_2">EVENT</label>
 					</div>
-					<div class="row">
+					<div class="row" margin-top:3%;">
 					<input   style="font-size:2vh;"type="radio" name="outtype" id="outtype_3" value="GROUP" onclick="document.getElementById('Hidouttype').value='GROUP'"/>&nbsp;<label  style="font-size:100%;"for="outtype_3">GROUP</label>
 					</div>	
 				
-				<div class="row" style="margin-top:5%;">
+				<div class="row" style="margin-top:3%;">
 						<input type="radio" name="relationtype" id="relationtype_1" value="RELATIONSHIP" checked="checked" onclick="document.getElementById('Hidrelationtype').value='RELATIONSHIP'"/>&nbsp;<label  style="font-size:100%;" for="relationtype_1">RELATIONSHIP</label>
 						</div>
-						<div class="row">
+						<div class="row" style="margin-top:3%;">
 										  <input type="radio" name="relationtype" id="relationtype_2" value="FRIENDSHIP" onclick="document.getElementById('Hidrelationtype').value='FRIENDSHIP'"/>&nbsp;<label  style="font-size:100%;" for="relationtype_2">FRIENDSHIP</label>
 						</div>
 					
-				<div class="row" style="margin-top:5%;">
+				<div class="row" style="margin-top:3%;">
 				
 				 <div style="display:inline-block;font-size:100%;width:100%;">WHEN<input type="text" name="outdate"  id="outdate" placeholder="mm/dd/yyyy" onClick="displayCalendar(document.getElementById('outdate'),'mm/dd/yyyy',this);" style="width:50%;margin-left:5%;"/></div>
 				
 				</div>
-				<div class="row" style="margin-top:5%;">
+				<div class="row" style="margin-top:3%;">
 				<div  style="display:inline-block;font-size:100%;width:100%;">TIME<input id="goOutTime" type="text" name="outtime"  id="outtime" placeholder="6 to 8 pm"  style="width:50%;margin-left:8.9%;"/></div>
 				</div>
-				<div class="row" style="margin-top:5%;">
+				<div class="row" style="margin-top:3%;">
 				<input type="radio" name="payby" id="payby_1" value="I WILL PAY" checked="checked" onclick="document.getElementById('Hidpayby').value='I WILL PAY'"/>&nbsp;<label for="payby_1">I'LL PAY</label>
 				</div>
-				<div class="row">
+				<div class="row" style="margin-top:3%;">
 					<input type="radio" name="payby" id="payby_2" value="YOU PAY" onclick="document.getElementById('Hidpayby').value='YOU PAY'"/>&nbsp;<label for="payby_2">YOU PAY</label>
 				</div>
-				<div class="row">
+				<div class="row"style="margin-top:3%;">
 					 <input type="radio" name="payby" id="payby_3" value="SPLIT" onclick="document.getElementById('Hidpayby').value='SPLIT'"/>&nbsp;<label for="payby_3">SPLIT</label>
 				</div>	
-				<div class="row">									  <input type="radio" name="payby" id="payby_4" value="T.C. OF Y." onclick="document.getElementById('Hidpayby').value='T.C. OF Y.'"/>&nbsp;<label for="payby_4">T.C. OF Y.</label>
-				</div>		
+				<div class="row" style="margin-top:3%;">									  <input type="radio" name="payby" id="payby_4" value="T.C. OF Y." onclick="document.getElementById('Hidpayby').value='T.C. OF Y.'"/>&nbsp;<label for="payby_4">T.C. OF Y.</label>
+				</div>	
+				<div class="row"  style="margin-top:5%;">
+					<label>OTHER IDEA</label>
+				</div>
+				<div class="row"style="height:20%;">
+				<textarea id="otherIdea" style="width:72%;height:100%;"> </textarea>
+				<div>	
 			</div>	
 		</div>	
 		</div>	

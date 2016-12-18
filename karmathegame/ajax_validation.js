@@ -201,12 +201,13 @@ function SAVE_POPUP_INTRODUCTION(userid_from,userid_to,introid)
   }
   http4_1.send(null);
 }
-function SAVE_POPUP_GOOUT(userid_from,userid_to,outtype,relationtype,whomidea,payby,outdate, outdatetime, bucket_id)
+function SAVE_POPUP_GOOUT(userid_from,userid_to,outtype,relationtype,whomidea,payby,outdate, outdatetime, bucket_id, otherIdea)
 {
+	console.log("other idea "+otherIdea);
   var http4_1 = false;
   if(navigator.appName == "Microsoft Internet Explorer") { http4_1 = new ActiveXObject("Microsoft.XMLHTTP");} else {  http4_1 = new XMLHttpRequest();	}
   http4_1.abort();
-  http4_1.open("GET", "ajax_validation.php?Type=SAVE_POPUP_GOOUT&userid_from="+userid_from+"&userid_to="+userid_to+"&outtype="+outtype+"&relationtype="+relationtype+"&whomidea="+whomidea+"&payby="+payby+"&outdate="+outdate+"&outdatetime="+outdatetime+"&bucket_id="+bucket_id, true);
+  http4_1.open("GET", "ajax_validation.php?Type=SAVE_POPUP_GOOUT&userid_from="+userid_from+"&userid_to="+userid_to+"&outtype="+outtype+"&relationtype="+relationtype+"&whomidea="+whomidea+"&payby="+payby+"&outdate="+outdate+"&outdatetime="+outdatetime+"&bucket_id="+bucket_id+"&massage="+otherIdea, true);
   http4_1.onreadystatechange=function()
   {
 	  if(http4_1.readyState == 4)
@@ -214,7 +215,8 @@ function SAVE_POPUP_GOOUT(userid_from,userid_to,outtype,relationtype,whomidea,pa
 		  if(http4_1.responseText!="")
 		  {
 			  document.frmpopup.reset();
-			  document.getElementById('MessageId').innerHTML='Sent Successfully!';
+			  // document.getElementById('MessageId').innerHTML='Sent Successfully!';
+			  alert('Sent Successfully!');
 			  return  false;
 		  }
 	  } 
