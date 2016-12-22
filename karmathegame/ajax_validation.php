@@ -516,8 +516,10 @@ else if($_REQUEST["Type"]=="LoadEmail")
 				$getDetailQryRs=mysql_query("select * FROM $TYPE_TABLE where id='".$TYPE_TABLE_ID."'");
 				$totgetDetailQry=mysql_affected_rows();
 			}
+
+			$action = 'ClickAvatar2('.$getchatsRow['userid_from'].',\'1\');Updatebox(document.getElementById(\'CurrentSelectedUserId\').value,\'3\');openPreferencesPopup(\''.$getchatsRow['userid_from'].'\',document.getElementById(\'CurrentSelectedUserId\').value);';
             $ret='<div style="width: 100%; height: 7%;">
-					<div style="float: left;">From: '.GetUserName($getchatsRow['userid_from']).'</div>
+					<div style="float: left;">From: <span style="cursor: pointer;" onclick="'.$action.'">'.GetUserName($getchatsRow['userid_from']).'</span></div>
 					<div style="float: right;">'.date("l M j, Y",strtotime($getchatsRow['createdate'])).'</div>
 				</div>';
 				
@@ -687,33 +689,38 @@ else if($_REQUEST["Type"]=="LoadEmail")
 					<div style="    padding: 10px;border-bottom: solid;font-size: 4vh;">'.$userToFromArray['username'].' has shared your social Links with you:</div>';
 
                 if($socialLinksArray['social_fb_share']!='N'){
-               
-                 $facebook = 'window.open('.$userToFromArray['social_fb'].')';
-                    $ret.='<div style="font-size: 3vh;"onclick="'.$facebook.'"  ><img style="width: 5%;" src="images/icon_facebook.png" href="'.$facebook.'"  target="_blank" align="absmiddle" /> '.$userToFromArray['social_fb'].'</div>';
+                 $facebook = 'window.open(\''.$userToFromArray['social_fb'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$facebook.'"><img style="width: 5%;" src="images/icon_facebook.png"/> '.$userToFromArray['social_fb'].'</div>';
                 }
 
                 if($socialLinksArray['social_twitter_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_twitter.png" align="absmiddle" /> '.$userToFromArray['social_twitter'].'</div>';
+                    $twitter = 'window.open(\''.$userToFromArray['social_twitter'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$twitter.'"><img style="width: 5%;" src="images/icon_twitter.png" align="absmiddle" /> '.$userToFromArray['social_twitter'].'</div>';
                 }
 
                 if($socialLinksArray['social_youtube_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_youtube.png" align="absmiddle" /> '.$userToFromArray['social_youtube'].'</div>';
+                    $youtube = 'window.open(\''.$userToFromArray['social_youtube'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$youtube.'"><img style="width: 5%;" src="images/icon_youtube.png" align="absmiddle" /> '.$userToFromArray['social_youtube'].'</div>';
                 }
 
                 if($socialLinksArray['social_in_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_linkdin.png" align="absmiddle" /> '.$userToFromArray['social_in'].'</div>';
+                    $in = 'window.open(\''.$userToFromArray['social_in'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$in.'"><img style="width: 5%;" src="images/icon_linkdin.png" align="absmiddle" /> '.$userToFromArray['social_in'].'</div>';
                 }
 
                 if($socialLinksArray['social_pinterest_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_pinterest.png" align="absmiddle" /> '.$userToFromArray['social_pinterest'].'</div>';
+                    $pinterest = 'window.open(\''.$userToFromArray['social_pinterest'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$pinterest.'"><img style="width: 5%;" src="images/icon_pinterest.png" align="absmiddle" /> '.$userToFromArray['social_pinterest'].'</div>';
                 }
 
                 if($socialLinksArray['social_instagram_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_instagram.png" align="absmiddle" /> '.$userToFromArray['social_instagram'].'</div>';
+                    $instagram = 'window.open(\''.$userToFromArray['social_instagram'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$instagram.'"><img style="width: 5%;" src="images/icon_instagram.png" align="absmiddle" /> '.$userToFromArray['social_instagram'].'</div>';
                 }
 
                 if($socialLinksArray['social_rss_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_rss.png" align="absmiddle" /> '.$userToFromArray['social_rss'].'</div>';
+                    $rrs = 'window.open(\''.$userToFromArray['social_rss'].'\')';
+                    $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$rrs.'"><img style="width: 5%;" src="images/icon_rss.png" align="absmiddle" /> '.$userToFromArray['social_rss'].'</div>';
                 }
                 $ret.='</div>';
             }else if($TYPE=='musicShare'){

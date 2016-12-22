@@ -115,17 +115,17 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 	</div>
 
 	<div class="footer">
-	<div class="centered_info">
-	<div class="button" >
+		<div class="centered_info">
+			<div class="button" >
 				<a href="#" onclick="hide_pop();return false;">
 					<img alt="" src="images/button_close.png" border="0" />
 				</a>
 			</div>
-		<div class="button" >
-			<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$_REQUEST['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
+			<div class="button" >
+				<input  type="image" name="sendbutton" id="sendbutton" src="images/button_send.png" onclick="saveAnswer(<? echo $_SESSION['UsErIdFrOnT'].', '.$questionSelectedArray['id'].', '.$_REQUEST['id'].', '.$torbComplement.', '.$questionSelectedArray['id'].', '.$mailAcepted;?>);hide_pop();return false;" />
+			</div>
+			<span id="MessageId" style="color:#FF0000;"></span>
 		</div>
-		<span id="MessageId" style="color:#FF0000;"></span>
-	</div>
 </form>
 </body>
 </html>
