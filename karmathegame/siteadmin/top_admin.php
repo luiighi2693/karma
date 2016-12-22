@@ -39,6 +39,6 @@ function MM_swapImage() { //v3.0
 	    <td width="38%"><a href="manage_truth.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2g24s44asd3opp','','images/login/truth-hover.JPG',1)"><img src="images/login/truth.JPG" name="Image2g24s44asd3opp"   border="0" id="Image2g24s44asd3opp" /></a></td>
 	  <td width="38%"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image224s4','','images/login/orders-hover.jpg',1)"><img src="images/login/orders.jpg" name="Image224s4"   border="0" id="Image224s4" /></a></td>
 	  <td width="38%"><a href="editcontents.php?id=1" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image223','','images/login/staticpage-hover.jpg',1)"><img src="images/login/staticpage.jpg" name="Image223"   border="0" id="Image223" /></a></td>
-	  <td width="38%"><a href="truth.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','images/login/home-hover.jpg',1)"><img src="images/login/home.jpg" name="Image3"   border="0" id="Image3" /></a></td>
+	  <td width="38%"><a href="manage_backgrounds.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','images/login/home-hover.jpg',1)"><img src="images/login/home.jpg" name="Image3"   border="0" id="Image3" /></a></td>
 	</tr>
 </table>

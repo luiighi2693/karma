@@ -1,3 +1,9 @@
+<? include("connect.php");
+include("checklogin.php");
+$GetUsersQry3="SELECT * from backgrounds";
+$GetUsersQryRs3=mysql_query($GetUsersQry3);
+$Tot2=mysql_affected_rows();
+ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -151,23 +157,17 @@
         	<div class="blocks_3" style="height:100%;text-align:center;margin-top:1%;">
         	<p style="color:white; font-size:3vh;">Background</p>
         	  	<div class="themes-list">
+        	  	
                     		<ul class="list4themes">
-                       			 <li><a href="#" onclick="theme2(1);"><img src="images/theme1-small.jpg" alt="Theme2"
-                                                                  title="Theme1" border="0"/></a></li>
-                      			  <li><a href="#" onclick="theme2(2);"><img src="images/theme2-small.jpg" alt="Theme2"
-                                                                  title="Theme2" border="0"/></a></li>
-                       			 <li><a href="#" onclick="theme2(3);"><img src="images/theme3-small.jpg" alt="Theme3"
-                                                                  title="Theme3" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(4);"><img src="images/theme4-small.jpg" alt="Theme4"
-                                                                  title="Theme4" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(5);"><img src="images/theme5-small.jpg" alt="Theme5"
-                                                                  title="Theme5" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(6);"><img src="images/theme6.jpg" alt="Theme6"
-                                                                  title="Theme6" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(7);"><img src="images/theme7-small.jpg" alt="Theme7"
-                                                                  title="Theme7" border="0"/></a></li>
-                        		<li><a href="#" onclick="theme2(8);"><img src="images/theme8-small.jpg" alt="Theme8"
-                                                                  title="Theme8" border="0"/></a></li>
+               
+        	<?
+        	 if($Tot2>0){
+					while($GetUsersQryRow3=mysql_fetch_array($GetUsersQryRs3))	
+						{ ?>
+                       			 <li><a href="#" onclick="theme2(<? echo $GetUsersQryRow3['id'];?>);"><img src="backgrounds/<? echo $GetUsersQryRow3['img'];?>" alt="Theme" border="0"/></a></li>
+                      			 
+                                           <? }?>
+                   <? }?>
                     </ul>
                 </div>
         	</div>

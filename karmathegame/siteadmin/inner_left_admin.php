@@ -229,6 +229,16 @@
 			 <tr>
 			  <td height="20" class="menuon" onClick="javascript:document.location.href='add_truth.php';" onMouseOver="className='menuover';" onMouseOut="className='menuon';">Add truth</td>
 			</tr>
+		<? }else if($mlevel==10){?>
+			<tr>
+				<td height="29" class="mail_font">Backgrounds Management</td>
+			</tr>
+			<tr>
+				<td height="29" class="menuon" onClick="javascript:document.location.href='manage_backgrounds.php';" onMouseOver="className='menuover';" onMouseOut="className='menuon';">Manage Backgrounds</td>
+			</tr>
+			<tr>
+				<td height="20" class="menuon" onClick="javascript:document.location.href='add_backgrounds.php';" onMouseOver="className='menuover';" onMouseOut="className='menuon';">Add Backgrounds</td>
+			</tr>
 		<? } ?>
 	  </table></td>
   </tr>

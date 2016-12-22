@@ -191,10 +191,10 @@ $GetUsersQryRow4=mysql_fetch_array($GetUsersQryRs4);
 $total=$Tot3 +1;
 ?>
 <div class="container_pics" style="width:100%;height:100%;position:relative;">
- <div  style="width:90%;height:50%;position:relative;margin-left:5%;" class="photos">
+ <div  style="width:60%;height:50%;position:relative;margin-left:20%;" class="photos">
        	    
             <img src="ambassador/<? echo$GetUsersQryRow4['amb_picture_main'];?>" style="width:100%;height:100%;">
-            <div class"numbertext" style="margin-top:2%;font-size:24px;padding-left:45%;"> 1 / <?echo $total ?></div>
+            <div class"numbertext" style="margin-top:2%;font-size:24px;padding-left:45%;color:white;"> 1 / <?echo $total ?></div>
           
           </div>
 <?
@@ -208,10 +208,10 @@ if($Tot3>0)
 ?>
 
   
-       	<div  style="width:90%;height:50%; display:none;position:relative;margin-left:5%;" class="photos">
+       	<div  style="width:60%;height:50%; display:none;position:relative;margin-left:20%;" class="photos">
        	   
             <img src="ambassador/<? echo$GetUsersQryRow3['picture'];?>" style="width:100%;height:100%;">
-              <div class"numbertext" style="margin-top:2%;font-size:24px;padding-left:45%;"><?echo $counter ?> / <?echo $total ?></div>
+              <div class"numbertext" style="margin-top:2%;font-size:24px;padding-left:45%;color:white;"><?echo $counter ?> / <?echo $total ?></div>
            
           </div>
               <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -220,8 +220,8 @@ if($Tot3>0)
        
      <? }?>
 	<div style="height:30%; width:90%;margin-left:5%;margin-top:10%;">
-	<div style="width:100%;font-size:30px;"><?echo $GetUsersQryRow4['firstname'];?></div>
-	<div style="width:100%;font-size:20px;">want to know what to put in here</div>
+	<div style="width:100%;font-size:30px;color:white;"><?echo $GetUsersQryRow4['firstname'];?></div>
+	<div style="width:100%;font-size:20px;color:white;">want to know what to put in here</div>
 		<div style="width:100%;height:60px; margin-top:3%;">
 				<div style="width:60px; height:60px;display:inline-block;">
 				<img style="width:60px; height:60px;" src="images/social-google-plus-icon.png" border="0">

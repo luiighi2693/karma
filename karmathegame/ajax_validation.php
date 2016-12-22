@@ -202,6 +202,7 @@ else if($_REQUEST["Type"]=="SAVE_POPUP_GOOUT")
 				 outdate ='".addslashes($outdate)."',
 				 outdatetime ='".addslashes($outdatetime)."',
 				 massage ='".addslashes($massage)."',
+				 bucket_id='".addslashes($bucket_id)."',
 				 addeddate =now(),
 				 ipaddress = '".get_client_ip()."'";
 		mysql_query($query) or die(mysql_error()); 
@@ -515,7 +516,7 @@ else if($_REQUEST["Type"]=="LoadEmail")
 				$getDetailQryRs=mysql_query("select * FROM $TYPE_TABLE where id='".$TYPE_TABLE_ID."'");
 				$totgetDetailQry=mysql_affected_rows();
 			}
-            $ret='<div style="width: 100%; height: 15%;">
+            $ret='<div style="width: 100%; height: 7%;">
 					<div style="float: left;">From: '.GetUserName($getchatsRow['userid_from']).'</div>
 					<div style="float: right;">'.date("l M j, Y",strtotime($getchatsRow['createdate'])).'</div>
 				</div>';
@@ -555,9 +556,12 @@ else if($_REQUEST["Type"]=="LoadEmail")
                     error_reporting(E_ERROR | E_PARSE);
 				
 					$getDetailQryRow=mysql_fetch_array($getDetailQryRs);
-					$SEL="SELECT * from ideas where id='".$getDetailQryRow['bucket_id']."'";
+					$SEL="SELECT * from bucket_list where id='".$getDetailQryRow['bucket_id']."'";
 					$SELRs=mysql_query($SEL);
-					$ROW=mysql_fetch_object($SELRs);
+					$ROW=mysql_fetch_array($SELRs);
+					$SEL2="SELECT * from ideas where id='".$ROW['ideaid']."'";
+                    $SELRs2=mysql_query($SEL2);
+                    $ROW2=mysql_fetch_array($SELRs2);
 					$outtype=$getDetailQryRow['outtype'];
 					if($outtype=='DATE'){$outtype_1='checked';}
 					if($outtype=='EVENT'){$outtype_2='checked';}
@@ -580,21 +584,37 @@ else if($_REQUEST["Type"]=="LoadEmail")
                     list($month, $day, $year) = split('[/.-]', $getDetailQryRow['outdate']);
 					$date = date("D, M j, Y", mktime(0,0,0,$month, $day, $year));
 					
-					$ret.='<div style="height: 70%; display: block;">
-								<div style="width: 100%; background-color: #5e4b45; display: inline-flex;">
-								    <img src="images/icon4.jpg" width="50" height="50"/> 
-								    <h3 style="font-size: 3vh;padding-top: 2%; color: #FFF;">Let\'s GoOut</h3>
+					$ret.='<div style="height: 80%; display: block;">
+								<div style="width: 100%;height:20%;background-color: #5e4b45; display: inline-flex;">
+								    <img src="images/icon4.jpg" width="8%" height="100%"/> 
+								    <h3 style="font-size: 3vh;padding-top: 3%; color: #FFF;">Let\'s GoOut</h3>
 								 </div>
 								 <div style="width: 100%;">
 									 <div style="margin-top: 4%;padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$outtype.'</div>
 									 <div  style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$relationtype.'</div>
 									 <div style="padding-bottom: 1%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$date.' - '.$getDetailQryRow['outdatetime'].'</div>
-									 <div  style="margin-bottom: 4%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$payby.'</div>  
-										<div style="width: 100%;padding-bottom: 2%;">
-										 	<img src="images/goout_holder.jpg" width="90%" />
-										</div>
-								</div>
-							</div>';
+									 <div  style="margin-bottom: 1.5%;margin-left: 2%;font-size: 2.5vh;width: 100%;">'.$payby.'</div>';
+                    if($getDetailQryRow['massage']!=''){
+                        $ret.='
+                            <div style="width: 100%;padding-bottom: 2%;font-size: 2.5vh; margin-left: 2%;">'.$getDetailQryRow['massage'].'</div>';
+                    }else{
+                        $ret.='<div style="width: 100%;height:40%;padding-bottom: 2%;">
+                            <div  style="width: 90%;"/>
+                            		
+                            		<div style="height:100%;width:60%;display:inline-block;float:left">
+                            		<img style="width:100%;height:100%;"src="Ideas/'.$ROW2['picture'].'" />
+                            		</div>
+                            		<div style="height:100%;width:39%;display:inline-block;float:left;margin-left:1%;background:black;">
+                            		<strong><span style="color:#999999;font-size:2.5vh;">'.$ROW2['place'].'</span></strong><br />
+					<span style="color:#FFFFFF;font-size:2.4vh;margin-top:2%;">'.$ROW2['title'].'</span><br />
+                            		</div>
+                            		
+                            	
+                            </div>
+                        </div>';
+                    }
+
+                    $ret.='</div></div>';
 
                     $ret.='<div style="width:100%;height:15%; text-align: center; display: flex;">
                             <div style="width: 30%"><a href="#" onclick="document.getElementById(\'CurrentSelectedUserId\').value='.$getchatsRow['userid_from'].';show_pop(\'popup_letsgoout.php\');"><img src="images/button_accept.jpg" border="0" style="width:100%;"/></a></div>
@@ -667,7 +687,9 @@ else if($_REQUEST["Type"]=="LoadEmail")
 					<div style="    padding: 10px;border-bottom: solid;font-size: 4vh;">'.$userToFromArray['username'].' has shared your social Links with you:</div>';
 
                 if($socialLinksArray['social_fb_share']!='N'){
-                    $ret.='<div style="font-size: 3vh;"><img style="width: 5%;" src="images/icon_facebook.png" align="absmiddle" /> '.$userToFromArray['social_fb'].'</div>';
+               
+                 $facebook = 'window.open('.$userToFromArray['social_fb'].')';
+                    $ret.='<div style="font-size: 3vh;"onclick="'.$facebook.'"  ><img style="width: 5%;" src="images/icon_facebook.png" href="'.$facebook.'"  target="_blank" align="absmiddle" /> '.$userToFromArray['social_fb'].'</div>';
                 }
 
                 if($socialLinksArray['social_twitter_share']!='N'){
