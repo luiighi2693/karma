@@ -2,7 +2,7 @@
 include_once("admin.config.inc.php");
 include("admin.cookie.php");
 include("connect.php");
-$mlevel=8;
+$mlevel=10;
 $Message="";
 if($_REQUEST['del']!="")
 {
@@ -36,8 +36,9 @@ if($_POST['SubmitUser'])
         if($_FILES["picture"]['tmp_name'])
         {
             $file=$_FILES["picture"];
-            $send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
-            $filename1=rand().$send_name1;
+            //$send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
+            //$filename1=rand().$send_name1;
+            $filename1="background".$InsertId.".png";
             $filetoupload=$file['tmp_name'];
             $path="../backgrounds/".$filename1;
             copy($filetoupload,$path);
@@ -70,16 +71,21 @@ if($_POST['SubmitUser'])
 
         if($_FILES["picture"]['tmp_name'])
         {
+            $AddUserQry="INSERT INTO backgrounds SET img=''";
+            $AddUserQryRs=mysql_query($AddUserQry);
+            $InsertId=mysql_insert_id();
+
             $file=$_FILES["picture"];
-            $send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
-            $filename1=rand().$send_name1;
+            //$send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
+            //$filename1=rand().$send_name1;
+            $filename1="background".$InsertId.".png";
             $filetoupload=$file['tmp_name'];
             $path="../backgrounds/".$filename1;
             copy($filetoupload,$path);
             $extsql2=",picture='$filename1'";
 
-            $AddUserQry="INSERT INTO backgrounds SET img='$filename1'";
-            $AddUserQryRs=mysql_query($AddUserQry);
+            $AddUserQry2="UPDATE backgrounds SET img='$filename1' WHERE id='".$InsertId."'";
+            $AddUserQryRs2=mysql_query($AddUserQry2);
         }
 
         header("location:manage_backgrounds.php?msgs=1");
