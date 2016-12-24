@@ -63,6 +63,7 @@ if ($_POST['Hidsubmit'] == '1') {
 <body>
 <!-- Background and hidden items -->
 <input value="" id="CurrentSelectedUserId" hidden></input>
+<input value="" id="CurrentSelectedamb" hidden></input>
 <div id="color1" hidden></div>
 <div id="color2" hidden></div>
 <div id="backg"
@@ -163,6 +164,42 @@ if ($_POST['Hidsubmit'] == '1') {
 								$userid_to2 = substr($userid_to2, 0, -1);
 								$andQryHide .= " and id not in ($userid_to2)";
 							}
+							/*getting your data*/
+							$GetUSerWantQry=mysql_query("SELECT * FROM users_want WHERE userid='".$_SESSION['UsErIdFrOnT']."'");
+							
+							$totGetUSerWantQry=mysql_affected_rows();
+							if( $totGetUSerWantQry > 0)/*if you have something in your users_want*/
+							{
+							$GetUSerWantQryRow=mysql_fetch_array($GetUSerWantQry);
+							$value=array($GetUSerWantQryRow['lookingfor1'],$GetUSerWantQryRow['lookingfor2'],$GetUSerWantQryRow['lookingfor3'],$GetUSerWantQryRow['lookingfor4'],$GetUSerWantQryRow['lookingfor5'],$GetUSerWantQryRow['lookingfor6']);
+							$Getothers=mysql_query("SELECT * FROM users_want WHERE userid!='".$_SESSION['UsErIdFrOnT']."'");
+							$totGetothers=mysql_affected_rows();
+								if( $totGetothers > 0)
+								{
+								
+								$tohide="";									
+								while($Getothersrow=mysql_fetch_array($Getothers))	/*will check others players 1 by 1  */
+									{
+										$keep=true;
+										$questionsincommon=0;									$value2=array($GetUSerWantQryRow['lookingfor1'],$GetUSerWantQryRow['lookingfor2'],$GetUSerWantQryRow['lookingfor3'],$GetUSerWantQryRow['lookingfor4'],$GetUSerWantQryRow['lookingfor5'],$GetUSerWantQryRow['lookingfor6']);
+										/***here will be checking looking_for in order to hide**/
+
+
+										if(keep==false) /*if you have nothing in common with the other*/
+										{
+										$tohide .= $Getothersrow['userid'] . ",";/*addhis/hers id to the ban list*/
+									
+										}
+									}
+								//$userid_to = substr($userid_to, 0, -1);	
+								//$andQryHide .= " and id not in ($tohide)";/*concatenates the ban list with the one used for hiding*/
+										
+								
+							
+								}
+							}
+							
+							
 							$GetUsersQry = "SELECT id,avatarid FROM users WHERE active='Y' and id!='" . $_SESSION['UsErIdFrOnT'] . "' $andQryHide ORDER BY id DESC";
 							$GetUsersQryRs = mysql_query($GetUsersQry);
 							while ($GetUsersQryRow = mysql_fetch_array($GetUsersQryRs)) {
@@ -230,7 +267,7 @@ if ($_POST['Hidsubmit'] == '1') {
 			<div id="box22"  class="rightButtons"><a href="#" onclick="show_pop('popup_emails.php');"><img src="images/icon_email.png" id="iconemail"   alt="EMAIL" title="EMAIL" border="0"></a> </div>
 			<div id="box23" class="bottomright"><a href="#" onClick="changefunctionForbucket(document.getElementById('CurrentSelectedUserId').value,10);"><img   src="images/icon_bucketlist.png" id="iconbucketlist" border="0"></a> </div>
 			<div id="box24" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'3');openPreferencesPopup('540',document.getElementById('CurrentSelectedUserId').value)"><img   src="images/icon_journeybook.png" id="iconjourneybook" border="0"></a> </div>
-			<div id="box25" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'2');"><img
+			<div id="box25" class="bottomright" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'2');"><img
 						src="images/icon_stats.png" id="iconstats" border="0"></a> </div>
 			<div id="box26" class="bottomright"><a href="#" onclick="Updatebox(document.getElementById('CurrentSelectedUserId').value,'1');"><img  src="images/footer_icon5.jpg" id="iconavatar" border="0">	</a> </div>
 										
@@ -977,15 +1014,11 @@ function showSlides(n) {
         
 	}
 	function theme2(int) {
-		if(int==0)
-		{
-		document.getElementById('backg').style.backgroundImage = "url(images/theme1.jpg)";
-		window.location.href = window.location.href + "?theme=1";
-		}else{
-		document.getElementById('backg').style.backgroundImage = "url(images/theme" + int + ".jpg)";
+		
+		document.getElementById('backg').style.backgroundImage = "url(backgrounds/background" + int + ".png)";
 //		window.location.href = window.location.href + "?theme=" + int;
 		backgroundselected = int;
-		}
+		
 	}
 
 	function save() {
@@ -1037,6 +1070,7 @@ function showSlides(n) {
 		{
 			document.getElementById("currentSelectedIcon").value="";
 			type="";
+			document.getElementById("box25").setAttribute("onclick", "Updatebox(document.getElementById('CurrentSelectedUserId').value,'2')");
 		}else{
 			setYellowIcon(type);
 			document.getElementById("currentSelectedIcon").value=type;

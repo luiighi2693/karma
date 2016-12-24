@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3265157068">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="MySQL - karmathe_databox_karma@108.179.255.19" uuid="84998c04-3782-4cfc-8bac-7891251e9297">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
