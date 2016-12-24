@@ -482,7 +482,7 @@ else if($_REQUEST['slide']=='12')
 	$GetUsersQryRs4=mysql_query($GetUsersQry4);
 	$GetUsersQryRow4=mysql_fetch_array($GetUsersQryRs4);
 	?>
-	<div style="font-size: 3vh;color: white;text-align: center;">
+	<div style="font-size: 2.5vh;color: white;text-align: center;">
 		<?echo $GetUsersQryRow4['about01'];?>
 	</div>
 <? }?>

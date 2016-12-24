@@ -100,7 +100,7 @@ height:auto !important;">
 									</div>
 								</div>
 					<div style="position:relative;width:39%;height:49%; display:inline-block;background:black;position:relative;"><? if($GetUsersQryRow3['amb_picture_main']!='' && file_exists("ambassador/".$GetUsersQryRow3['amb_picture_main'])){?>		
-			<img src="ambassador/<? echo$GetUsersQryRow3['amb_picture_main'];?>" height="90%" width="90%" style="margin-top:5%; margin-left:5%;" onclick="UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,'11'); document.getElementById('box25').setAttribute('onclick','UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,\'12\')');" border="0" /><? } ?>
+			<img src="ambassador/<? echo$GetUsersQryRow3['amb_picture_main'];?>" height="90%" width="90%" style="margin-top:5%; margin-left:5%;" onclick="UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,'11'); document.getElementById('box25').setAttribute('onclick','UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,\'12\')'); document.getElementById('box26').setAttribute('onclick','UpdateMiddleSection(<?echo $GetUsersQryRow3['ambassador']?>,\'11\')');" border="0" /><? } ?>
 			
 					</div>
 					<div style="color:#F88129;font-size:2vh;text-align:right;width:59%;display:inline-block;float:right;background:black;position:relative;height:49%;" >
