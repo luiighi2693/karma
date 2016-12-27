@@ -239,6 +239,16 @@
 			<tr>
 				<td height="20" class="menuon" onClick="javascript:document.location.href='add_backgrounds.php';" onMouseOver="className='menuover';" onMouseOut="className='menuon';">Add Backgrounds</td>
 			</tr>
+		<? }else if($mlevel==11){?>
+			<tr>
+				<td height="29" class="mail_font">Loops Management</td>
+			</tr>
+			<tr>
+				<td height="29" class="menuon" onClick="javascript:document.location.href='manage_loops.php';" onMouseOver="className='menuover';" onMouseOut="className='menuon';">Manage Loops</td>
+			</tr>
+			<tr>
+				<td height="20" class="menuon" onClick="javascript:document.location.href='add_loops.php';" onMouseOver="className='menuover';" onMouseOut="className='menuon';">Add Loops</td>
+			</tr>
 		<? } ?>
 	  </table></td>
   </tr>
