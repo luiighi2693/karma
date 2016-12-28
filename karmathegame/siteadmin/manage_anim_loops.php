@@ -6,9 +6,9 @@ $mlevel=10;
 if($_GET["id"])
 {
     $cid=$_GET["id"];
-    $dqry="delete from loops where id=$cid";
+    $dqry="delete from anim_loops where id=$cid";
     mysql_query($dqry);
-    header("location:manage_loops.php?msgs=15");
+    header("location:manage_anim_loops.php?msgs=15");
     exit;
 }
 
@@ -16,7 +16,7 @@ if($_GET["id"])
 //{
 //    $andqry=" and ideas.subgroupid='".$_REQUEST['subgroupid']."'";
 //}
-$strQueryPerPage="select * from loops
+$strQueryPerPage="select * from anim_loops
 					order by id desc ";
 
 $strResultPerPage=mysql_query($strQueryPerPage);
@@ -27,15 +27,15 @@ if($strTotalPerPage<1)
 
 if($_GET["msgs"]==1)
 {
-    $Message2 = " Loop Added Successfully!!";
+    $Message2 = " Anim Loop Added Successfully!!";
 }
 if($_GET["msgs"]==3)
 {
-    $Message2 = " Loop Updated Successfully!!";
+    $Message2 = " Anim Loop Updated Successfully!!";
 }
 if($_GET["msgs"]==15)
 {
-    $Message2 = " Loop Deleted Successfully!!";
+    $Message2 = " Anim Loop Deleted Successfully!!";
 }
 if($_GET["msgs"]==5)
 {
@@ -43,7 +43,7 @@ if($_GET["msgs"]==5)
 }
 if($_GET["msgs"]==333)
 {
-    $Message2 = " Loop Setted Successfully!!";
+    $Message2 = " Anim Loop Setted Successfully!!";
 }
 if($_GET["msgs"]==3333)
 {
@@ -51,7 +51,7 @@ if($_GET["msgs"]==3333)
 }
 if($_GET["msgs"]==4)
 {
-    $Message2 = " Loop has been updated successfully";
+    $Message2 = " Anim Loop has been updated successfully";
 }
 ?>
 <html>
@@ -74,7 +74,7 @@ if($_GET["msgs"]==4)
         </td>
         <td width="80%" valign="top"><table width="100%"  border=0 cellpadding="2" cellspacing="2">
                 <tr>
-                    <td width="100%" height="35" class=form111>Manage Loops</td>
+                    <td width="100%" height="35" class=form111>Manage Anim Loops</td>
                 </tr>
                 <tr>
                     <td align="center"  class="formbg"><table width="100%"  border=0 cellPadding=0 cellSpacing=0 align="left">
@@ -114,7 +114,7 @@ if($_GET["msgs"]==4)
                                             </tr>
                                             <tr class="form_back">
                                                 <td width="20%" align="left" nowrap="nowrap"><strong>Id</strong></td>
-                                                <td width="20%" align="left" nowrap="nowrap"><strong>songname</strong></td>
+                                                <td width="20%" align="left" nowrap="nowrap"><strong>animname</strong></td>
                                                 <td width="20%" align="left" nowrap="nowrap"><strong>position</strong></td>
                                                 <td width="20%" align="left" nowrap="nowrap"><strong>info</strong></td>
                                                 <td width="20%" align="center"><strong>Options</strong></td>
@@ -134,12 +134,12 @@ if($_GET["msgs"]==4)
                                                     <tr>
                                                 <? } ?>
                                                 <td align="left" valign="top"  ><? echo stripslashes($row->id); ?></td>
-                                                <td align="left" valign="top"  ><? echo stripslashes($row->songname); ?></td>
+                                                <td align="left" valign="top"  ><? echo stripslashes($row->animname); ?></td>
                                                 <td align="left" valign="top"  ><? echo stripslashes($row->position); ?></td>
                                                 <td align="left" valign="top"  ><? echo stripslashes($row->info); ?></td>
                                                 <td  align="center"  nowrap="nowrap"  valign="top">
-                                                    <input name="button3" type="button" onClick="window.location.href='add_loops.php?id=<?php echo($row->id); ?>'" value="Edit" class="bttn-s">
-                                                    <input name="button2" type="button" onClick="deleteconfirm('Are you sure you want to delete this Loop? \n','manage_loops.php?id=<?php echo($row->id); ?>');" value="Delete" class="bttn-s">
+                                                    <input name="button3" type="button" onClick="window.location.href='add_anim_loops.php?id=<?php echo($row->id); ?>'" value="Edit" class="bttn-s">
+                                                    <input name="button2" type="button" onClick="deleteconfirm('Are you sure you want to delete this Anim Loop? \n','manage_anim_loops.php?id=<?php echo($row->id); ?>');" value="Delete" class="bttn-s">
                                                     <input type="hidden" name="pid<?=$count; ?>" value="<?=$row->id;?>" >
                                                     <input type="hidden" name="count" value="<?=$count; ?>" >
                                                 </td>

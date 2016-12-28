@@ -7,8 +7,8 @@ $Message="";
 if($_REQUEST['del']!="")
 {
     $qrr=$_REQUEST['del'].'= \'\'' ;
-    $sql=mysql_query("UPDATE loops SET img='' where id='".trim($_GET['id'])."'");
-    header("location:add_loops.php?id=".$_REQUEST['id']);
+    $sql=mysql_query("UPDATE anim_loops SET img='' where id='".trim($_GET['id'])."'");
+    header("location:add_anim_loops.php?id=".$_REQUEST['id']);
     exit;
 }
 
@@ -16,31 +16,31 @@ if($_POST['SubmitUser'])
 {
     if($_REQUEST['id']!='')
     {
-        $InsertUserQry="UPDATE loops set
-					  songname='".addslashes($_POST['songname'])."',
+        $InsertUserQry="UPDATE anim_loops set
+					  animname='".addslashes($_POST['animname'])."',
 					  position='".addslashes($_POST['position'])."',
 					  info='".addslashes($_POST['info'])."' 
 					  WHERE id='".$_REQUEST['id']."'";
         $InsertUserQryRs=mysql_query($InsertUserQry);
 
-        header("location:manage_loops.php?msgs=3");
+        header("location:manage_anim_loops.php?msgs=3");
         exit;
     }
     else
     {
-        $InsertUserQry="INSERT INTO loops set
-					 songname='".addslashes($_POST['songname'])."',
+        $InsertUserQry="INSERT INTO anim_loops set
+					 animname='".addslashes($_POST['animname'])."',
 					  position='".addslashes($_POST['position'])."',
 					  info='".addslashes($_POST['info'])."'";
         $InsertUserQryRs=mysql_query($InsertUserQry);
 
-        header("location:manage_loops.php?msgs=1");
+        header("location:manage_anim_loops.php?msgs=1");
         exit;
     }
 }
 if($_GET['id'])
 {
-    $SelUserQry="SELECT * FROM loops WHERE id='".$_GET['id']."'";
+    $SelUserQry="SELECT * FROM anim_loops WHERE id='".$_GET['id']."'";
     $SelUserQryRs=mysql_query($SelUserQry);
     $SelUserQryRow=mysql_fetch_array($SelUserQryRs);
 }
@@ -89,8 +89,8 @@ if($_GET['id'])
                                                 <td align="right" colspan="2"><span class="a">*</span> Required field</td>
                                             </tr>
                                             <tr>
-                                                <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> songname:</strong></td>
-                                                <td width="80%"><input type="text" name="songname" id="songname" value="<?=stripslashes($SelUserQryRow['songname']);?>" class="solidinput" style="width:600px;" /></td>
+                                                <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> animname:</strong></td>
+                                                <td width="80%"><input type="text" name="animname" id="animname" value="<?=stripslashes($SelUserQryRow['animname']);?>" class="solidinput" style="width:600px;" /></td>
                                             </tr>
                                             <tr>
                                                 <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> position:</strong></td>
@@ -103,7 +103,7 @@ if($_GET['id'])
                                             <tr>
                                                 <td width="20%" height="25" align="right" class="black12">&nbsp;</td>
                                                 <td width="80%"><input type="submit" name="SubmitUser" id="SubmitUser" value="<? if($_GET['id']){ echo "Edit Loop";} else { echo "Add Loop";}?>" onClick="return FrmChkRegister();" class="bttn-s">
-                                                    <input type="button" name="SubmitUser2" id="SubmitUser2" value="Cancel" onClick="window.location.href='manage_loops.php'" class="bttn-s"></td>
+                                                    <input type="button" name="SubmitUser2" id="SubmitUser2" value="Cancel" onClick="window.location.href='manage_anim_loops.php'" class="bttn-s"></td>
                                             </tr>
                                         </table>
 

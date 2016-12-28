@@ -69,7 +69,7 @@ if ($_POST['Hidsubmit'] == '1') {
 <div id="backg"
 	 style="position:absolute; width:100%; height:100%; z-index:1;background-size: 100% 100%; ">
 	<audio tabindex="0" id="sound">
-		<source src='music/looperman-l-0782612-0087385-40a-soul-link.wav'>
+		<source src=''>
 	</audio>
 </div>
 <!-- Top of Page - Main Title -->
@@ -122,7 +122,7 @@ if ($_POST['Hidsubmit'] == '1') {
 					<div id="box2" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_truthbomb.php');"><img src="images/icon_bomb.png" id="iconbomb"  alt="" border="0"/></a> </div>
 					<div id="box3" class="leftButtons"> <span class="notifier_box"></span><a href="#" onclick="show_pop('popup_stars.php');"><img src="images/icon_star.png" id="iconstar"  alt="" border="0"/></a> </div>
 					<div id="box4" class="leftButtons"><span class="notifier_box"></span><a href="#" onclick="show_pop('popup_challenge.php');"><img src="images/icon_challenge.png"  id="iconchallenge" alt="" border="0"/></a></a> </div>
-					<div id="box5" class="leftButtons"><span class="notifier_box"></span><a href="#"><img src="images/icon_music.png" id="iconmusic" alt="" border="0"/></a></a> </div>
+					<div id="box5" class="leftButtons"><span class="notifier_box"></span><a href="#" onclick="show_pop('popup_music.php');"><img src="images/icon_music.png" id="iconmusic" alt="" border="0"/></a></div>
 					<div id="box6" class="leftButtons"><span class="notifier_box"><? echo GetTotalZap($_SESSION['UsErIdFrOnT']);?></span><a href="#" onclick="show_pop('popup_zap.php');"><img src="images/icon_zap.png" id="iconzap"  alt="" border="0"/></a> </div>
 					<div id="box7" class="leftButtons"><a href="#" onclick="show_pop('popup_bail.php');"><img
 								src="images/icon_bail.png" id="iconbail" alt="BAIL" title="BAIL"
@@ -353,6 +353,21 @@ fwrite($txtfile, "\t");
 fwrite($txtfile, $page);
 		
 fclose($txtfile);
+
+$GetUsersQry4="SELECT * from loops where position > 0";
+$GetUsersQryRs4=mysql_query($GetUsersQry4);
+$Totalofloops=mysql_affected_rows();
+if($Totalofloops>0)
+{
+	$count=0;
+		while($getloopsrow=mysql_fetch_array($GetUsersQryRs4))
+		{
+			$arrayforloops[$count]=$getloopsrow['songname'];
+			$arrayfordescriptions[$count]=$getloopsrow['info'];
+			$count=$count+1;			
+		}				
+				
+}
 ?>
         
 
@@ -422,12 +437,7 @@ function showSlides(n) {
 	$(document).ready(function () {
 		document.getElementById("total").innerHTML=total;
 		resizeDiv();
-		//myAudio = new Audio('music/looperman-l-0782612-0087385-40a-soul-link.wav');
-		// myAudio.addEventListener('ended', function() {
-		//       this.currentTime = 0;
-		//       this.play();
-		// }, false);
-//myAudio.play();
+		
 
 		<?
 		$result = mysql_query("SELECT * FROM options WHERE id='" . $_SESSION['UsErIdFrOnT'] . "'");
@@ -517,30 +527,30 @@ function showSlides(n) {
 	function changesound(soundobj,songname)
 	{
 		StopSound(soundobj);
-		document.getElementById(soundobj).src="music/"+songname;
+		document.getElementById(soundobj).src="audio_loops/"+songname;
 		
 	}
 	function changesong(option)
 	{
-	audioselected=option;
-			if(option==3){
-				changesound("sound","looperman-l-1879947-0101629-kingmswati-bieber-hall.wav");
-				PlaySound("sound");
-			}
-			if(option==2){
-				changesound("sound","looperman-l-1929922-0101649-alabafruit-disorted-hip-hop-drums-90-bpm.wav");
-				PlaySound("sound");
-			}
-			if(option==1){
-				changesound("sound","looperman-l-0159051-0101634-minor2go-guitars-unlimited-reflective-poetry.wav");
-				PlaySound("sound");
-			}
-			if(option==0){
-				changesound("sound","looperman-l-0159051-0101593-minor2go-piano-quality-on-the-way-home.wav");
-				PlaySound("sound");
-			}
-		
+	option=Number(option);
+	var loopsvector= <? echo json_encode($arrayforloops); ?>;
+	var infovector= <? echo json_encode($arrayfordescriptions); ?>;
 	
+	
+	
+	
+	
+	
+	var totalofloops=<? echo $Totalofloops ?>;
+	console.log(infovector[option-1]);
+	audioselected=option;
+		
+		document.getElementById("sound").src="audio_loops/"+loopsvector[option-1];
+		if(document.getElementById('updating_info')!=null){
+		document.getElementById('updating_info').innerHTML=infovector[option-1];
+		}
+			PlaySound("sound");
+		
 	}
 	
 	function setwhiteicons()
