@@ -290,7 +290,7 @@ if ($_POST['Hidsubmit'] == '1') {
 					<div id="box14" class="rightButtons"> <a href="#"  onclick="show_pop('popup_calendar.php');"><img
 								src="images/icon_calendar.png" id="iconcalendar" alt="CALENDAR"
 								title="CALENDAR" border="0"></a> </div>
-					<div id="box27"  class="rightButtons"><a href="journeystats.php"><img src="images/icon_journeybook.png" id="iconjourneybook2" alt="JOURNEY BOOK" title="JOURNEY BOOK"
+					<div id="box27"  class="rightButtons"><a href="#" onclick="openjourney();"><img src="images/icon_journeybook.png" id="iconjourneybook2" alt="JOURNEY BOOK" title="JOURNEY BOOK"
 																	border="0"></a> </div>
 					
 				</div>	<!-- end #right_menu -->
@@ -390,7 +390,6 @@ if($Totalofloops>0)
 	var ideaSelected = null;
 	var iconcolor="white";
 	var audioselected=0;
-	
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -854,7 +853,7 @@ function showSlides(n) {
 	{
 		ivar=document.getElementById('CurrentSelectedUserId').value;
 		 color1=document.getElementById('color2').style.backgroundColor;
-		if((ivar>0 && ivar!='' && ivar!=<? echo $_SESSION['UsErIdFrOnT'];?>) || (urls=='popup_chat.php') || (urls=='popup_calendar.php') || (urls=='popup_emails.php') || (urls=='popup_options.php') || (urls=='popup_bail.php') || (urls=='popup_safe.php')|| (urls=='popup_challenge.php')|| (urls=='popup_menu.php') || (urls=='popup_bucketlist.php') || (urls=='popup_truthbomb2.php')|| (urls=='popup_dashboard.php')|| (urls=='popup_dashboard2.php') || (urls=='popup_music.php') )
+		if((ivar>0 && ivar!='' && ivar!=<? echo $_SESSION['UsErIdFrOnT'];?>) || (urls=='popup_chat.php') || (urls=='popup_calendar.php') || (urls=='popup_emails.php') || (urls=='popup_options.php') || (urls=='popup_bail.php') || (urls=='popup_safe.php')|| (urls=='popup_challenge.php')|| (urls=='popup_menu.php') || (urls=='popup_bucketlist.php') || (urls=='popup_truthbomb2.php')|| (urls=='popup_dashboard.php')|| (urls=='popup_dashboard2.php') )
 		{
 			jQuery.noConflict();
 			jQuery.ajax({
@@ -868,7 +867,7 @@ function showSlides(n) {
 				{
 					document.getElementById('rightsidePOPUP_MAIN').style.display='block';
 					document.getElementById('rightsidePOPUP').innerHTML=response;
-					if(urls=='popup_hide.php' || urls=='popup_stars.php' ||  urls=='popup_zap.php' || urls=='popup_bail.php'|| (urls=='popup_challenge.php')  || (urls=='popup_truthbomb.php')  || (urls=='popup_music.php') || (urls=='popup_options.php'))
+					if(urls=='popup_hide.php' || urls=='popup_stars.php' ||  urls=='popup_zap.php' || urls=='popup_bail.php'|| (urls=='popup_challenge.php')  || (urls=='popup_truthbomb.php') || (urls=='popup_options.php'))
 					{
 						document.getElementById('pad_newlife').style.backgroundColor=document.getElementById('color1').style.backgroundColor;
 						
@@ -1083,6 +1082,11 @@ function showSlides(n) {
 		
 	}
 
+	function openjourney()
+	{
+		var cant = <?echo $totalofusers?>;
+		window.location = "http://www.karmathegame.org/karmathegame/journeystats.php?color1="+document.getElementById('color2').style.backgroundColor+"&bg=" + backgroundselected+"&total="+cant;
+	}
 	function save() {
 		window.location = "http://www.karmathegame.org/karmathegame/dashboard.php?background=" + backgroundselected+"&soundoption=" + soundOptionSelected+"&theme="+themeSelected+"&audio="+audioselected;
 	}
@@ -1342,6 +1346,32 @@ function showSlides(n) {
 				});
 			}
 
+		}
+	}
+
+	function validateShareMusic() {
+		return document.getElementById("searchMusicText").value != "";
+	}
+	
+	function shareMusic(userIdFrom, userIdTo) {
+		if(validateShareMusic()){
+			jQuery.ajax({
+				type: "POST",
+				url: "util.php",
+				data: {
+					"method" : "saveMusicShare",
+					"userIdFrom" :  userIdFrom,
+					"userIdTo" :  userIdTo,
+					"music": document.getElementById("searchMusicText").value
+				},
+				success: function(data){
+					sendEmail(userIdTo, userIdFrom, "music", "music_share", data, "N");
+					alert("Music shared succefully;");
+				}
+			});
+			hide_pop();
+		}else{
+			alert("you must write a song name and select a search engine");
 		}
 	}
 

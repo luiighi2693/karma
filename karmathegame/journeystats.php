@@ -20,11 +20,14 @@ if($TotGetUSerWant>0)
 <? include("top.php");?>
 <div id="top_line"></div><br />
 <div id="headline_titles"> </div>
-<style type="text/css">body{background-image:url('images/background3.png');background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
+<style type="text/css">body{background-image:url(backgrounds/background<?echo $_GET['bg']?>.png);background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
 <div id="pad_wrapper_Journey">
-      <div id="pad_Journey">
+      <div id="pad_Journey" style="background:<?echo $_GET['color1']?>">
         <h1>&nbsp;</h1>
         <br>
+        <div id="bottom_border_newlife" style="padding:15px;padding-top:0px;">
+		  <p><h1>Values and Compatibility can be changed but answer in<br />intimacy cannot be changed.</h1></p>
+		</div>
         <div id="mbook_Journey" style="width:800px;"><div style="width:100%;margin:0 auto;">
           <div id="left_column" class="left_column"> </div>
 		  
@@ -139,11 +142,13 @@ if($TotGetUSerWant>0)
 		  </div>
 		  
         </div>
-		<div id="bottom_border_newlife" style="padding:15px;padding-top:0px;">
-		  <p><h1>Values and Compatibility can be changed but answer in<br />intimacy cannot be changed.</h1></p>
+		<div style="width:100%;height:60px;background:<?echo $_GET['color1']?>;">
+			<div style="height=80%;width:10%;margin-right:5%;margin-bottom:2%;float:right;">
+				<img  src="images/button_close.png" style="width:100%" "height:100%"/>
+			</div>
 		</div>
       </div>
-	  <div align="right" style="padding-bottom:10px;"><img src="images/guru-icon-corner.jpg" /></div>
+	  <div align="right" style="padding-bottom:10px;float:right;width:175px;"><img src="images/guru-icon-corner.jpg" style="float:right;" /></div>
     </div>
 <? include("googleanalytic.php");?>
 </body>

@@ -9,11 +9,11 @@ include("checklogin.php");
     <link href="css/style_popups.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 </head>
 <body style="text-align: center;">
-<div id="main_menu" style="font-size: 0vh; width: 100%; background-color: #5d4c46;">
+<div id="main_menu" style="font-size: 0vh; width: 100%; ">
     <div class="header">
         <div class="top_info">
             <div class="icon_holder">
-                <img src="images/icon_bail.png" border="0" alt="">
+                <? if($_REQUEST['iconcolor']=="white"){?><img src="images/icon_bail.png" /><? }else{?><img src="images/icon_bail_black.png"  /><? } ?>
             </div>
             <div class="text_holder">
                bail
@@ -22,12 +22,12 @@ include("checklogin.php");
         </div>
     </div>
 
-    <div class="middlesection">
+    <div class="middlesection" style="height:70%;">
         <div class="centered_info">
-            <div style="text-align:center;margin-left:auto;margin-right:auto; background-color: #c1c1bf; width: 70%;">
+            <div style="margin-top:2%;text-align:center;margin-left:auto;margin-right:auto; background-color: #c1c1bf; width: 70%;">
                 <h1 style="text-align:center;font-size: 3vh;color: black;    padding-top: 1%;">IF YOU WOULD LIKE TO DESTROY YOUR AVATAR AND DELETE THE PROFILE, YOU MAY CHECK THE BOX BELOW THEN PRESS THE DESTROY BUTTON. ALL CHATS, PICTURES, FRIENDS LINKS AND EMAILS WILL BE DELETED FROM THE SYSTEM. THIS CANNOT BE UNDONE.</h1>
 
-                <div style="    width: 100%;padding-top: 1%;padding-bottom: 7%;">
+                <div style="    width: 100%;padding-top: 3%;padding-bottom: 5%;padding-right:2%;">
                     <input id="checkboxToDeleteAccount" style="zoom:2;
 			  transform:scale(2);
 			  -ms-transform:scale(2);
@@ -50,8 +50,19 @@ include("checklogin.php");
     </div>
 
     <div class="footer">
-        <input onclick="location.href='http://www.karmathegame.org/karmathegame/login.php';" style="text-align:center;font-size: 3vh; height: 50%;width: 30%;color: black;background-color: #c1c1bf;border: none; margin-left: 10%; margin-right: 10%;" type="button" value="LOGOUT"/>
-        <input onclick="hide_pop();return false;" style="text-align:center;font-size: 3vh; height: 50%;width: 30%;color: black;background-color: #c1c1bf;border: none; float: right; margin-left: 10%; margin-right: 10%;" type="button" value="CANCEL"/>
+    <div class="centered_info">
+      
+       
+        <div class="button">
+			<a href="#" onclick="hide_pop();return false;">
+				<img src="images/button_cancel.png" border="0" />
+			</a>
+		</div>
+		<div class="button">
+			<input  onclick="location.href='http://www.karmathegame.org/karmathegame/login.php';"  type="image" value="LOGOUT" src="images/button_logout.png"  />
+	</div>
+	</div>
+	 
     </div>
 </div>
 </body>

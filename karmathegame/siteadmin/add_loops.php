@@ -7,7 +7,7 @@ $Message="";
 if($_REQUEST['del']!="")
 {
     $qrr=$_REQUEST['del'].'= \'\'' ;
-    $sql=mysql_query("UPDATE loops SET img='' where id='".trim($_GET['id'])."'");
+    $sql=mysql_query("UPDATE loops SET songname='' where id='".trim($_GET['id'])."'");
     header("location:add_loops.php?id=".$_REQUEST['id']);
     exit;
 }
@@ -17,11 +17,29 @@ if($_POST['SubmitUser'])
     if($_REQUEST['id']!='')
     {
         $InsertUserQry="UPDATE loops set
-					  songname='".addslashes($_POST['songname'])."',
 					  position='".addslashes($_POST['position'])."',
 					  info='".addslashes($_POST['info'])."' 
 					  WHERE id='".$_REQUEST['id']."'";
         $InsertUserQryRs=mysql_query($InsertUserQry);
+
+        if($_FILES["picture"]['tmp_name']) {
+            $file = $_FILES["picture"];
+//            $send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
+//            $filename1=rand().$send_name1;
+            $filename1 = $_POST['songname'];
+            $filetoupload = $file['tmp_name'];
+            $path = "../audio_loops/" . $filename1;
+            copy($filetoupload, $path);
+        }else{
+            $SelUserQry="SELECT * FROM loops WHERE id='".$_REQUEST['id']."'";
+            $SelUserQryRs=mysql_query($SelUserQry);
+            $SelUserQryRow=mysql_fetch_array($SelUserQryRs);
+            $filename1 = $_POST['songname'];
+            rename("../audio_loops/" . $SelUserQryRow['songname'], "../audio_loops/" .$filename1);
+        }
+
+        $AddUserQry2="UPDATE loops SET songname='$filename1' WHERE id='".$_REQUEST['id']."'";
+        $AddUserQryRs2=mysql_query($AddUserQry2);
 
         header("location:manage_loops.php?msgs=3");
         exit;
@@ -29,10 +47,24 @@ if($_POST['SubmitUser'])
     else
     {
         $InsertUserQry="INSERT INTO loops set
-					 songname='".addslashes($_POST['songname'])."',
 					  position='".addslashes($_POST['position'])."',
 					  info='".addslashes($_POST['info'])."'";
         $InsertUserQryRs=mysql_query($InsertUserQry);
+        $InsertId=mysql_insert_id();
+
+        if($_FILES["picture"]['tmp_name'])
+        {
+            $file=$_FILES["picture"];
+//            $send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
+//            $filename1=rand().$send_name1;
+            $filename1 = $_POST['songname'];
+            $filetoupload=$file['tmp_name'];
+            $path="../audio_loops/".$filename1;
+            copy($filetoupload,$path);
+
+            $AddUserQry2="UPDATE loops SET songname='$filename1' WHERE id='".$InsertId."'";
+            $AddUserQryRs2=mysql_query($AddUserQry2);
+        }
 
         header("location:manage_loops.php?msgs=1");
         exit;
@@ -88,6 +120,22 @@ if($_GET['id'])
                                             <tr>
                                                 <td align="right" colspan="2"><span class="a">*</span> Required field</td>
                                             </tr>
+<!--                                            <tr>-->
+<!--                                                <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> songname:</strong></td>-->
+<!--                                                <td width="80%"><input type="text" name="songname" id="songname" value="--><?//=stripslashes($SelUserQryRow['songname']);?><!--" class="solidinput" style="width:600px;" /></td>-->
+<!--                                            </tr>-->
+                                            <tr>
+                                                <td width="20%" height="25" align="right" class="black12"><strong>Song:</strong></td>
+                                                <? if($SelUserQryRow['songname']=="" || !file_exists("../audio_loops/".$SelUserQryRow['songname'])){?>
+                                                    <td width="80%"><input name="picture" id="picture" type="file"  class="first"  /></td>
+                                                <? } ?>
+                                            </tr>
+                                            <? if($SelUserQryRow['songname']!="" && file_exists("../audio_loops/".$SelUserQryRow['songname'])){?>
+                                                <tr>
+                                                    <td align="right" valign="middle">&nbsp;</td>
+                                                    <td  align="left" valign="top"> <? if($SelUserQryRow['songname']!="" && file_exists("../audio_loops/".$SelUserQryRow['songname'])){?><div><?=$SelUserQryRow['songname'];?></div>&nbsp;<br><br><a href="add_loops.php?del=picture&id=<?=trim($_REQUEST['id']);?>">Delete Current Song</a><? } ?></td>
+                                                </tr>
+                                            <? } ?>
                                             <tr>
                                                 <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> songname:</strong></td>
                                                 <td width="80%"><input type="text" name="songname" id="songname" value="<?=stripslashes($SelUserQryRow['songname']);?>" class="solidinput" style="width:600px;" /></td>

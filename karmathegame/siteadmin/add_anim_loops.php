@@ -7,7 +7,7 @@ $Message="";
 if($_REQUEST['del']!="")
 {
     $qrr=$_REQUEST['del'].'= \'\'' ;
-    $sql=mysql_query("UPDATE anim_loops SET img='' where id='".trim($_GET['id'])."'");
+    $sql=mysql_query("UPDATE anim_loops SET animname='' where id='".trim($_GET['id'])."'");
     header("location:add_anim_loops.php?id=".$_REQUEST['id']);
     exit;
 }
@@ -17,11 +17,29 @@ if($_POST['SubmitUser'])
     if($_REQUEST['id']!='')
     {
         $InsertUserQry="UPDATE anim_loops set
-					  animname='".addslashes($_POST['animname'])."',
 					  position='".addslashes($_POST['position'])."',
 					  info='".addslashes($_POST['info'])."' 
 					  WHERE id='".$_REQUEST['id']."'";
         $InsertUserQryRs=mysql_query($InsertUserQry);
+
+        if($_FILES["picture"]['tmp_name']) {
+            $file = $_FILES["picture"];
+//            $send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
+//            $filename1=rand().$send_name1;
+            $filename1 = $_POST['animname'];
+            $filetoupload = $file['tmp_name'];
+            $path = "../anim_backgrounds/" . $filename1;
+            copy($filetoupload, $path);
+        }else{
+            $SelUserQry="SELECT * FROM anim_loops WHERE id='".$_REQUEST['id']."'";
+            $SelUserQryRs=mysql_query($SelUserQry);
+            $SelUserQryRow=mysql_fetch_array($SelUserQryRs);
+            $filename1 = $_POST['animname'];
+            rename("../anim_backgrounds/" . $SelUserQryRow['animname'], "../anim_backgrounds/" .$filename1);
+        }
+
+        $AddUserQry2="UPDATE anim_loops SET animname='$filename1' WHERE id='".$_REQUEST['id']."'";
+        $AddUserQryRs2=mysql_query($AddUserQry2);
 
         header("location:manage_anim_loops.php?msgs=3");
         exit;
@@ -33,6 +51,21 @@ if($_POST['SubmitUser'])
 					  position='".addslashes($_POST['position'])."',
 					  info='".addslashes($_POST['info'])."'";
         $InsertUserQryRs=mysql_query($InsertUserQry);
+        $InsertId=mysql_insert_id();
+
+        if($_FILES["picture"]['tmp_name'])
+        {
+            $file=$_FILES["picture"];
+//            $send_name1=ereg_replace("[^A-Za-z0-9.]","_",$file["name"]);
+//            $filename1=rand().$send_name1;
+            $filename1 = $_POST['animname'];
+            $filetoupload=$file['tmp_name'];
+            $path="../anim_backgrounds/".$filename1;
+            copy($filetoupload,$path);
+
+            $AddUserQry2="UPDATE anim_loops SET animname='$filename1' WHERE id='".$InsertId."'";
+            $AddUserQryRs2=mysql_query($AddUserQry2);
+        }
 
         header("location:manage_anim_loops.php?msgs=1");
         exit;
@@ -75,7 +108,7 @@ if($_GET['id'])
                                         Edit
                                     <? } else {?>
                                         Add
-                                    <? } ?> Loop</td>
+                                    <? } ?> Anim Loop</td>
                             </tr>
                             <tr>
                                 <td height="222" class="formbg" valign="top"><form name="FrmRegister" id="FrmRegister" action="#" method="post" enctype="multipart/form-data" onSubmit="return FrmChkRegister();">
@@ -88,6 +121,22 @@ if($_GET['id'])
                                             <tr>
                                                 <td align="right" colspan="2"><span class="a">*</span> Required field</td>
                                             </tr>
+<!--                                            <tr>-->
+<!--                                                <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> animname:</strong></td>-->
+<!--                                                <td width="80%"><input type="text" name="animname" id="animname" value="--><?//=stripslashes($SelUserQryRow['animname']);?><!--" class="solidinput" style="width:600px;" /></td>-->
+<!--                                            </tr>-->
+                                            <tr>
+                                                <td width="20%" height="25" align="right" class="black12"><strong>Anim:</strong></td>
+                                                <? if($SelUserQryRow['animname']=="" || !file_exists("../anim_backgrounds/".$SelUserQryRow['animname'])){?>
+                                                    <td width="80%"><input name="picture" id="picture" type="file"  class="first"  /></td>
+                                                <? } ?>
+                                            </tr>
+                                            <? if($SelUserQryRow['animname']!="" && file_exists("../anim_backgrounds/".$SelUserQryRow['animname'])){?>
+                                                <tr>
+                                                    <td align="right" valign="middle">&nbsp;</td>
+                                                    <td  align="left" valign="top"> <? if($SelUserQryRow['animname']!="" && file_exists("../anim_backgrounds/".$SelUserQryRow['animname'])){?><div><?=$SelUserQryRow['animname'];?></div>&nbsp;<br><br><a href="add_anim_loops.php?del=picture&id=<?=trim($_REQUEST['id']);?>">Delete Current Anim</a><? } ?></td>
+                                                </tr>
+                                            <? } ?>
                                             <tr>
                                                 <td width="20%" height="25" align="right" valign="top" class="black12"><strong><span class="a">*</span> animname:</strong></td>
                                                 <td width="80%"><input type="text" name="animname" id="animname" value="<?=stripslashes($SelUserQryRow['animname']);?>" class="solidinput" style="width:600px;" /></td>
@@ -102,7 +151,7 @@ if($_GET['id'])
                                             </tr>
                                             <tr>
                                                 <td width="20%" height="25" align="right" class="black12">&nbsp;</td>
-                                                <td width="80%"><input type="submit" name="SubmitUser" id="SubmitUser" value="<? if($_GET['id']){ echo "Edit Loop";} else { echo "Add Loop";}?>" onClick="return FrmChkRegister();" class="bttn-s">
+                                                <td width="80%"><input type="submit" name="SubmitUser" id="SubmitUser" value="<? if($_GET['id']){ echo "Edit Anim Loop";} else { echo "Add Anim Loop";}?>" onClick="return FrmChkRegister();" class="bttn-s">
                                                     <input type="button" name="SubmitUser2" id="SubmitUser2" value="Cancel" onClick="window.location.href='manage_anim_loops.php'" class="bttn-s"></td>
                                             </tr>
                                         </table>

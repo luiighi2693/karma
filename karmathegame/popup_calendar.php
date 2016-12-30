@@ -10,7 +10,7 @@ if($GetUsersQryRow['username']!=''){$username=stripslashes($GetUsersQryRow['user
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title><? echo $SITE_TITLE;?></title>
-<link href="css/style.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
+<link href="css/style_popups.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 <script language="javascript" src="popup_fun.js?rnd=<? echo rand();?>"></script>
 <script language="javascript" src="ajax_validation.js?rnd=<? echo rand();?>"></script>
 <script language="javascript">
@@ -20,7 +20,7 @@ function hide_pop()
 }
 </script>
 </head>
-<body style="text-align:center;">
-<iframe src="evecal.php" width="100%" height="100%" id="IfrmaeCal" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+<body >
+<iframe src="evecal.php?color1=<? echo $_REQUEST['color1']?>&iconcolor=<? echo $_REQUEST['iconcolor']?>" width="100%" height="100%" id="IfrmaeCal" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
 </body>
 </html>

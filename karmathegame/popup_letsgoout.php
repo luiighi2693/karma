@@ -53,7 +53,9 @@ $Tot2=mysql_affected_rows();
 					 <ul>
 					 <?if($Tot2>0){
 						while($GetUsersQryRow3=mysql_fetch_array($GetUsersQryRs3))
-						{?>
+					
+							
+						{ ?>
 						<li class="listItem"  onclick="document.getElementById('id_bucket').value='<? echo $GetUsersQryRow3['id'];?>'">
 							<div class="idea_info_left">
 								<span style="color:#FFFFFF;font-size:1vw;"><? echo date("l",strtotime($GetUsersQryRow3['startdate']));?></span><br />

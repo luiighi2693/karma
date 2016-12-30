@@ -13,13 +13,18 @@ $TOPCONDENSE="YES";
 <? include("top.php");?>
 <div id="top_line"></div><br />
 <div id="headline_titles"> </div>
-<style type="text/css">body{background-image:url('images/background3.png');background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
+<style type="text/css">body{background-image:url(backgrounds/background<?echo $_GET['bg']?>.png);background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
 <div id="pad_wrapper_JourneyQuestions">
-	<div id="pad_JourneyQuestions">
+	<div id="pad_JourneyQuestions" style="background:<?echo $_GET['color1']?>">
+	
 	<h1>&nbsp;</h1>
     <br>
+    <div id="bottom_border_newlife" style="padding-top:0px;">
+		  <p><h1  style="padding-top:0px;">Your Date of Birth is NEVER shown and personal information is<br />shared only with your approval.</h1></p>
+		</div>
 	<div id="mbook_JourneyQuestions" style="width:80%;">
 		<div style="width:100%;margin:0 auto;">
+		
 				  <div id="left_column" class="left_column">
 					<div id="questions_JourneyQuestions">
 					  <h1><? echo strtoupper(stripslashes(GetName1("groups","name","id",trim($_REQUEST['grp'])))); ?></h1>
@@ -132,8 +137,10 @@ $TOPCONDENSE="YES";
 	  	</div>
 	  
 		</div>
-		<div id="bottom_border_newlife" style="padding-top:0px;">
-		  <p><h1  style="padding-top:0px;">Your Date of Birth is NEVER shown and personal information is<br />shared only with your approval.</h1></p>
+		<div style="width:100%;height:60px;background:<?echo $_GET['color1']?>;">
+			<div style="height=80%;width:10%;margin-right:5%;margin-bottom:2%;float:right;">
+				<img  src="images/button_close.png" style="width:100%" "height:100%"/>
+			</div>
 		</div>
 	  </div>
 		<div align="right" style="padding-bottom:10px;"><img src="images/guru-icon-corner.jpg" /></div>

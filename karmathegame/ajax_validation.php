@@ -723,14 +723,13 @@ else if($_REQUEST["Type"]=="LoadEmail")
                     $ret.='<div style="font-size: 3vh;cursor: pointer;" onclick="'.$rrs.'"><img style="width: 5%;" src="images/icon_rss.png" align="absmiddle" /> '.$userToFromArray['social_rss'].'</div>';
                 }
                 $ret.='</div>';
-            }else if($TYPE=='musicShare'){
+            }else if($TYPE=='music'){
                 $getDetailQryRs=mysql_query("select * FROM $TYPE_TABLE where id in (".$TYPE_TABLE_ID.") ");
                 $totgetDetailQry=mysql_fetch_array($getDetailQryRs);
 
                 $youtube = 'window.open(\'https://www.youtube.com/results?search_query='.str_replace(" ","+", $totgetDetailQry['music']).'\')';
                 $amazon = 'window.open(\'https://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Ddigital-music-track&field-keywords='.str_replace(" ","+", $totgetDetailQry['music']).'\')';
-                $spotify = 'window.open(\'https://www.google.co.ve/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q='.str_replace(" ","%20", $totgetDetailQry['music']).'%20site%3Aspotify.com\')';
-                $pandora = 'window.open(\'https://www.pandora.com\')';
+                $itunes = 'window.open(\'https://www.apple.com/music/\')';
 
                 $ret.='<table width="100%" border="0" cellspacing="2" cellpadding="2" style="font-size: 22px;">
 				  <tr>
@@ -745,9 +744,8 @@ else if($_REQUEST["Type"]=="LoadEmail")
 				  <tr>
 					<td style="padding-left: 50px;">
 					    <img onclick='.$youtube.' src="images/youtube.jpg" width="100px" height="100px">
-					    <img onclick='.$spotify.' src="images/spotify.jpg" width="100px" height="100px">
 					    <img onclick='.$amazon.' src="images/amazon.png" width="100px" height="100px">
-					    <img onclick='.$pandora.' src="images/pandora.jpg" width="100px" height="100px">
+					    <img onclick='.$itunes.' src="images/itunes.jpg" width="100px" height="100px">
 					</td>
 				  </tr>
 				</table>';

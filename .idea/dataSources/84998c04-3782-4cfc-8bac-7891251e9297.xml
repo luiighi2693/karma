@@ -65,13 +65,13 @@
     <table id="56" parent="1" name="log_table_kelvin"/>
     <table id="57" parent="1" name="users_block"/>
     <table id="58" parent="1" name="amb_social_links"/>
-    <table id="59" parent="1" name="users_stars"/>
-    <table id="60" parent="1" name="send_mail"/>
-    <table id="61" parent="1" name="user_records"/>
-    <table id="62" parent="1" name="backgrounds"/>
-    <table id="63" parent="1" name="users_ideas"/>
-    <table id="64" parent="1" name="loops"/>
-    <table id="65" parent="1" name="anim_loops"/>
+    <table id="59" parent="1" name="send_mail"/>
+    <table id="60" parent="1" name="user_records"/>
+    <table id="61" parent="1" name="users_ideas"/>
+    <table id="62" parent="1" name="users_stars"/>
+    <table id="63" parent="1" name="anim_loops"/>
+    <table id="64" parent="1" name="backgrounds"/>
+    <table id="65" parent="1" name="loops"/>
     <column id="66" parent="3" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
@@ -2403,72 +2403,75 @@
     </key>
     <column id="645" parent="59" name="id">
       <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-      <sequence-identity>1</sequence-identity>
-    </column>
-    <column id="646" parent="59" name="userid_from">
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="647" parent="59" name="userid_to">
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="648" parent="59" name="content">
-      <data-type>varchar(520)|0</data-type>
-    </column>
-    <index id="649" parent="59" name="users_stars_id_uindex">
-      <columns>id</columns>
-      <desc-columns></desc-columns>
-      <unique>1</unique>
-    </index>
-    <key id="650" parent="59" name="PRIMARY">
-      <columns>id</columns>
-      <primary>1</primary>
-    </key>
-    <key id="651" parent="59" name="users_stars_id_uindex">
-      <columns>id</columns>
-      <underlying-index>users_stars_id_uindex</underlying-index>
-    </key>
-    <column id="652" parent="60" name="id">
-      <mandatory>1</mandatory>
       <data-type>int(255)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="653" parent="60" name="users_emails_id">
+    <column id="646" parent="59" name="users_emails_id">
       <mandatory>1</mandatory>
       <data-type>int(255)|0</data-type>
     </column>
-    <column id="654" parent="60" name="userid_from">
+    <column id="647" parent="59" name="userid_from">
       <mandatory>1</mandatory>
       <data-type>int(255)|0</data-type>
     </column>
-    <column id="655" parent="60" name="userid_to">
+    <column id="648" parent="59" name="userid_to">
       <mandatory>1</mandatory>
       <data-type>int(255)|0</data-type>
     </column>
-    <column id="656" parent="60" name="username_to">
+    <column id="649" parent="59" name="username_to">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="657" parent="60" name="email_to">
+    <column id="650" parent="59" name="email_to">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="658" parent="60" name="request_type">
+    <column id="651" parent="59" name="request_type">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="659" parent="60" name="req_type_table">
+    <column id="652" parent="59" name="req_type_table">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="660" parent="60" name="req_type_tbl_id">
+    <column id="653" parent="59" name="req_type_tbl_id">
       <mandatory>1</mandatory>
       <data-type>int(255)|0</data-type>
     </column>
-    <column id="661" parent="60" name="mail_sent">
+    <column id="654" parent="59" name="mail_sent">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="655" parent="59" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="656" parent="60" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(255)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="657" parent="60" name="userid_from">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="658" parent="60" name="userid_to">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="659" parent="60" name="type">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="660" parent="60" name="type_table">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="661" parent="60" name="count">
+      <mandatory>1</mandatory>
+      <data-type>int(255)|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
     </column>
     <key id="662" parent="60" name="PRIMARY">
       <columns>id</columns>
@@ -2481,39 +2484,35 @@
     </column>
     <column id="664" parent="61" name="userid_from">
       <mandatory>1</mandatory>
-      <data-type>varchar(255)|0</data-type>
+      <data-type>int(255)|0</data-type>
     </column>
-    <column id="665" parent="61" name="userid_to">
-      <mandatory>1</mandatory>
-      <data-type>varchar(255)|0</data-type>
-    </column>
-    <column id="666" parent="61" name="type">
-      <mandatory>1</mandatory>
-      <data-type>varchar(255)|0</data-type>
-    </column>
-    <column id="667" parent="61" name="type_table">
-      <mandatory>1</mandatory>
-      <data-type>varchar(255)|0</data-type>
-    </column>
-    <column id="668" parent="61" name="count">
+    <column id="665" parent="61" name="idea_id">
       <mandatory>1</mandatory>
       <data-type>int(255)|0</data-type>
-      <default-expression>&apos;1&apos;</default-expression>
     </column>
-    <key id="669" parent="61" name="PRIMARY">
+    <column id="666" parent="61" name="add_date">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="667" parent="61" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="670" parent="62" name="id">
+    <column id="668" parent="62" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="671" parent="62" name="img">
-      <mandatory>1</mandatory>
-      <data-type>varchar(50)|0</data-type>
+    <column id="669" parent="62" name="userid_from">
+      <data-type>int(11)|0</data-type>
     </column>
-    <index id="672" parent="62" name="backgrounds_id_uindex">
+    <column id="670" parent="62" name="userid_to">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="671" parent="62" name="content">
+      <data-type>varchar(520)|0</data-type>
+    </column>
+    <index id="672" parent="62" name="users_stars_id_uindex">
       <columns>id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
@@ -2522,26 +2521,26 @@
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="674" parent="62" name="backgrounds_id_uindex">
+    <key id="674" parent="62" name="users_stars_id_uindex">
       <columns>id</columns>
-      <underlying-index>backgrounds_id_uindex</underlying-index>
+      <underlying-index>users_stars_id_uindex</underlying-index>
     </key>
     <column id="675" parent="63" name="id">
       <mandatory>1</mandatory>
-      <data-type>int(255)|0</data-type>
+      <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="676" parent="63" name="userid_from">
+    <column id="676" parent="63" name="animname">
       <mandatory>1</mandatory>
-      <data-type>int(255)|0</data-type>
+      <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="677" parent="63" name="idea_id">
+    <column id="677" parent="63" name="position">
       <mandatory>1</mandatory>
-      <data-type>int(255)|0</data-type>
+      <data-type>int(11)|0</data-type>
     </column>
-    <column id="678" parent="63" name="add_date">
+    <column id="678" parent="63" name="info">
       <mandatory>1</mandatory>
-      <data-type>varchar(255)|0</data-type>
+      <data-type>varchar(20)|0</data-type>
     </column>
     <key id="679" parent="63" name="PRIMARY">
       <columns>id</columns>
@@ -2552,28 +2551,29 @@
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="681" parent="64" name="songname">
+    <column id="681" parent="64" name="img">
       <mandatory>1</mandatory>
-      <data-type>varchar(100)|0</data-type>
+      <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="682" parent="64" name="position">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="683" parent="64" name="info">
-      <mandatory>1</mandatory>
-      <data-type>varchar(20)|0</data-type>
-    </column>
-    <key id="684" parent="64" name="PRIMARY">
+    <index id="682" parent="64" name="backgrounds_id_uindex">
+      <columns>id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="683" parent="64" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
+    </key>
+    <key id="684" parent="64" name="backgrounds_id_uindex">
+      <columns>id</columns>
+      <underlying-index>backgrounds_id_uindex</underlying-index>
     </key>
     <column id="685" parent="65" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="686" parent="65" name="animname">
+    <column id="686" parent="65" name="songname">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>

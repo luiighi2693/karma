@@ -3,6 +3,13 @@ include("checklogin.php");
 $GetUsersQry3="SELECT * from backgrounds";
 $GetUsersQryRs3=mysql_query($GetUsersQry3);
 $Tot2=mysql_affected_rows();
+
+$GetUsersQry4="SELECT * from loops where position > 0";
+$GetUsersQryRs4=mysql_query($GetUsersQry4);
+$Totalofloops=mysql_affected_rows();
+if($Totalofloops>0)
+	$getloopsrow=mysql_fetch_array($GetUsersQryRs4);
+
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,7 +36,7 @@ $Tot2=mysql_affected_rows();
             </div>
             
              <div class="text_holder" style="width:15%;cursor:pointer;font-size:2.3vw;" onclick="hide_pop(); show_pop('popup_dashboard.php')" >
-		>STEP 1
+		>Profile
             </div>
              <div class="text_holder" style="width:15%;cursor:pointer;font-size:2.2vw;">
 		 >aDvAnCeD
@@ -44,24 +51,11 @@ $Tot2=mysql_affected_rows();
         		
         	<p style="color:white; font-size:3vh;">audio</p>	
         	<div class="verticalsplit" style="margin-top:1%;">
-        	
+       
         		<div class="musicoptions" id="musicoptions" style="float:right;padding-left:1%;margin-top:5%;" >
-        			<div style="font-size:1vw;" class="row" style="margin-top:5%;">
-        				<div class="blocks_4">
-        				soft
-        				</div>
-        				<div class="blocks_4">
-        				folk
-        				</div>
-        				<div class="blocks_4" style="width:22%;">
-        				ska
-        				</div>
-        				<div class="blocks_4" style="font-size:0.9vw;">
-        				techno
-        				</div>
-        			
-        			</div>
-        		<input type="range" class="range1"  onchange=" changesong(this.value);" name="range_control" min="0" max="3" value="0" /> <output for="range_control" name="range_control_value" ></output>
+        			<div style="font-size:1vw;text-align:center;" class="row" id="updating_info">
+        			<?echo $getloopsrow['info'];?></div>
+        		<input type="range" class="range1"  onchange=" changesong(this.value);" name="range_control" min="1" max="<?echo $Totalofloops?>" value="0" /> <output for="range_control" name="range_control_value" ></output>
         		
         		</div>
         			<div class="musicoptions" id="musicoptions" >
@@ -87,7 +81,7 @@ $Tot2=mysql_affected_rows();
                			 
                			 </div>
                			 
-               			 <div class="row" style="margin-top:5%;" >	 
+               			 <div class="row" style="margin-top:20%;" >	 
                				<p style="color:white;font-size:1vw;">Sound Effects</p>
 				</div>
                    		<div class="row" style="height:20%;margin-top:2%;">
@@ -105,7 +99,7 @@ $Tot2=mysql_affected_rows();
                     				</div>
                   			 </div>
                   		  </div>
-                  		  <div class="row" style="margin-top:5%;">
+                  		  <div class="row" style="margin-top:20%;">
                   		  	 
                				<p style="color:white;font-size:1vw;">Voices and Ai</p>
 					</div>
