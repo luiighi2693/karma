@@ -13,10 +13,10 @@ $TOPCONDENSE="YES";
 <? include("top.php");?>
 <div id="top_line"></div><br />
 <div id="headline_titles"> </div>
-<style type="text/css">body{background-image:url('images/background3.png');background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
+<style type="text/css">body{background-image:url(backgrounds/background<?echo $_GET['bg']?>.png);background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
 <div id="pad_wrapper_JourneyQuestions">
-	<div id="pad_JourneyQuestions">
-	<h1>&nbsp;</h1>
+	<div id="pad_JourneyQuestions" style="background:<?echo $_GET['color1']?>">
+	<h1>&nbsp;</h1> 
     <br>
 	<div id="mbook_JourneyQuestions" style="width:80%;">
 		<div style="width:100%;margin:0 auto;">
@@ -31,15 +31,33 @@ $TOPCONDENSE="YES";
 							$TotGetGroups=mysql_affected_rows();
 							if($TotGetGroups>0)
 							{
-								for($GG=1;$GG<=$TotGetGroups;$GG++)
+							 if(trim($_REQUEST['grp'])==2){?>
+									1. <a href="journey_questions_whatiwant.php?grp=2&bg=<? echo $_GET['bg']?>&color1=<? echo $_GET['color1']?>">Who am I and What do i Want</a><br /><br />
+							<? }
+								if(strtoupper(stripslashes(GetName1("groups","name","id",trim($_REQUEST['grp']))))=='INTIMACY'){
+									$TotGetGroups=1;
+									mysql_query("SELECT * FROM users_questions WHERE questionid = 257 AND answerid IN (SELECT id FROM options_group_values WHERE name IN ('YES', 'MAYBE')) AND users_questions.userid = ".$_SESSION['UsErIdFrOnT']);
+									if(mysql_affected_rows()>0){
+										$TotGetGroups += 1;
+										mysql_query("SELECT * FROM users_questions WHERE questionid = 261 AND answerid IN (SELECT id FROM options_group_values WHERE name IN ('YES', 'MAYBE')) AND users_questions.userid = ".$_SESSION['UsErIdFrOnT']);
+										if(mysql_affected_rows()>0){
+											$TotGetGroups += 1;
+											mysql_query("SELECT * FROM users_questions WHERE questionid = 259 AND answerid IN (SELECT id FROM options_group_values WHERE name IN ('YES', 'MAYBE')) AND users_questions.userid = ".$_SESSION['UsErIdFrOnT']);
+											if(mysql_affected_rows()>0){
+												$TotGetGroups += 1;
+											}
+										}
+									}
+
+								}
+
+								for($GG=2;$GG<=$TotGetGroups+1;$GG++)
 								{
 									$GetGroupsQryRow=mysql_fetch_array($GetGroupsQryRs);
 						?>
-									<? echo $GG;?>. <a href="journey_questions_step.php?grp=<? echo $_REQUEST['grp'];?>&subgrp=<? echo $GetGroupsQryRow['id'];?>"><? echo ucfirst(stripslashes($GetGroupsQryRow['name']));?></a><br /><br />
+									<? echo $GG-1;?>. <a href="journey_questions_step.php?grp=<? echo $_REQUEST['grp'];?>&subgrp=<? echo $GetGroupsQryRow['id'];?>&bg=<? echo $_GET['bg']?>&color1=<? echo $_GET['color1']?>"><? echo ucfirst(stripslashes($GetGroupsQryRow['name']));?></a><br /><br />
 							<?  }?>		
-							<? if(trim($_REQUEST['grp'])==2){?>
-									<? echo $GG;?>. <a href="journey_questions_whatiwant.php?grp=2">Who am I and What do i Want</a><br /><br />
-							<? }?>	
+							
 						<?  }?>
 					  </p>
 					  
@@ -47,18 +65,56 @@ $TOPCONDENSE="YES";
 					<!-- end #questions -->
 				  </div>
 				  <!-- end #left_column -->
-				  <div id="center_column" class="center_column">
+				  <div id="center_column" class="center_column" style="background: <?echo $_GET['color1']?>">
 					<div id="space">
 					  <div id="white_block" class"white_block"></div>
 					  <!-- end #white_block -->
-					  <div id="dark_center" class"dark_center"></div>
+					  <div id="dark_center" class"dark_center" style="background: <?echo $_GET['color1']?>"></div>
 					  <!-- end #dark_center -->
 					  <div id="white_block" class"white_block"></div>
 					  <!-- end #white_block -->
 					</div>
 					<!-- end #space -->
 					<div id="binder">
-					  <div id="dark_space" class"dark_space">
+					  <div id="dark_space" class"dark_space" style="background: <?echo $_GET['color1']?>">
+						<div id="dark_bar" class"dark_bar" style="background: <?echo $_GET['color1']?>"></div>
+						<!-- end #dark_bar -->
+						<div id="white_space" class"white_space"></div>
+						<!-- end #white_space -->
+					  </div>
+					  <!-- end #dark_space -->
+					</div>
+					<!-- end #binder -->
+					<div id="space">
+					  <div id="white_block" class"white_block"></div>
+					  <!-- end #white_block -->
+					  <div id="dark_center" class"dark_center" style="background: <?echo $_GET['color1']?>"></div>
+					  <!-- end #dark_center -->
+					  <div id="white_block" class"white_block"></div>
+					  <!-- end #white_block -->
+					</div>
+					<!-- end #space -->
+					<div id="binder">
+					  <div id="dark_space" class"dark_space" style="background: <?echo $_GET['color1']?>">
+						<div id="dark_bar" class"dark_bar" style="background: <?echo $_GET['color1']?>"></div>
+						<!-- end #dark_bar -->
+						<div id="white_space" class"white_space"></div>
+						<!-- end #white_space -->
+					  </div>
+					  <!-- end #dark_space -->
+					</div>
+					<!-- end #binder -->
+					<div id="space">
+					  <div id="white_block" class"white_block"></div>
+					  <!-- end #white_block -->
+					  <div id="dark_center" class"dark_center" style="background: <?echo $_GET['color1']?>"></div>
+					  <!-- end #dark_center -->
+					  <div id="white_block" class"white_block"></div>
+					  <!-- end #white_block -->
+					</div>
+					<!-- end #space -->
+					<div id="binder">
+					  <div id="dark_space" class"dark_space" >
 						<div id="dark_bar" class"dark_bar"></div>
 						<!-- end #dark_bar -->
 						<div id="white_space" class"white_space"></div>
@@ -70,45 +126,7 @@ $TOPCONDENSE="YES";
 					<div id="space">
 					  <div id="white_block" class"white_block"></div>
 					  <!-- end #white_block -->
-					  <div id="dark_center" class"dark_center"></div>
-					  <!-- end #dark_center -->
-					  <div id="white_block" class"white_block"></div>
-					  <!-- end #white_block -->
-					</div>
-					<!-- end #space -->
-					<div id="binder">
-					  <div id="dark_space" class"dark_space">
-						<div id="dark_bar" class"dark_bar"></div>
-						<!-- end #dark_bar -->
-						<div id="white_space" class"white_space"></div>
-						<!-- end #white_space -->
-					  </div>
-					  <!-- end #dark_space -->
-					</div>
-					<!-- end #binder -->
-					<div id="space">
-					  <div id="white_block" class"white_block"></div>
-					  <!-- end #white_block -->
-					  <div id="dark_center" class"dark_center"></div>
-					  <!-- end #dark_center -->
-					  <div id="white_block" class"white_block"></div>
-					  <!-- end #white_block -->
-					</div>
-					<!-- end #space -->
-					<div id="binder">
-					  <div id="dark_space" class"dark_space">
-						<div id="dark_bar" class"dark_bar"></div>
-						<!-- end #dark_bar -->
-						<div id="white_space" class"white_space"></div>
-						<!-- end #white_space -->
-					  </div>
-					  <!-- end #dark_space -->
-					</div>
-					<!-- end #binder -->
-					<div id="space">
-					  <div id="white_block" class"white_block"></div>
-					  <!-- end #white_block -->
-					  <div id="dark_center" class"dark_center"></div>
+					  <div id="dark_center" class"dark_center" style="background: <?echo $_GET['color1']?>"></div>
 					  <!-- end #dark_center -->
 					  <div id="white_block" class"white_block"></div>
 					  <!-- end #white_block -->
@@ -136,8 +154,28 @@ $TOPCONDENSE="YES";
 		  <p><h1  style="padding-top:0px;">Your Date of Birth is NEVER shown and personal information is<br />shared only with your approval.</h1></p>
 		</div>
 	  </div>
-		<div align="right" style="padding-bottom:10px;"><img src="images/guru-icon-corner.jpg" /></div>
+	      
 	</div>
+	    <div class="SliderName_2Description"   style="position:relative;background:none;z-index:88889;margin-top:5%;">
+	<div style="height:100%;width:100%;z-index:1;background:<? echo $_GET['color1']?>;position:absolute;opacity: 0.6;filter: alpha(opacity=60);">
+	</div>
+	<div style="height:100%;width:100%;z-index:12;position:absolute;">
+	<div class="centered_info">
+		<div class="button" style="margin-top:1.7%;height:60%;">
+			<a href="http://www.karmathegame.org/karmathegame/dashboard.php" >
+				<img src="images/button_close.png" border="0" />
+			</a>
+		</div>
+		<div class="button" style="margin-top:1%;height:80%;width:6%;margin-right:38%;">
+			<a href="#" >
+				<img  src="images/guru-icon-corner.jpg" border="0" />
+			</a>
+		</div
+	</div>
+	</div>
+	</div>
+	
+</div>
 <? include("googleanalytic.php");?>
 </body>
 </html>

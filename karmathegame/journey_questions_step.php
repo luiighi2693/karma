@@ -24,21 +24,15 @@ else
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><? echo $SITE_TITLE;?></title>
-<link href="css/opening_styles.css" rel="stylesheet" type="text/css" />
+<link href="css/opening_styles.css?id=<? echo rand();?>" rel="stylesheet" type="text/css" />
 <script language="javascript" src="ajax_validation.js"></script>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script src="js/moment.js"></script>
-	<script src="js/combodate.js"></script>
-
 <script>
 $(function() {
-$( "#profile_dob" ).combodate();
-$( "#profile_dob" ).change(function(){
-		SaveProfileAnswer('profile_dob',$( "#profile_dob" ).val());
-	})
+$( "#profile_dob" ).datepicker();
 });
 </script>
 </head>
@@ -46,10 +40,10 @@ $( "#profile_dob" ).change(function(){
 <? include("top.php");?>
 <div id="top_line"></div><br />
 <div id="headline_titles"> </div>
-<style type="text/css">body{background-image:url('images/background3.png');background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
+<style type="text/css">body{background-image:url(backgrounds/background<?echo $_GET['bg']?>.png);background-color:#e6e6e6;background-position:top center; background-size:100%;background-repeat:no-repeat;background-attachment:fixed;background-border:0px 5px 0px 5px;}</style>
 <form name="frmquestions" id="frmquestions" enctype="multipart/form-data" method="post">
     <div id="pad_wrapper_JourneyQuestions">
-	<div id="pad_JourneyQuestions">
+	<div id="pad_JourneyQuestions" style="background:<?echo $_GET['color1']?>">
 	<h1>&nbsp;</h1>
     <br>
 	<div id="mbook_JourneyQuestions" style="margin-bottom:30px;width:80%;">
@@ -70,7 +64,7 @@ $( "#profile_dob" ).change(function(){
 				<p style="text-align:left;padding-left:15px;">
 					<label style="padding:0px;margin:0px;line-height:20px;">
 					Date of Birth<br />
-					<input type="text" name="profile_dob" id="profile_dob" data-format="DD/MM/YYYY" data-template="D MMM YYYY" value="<? echo stripslashes($CURRENTgetuserwryRow['profile_dob']);?>"/>
+					<input type="text" class="register_textfield2" name="profile_dob" id="profile_dob" value="<? echo stripslashes($CURRENTgetuserwryRow['profile_dob']);?>" onblur="SaveProfileAnswer('profile_dob',this.value);" />
 					</label>
 				</p>
 				<p style="text-align:left;padding-left:15px;">
@@ -148,9 +142,9 @@ $( "#profile_dob" ).change(function(){
 							<? }?>
 						<? if($getQuestionQryRow['picture']!=''){?>
 							<? if($getQuestionQryRow['picturelink']!=''){?>
-								<a href="<? echo WebsiteWithProperUrl(stripslashes($getQuestionQryRow['picturelink']));?>" target="_blank"><img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" height="170" width="250" align="bottom"   border="0" style="float:right;margin-top:-170px;" /></a>
+								<a href="<? echo WebsiteWithProperUrl(stripslashes($getQuestionQryRow['picturelink']));?>" target="_blank"><img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" height="150" width="230" align="bottom"   border="0" style="float:right;margin-top:-180px;" /></a>
 							<? }else{?>
-								<img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" height="170" width="250" align="bottom"   border="0" style="float:right;margin-top:-170px;"    />
+								<img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" height="150" width="230" align="bottom"   border="0" style="float:right;margin-top:-180px;"    />
 							<? } ?>	
 						<? }?>
 						<br><br>
@@ -160,19 +154,19 @@ $( "#profile_dob" ).change(function(){
 		<!-- end #questions -->
 	  </div>
 	  <!-- end #left_column -->
-	  <div id="center_column" class="center_column">
+	  <div id="center_column" class="center_column" style="background: <?echo $_GET['color1']?>">
 		<div id="space">
 		  <div id="white_block" class"white_block"></div>
 		  <!-- end #white_block -->
-		  <div id="dark_center" class"dark_center"></div>
+		  <div id="dark_center" class"dark_center" style="background: <?echo $_GET['color1']?>"></div>
 		  <!-- end #dark_center -->
 		  <div id="white_block" class"white_block"></div>
 		  <!-- end #white_block -->
 		</div>
 		<!-- end #space -->
 		<div id="binder">
-		  <div id="dark_space" class"dark_space">
-			<div id="dark_bar" class"dark_bar"></div>
+		  <div id="dark_space" class"dark_space" style="background: <?echo $_GET['color1']?>">
+			<div id="dark_bar" class"dark_bar" style="background: <?echo $_GET['color1']?>"></div>
 			<!-- end #dark_bar -->
 			<div id="white_space" class"white_space"></div>
 			<!-- end #white_space -->
@@ -183,7 +177,7 @@ $( "#profile_dob" ).change(function(){
 		<div id="space">
 		  <div id="white_block" class"white_block"></div>
 		  <!-- end #white_block -->
-		  <div id="dark_center" class"dark_center"></div>
+		  <div id="dark_center" class"dark_center" style="background: <?echo $_GET['color1']?>"></div>
 		  <!-- end #dark_center -->
 		  <div id="white_block" class"white_block"></div>
 		  <!-- end #white_block -->
@@ -284,9 +278,9 @@ $( "#profile_dob" ).change(function(){
 						<? }?>
 						<? if($getQuestionQryRow['picture']!=''){?>
 								<? if($getQuestionQryRow['picturelink']!=''){?>
-									<a href="<? echo WebsiteWithProperUrl(stripslashes($getQuestionQryRow['picturelink']));?>" target="_blank"><img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" align="bottom" height="170" width="250" style="float:right;margin-top:-170px;"   border="0"  /></a>
+									<a href="<? echo WebsiteWithProperUrl(stripslashes($getQuestionQryRow['picturelink']));?>" target="_blank"><img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" align="bottom" height="150" width="230" style="float:right;margin-top:-180px;"   border="0"  /></a>
 								<? }else{?>
-									<img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" height="170" width="250" align="bottom"   border="0" style="float:right;margin-top:-170px;"   />
+									<img src="Questions/<? echo stripslashes($getQuestionQryRow['picture']);?>" height="150" width="230" align="bottom"   border="0" style="float:right;margin-top:-180px;"   />
 								<? } ?>	
 						<? }?>
 					<br><br>
@@ -324,13 +318,13 @@ $( "#profile_dob" ).change(function(){
 			?>
 			<?php /*?><? echo $getQuestionQryRs[1];?><?php */?>
 			<? if($_GET["start"]!=0) { if($_GET["start"]<=1){$lmttt=$start_pglmt-1;}else{$lmttt=$start_pglmt-2;} ?>
-				<a href="journey_questions_step.php?start=<?=$lmttt;?><? echo $tmpva;?>" ><img align="left" src='images/tab_back_big.png' width=40  border=0></a>
+				<a href="journey_questions_step.php?start=<?=$lmttt;?><? echo $tmpva;?>&bg=<? echo $_GET['bg']?>&color1=<? echo $_GET['color1']?>" ><img align="left" src='images/tab_back_big.png' width=40  border=0></a>
 			<? }?>
 			</div>
 			
 			<div align="center" style="position:absolute;top:328px;width:40px;max-width:40px;margin:0 auto;margin-left:90%;margin-right:auto;z-index:0;">
 			<? if(($TotgetQuestion_FULL-$_GET["start"])>2) { ?>	
-				<a href="journey_questions_step.php?start=<?=$end_pglmt;?><? echo $tmpva;?>"><img  align="right" src='images/tab_forward_big.png' width=40 border=0></a>
+				<a href="journey_questions_step.php?start=<?=$end_pglmt;?><? echo $tmpva;?>&bg=<? echo $_GET['bg']?>&color1=<? echo $_GET['color1']?>"><img  align="right" src='images/tab_forward_big.png' width=40 border=0></a>
 			<? } ?> 
 			<?
 			  $getQuestionQry_Bottom="select questions.* from questions where groupid='".mysql_real_escape_string(trim($_REQUEST['grp']))."' and subgroupid='".mysql_real_escape_string(trim($_REQUEST['subgrp']))."'  ORDER BY displayorder ASC LIMIT ".($_REQUEST['start']+2).",2";
@@ -364,13 +358,13 @@ $( "#profile_dob" ).change(function(){
 					if($maingroupid!='')
 					{
 						?>
-							<a href='journey_questions_step.php?grp=<? echo $maingroupid;?>&subgrp=<? echo $subgroupid;?>' ><img align="right" src='images/tab_forward_big.png' width="40" border=0></a>
+							<a href='journey_questions_step.php?grp=<? echo $maingroupid;?>&subgrp=<? echo $subgroupid;?>&bg=<? echo $_GET['bg']?>&color1=<? echo $_GET['color1']?>' ><img align="right" src='images/tab_forward_big.png' width="40" border=0></a>
 						<?
 					}
 					else
 					{
 						?>
-							<a href='journeystats.php'><img align="right" src='images/tab_forward_big.png' width="40" border=0></a>
+							<a href='journeystats.php?bg=<? echo $_GET['bg']?>&color1=<? echo $_GET['color1']?>'><img align="right" src='images/tab_forward_big.png' width="40" border=0></a>
 						<?
 					}
 			  }
@@ -378,11 +372,29 @@ $( "#profile_dob" ).change(function(){
 			
 			</div>
 			
-		<? //paging div END?><div align="right" style="padding-bottom:10px;"><img src="images/guru-icon-corner.jpg" /></div>	
+		<? //paging div END?>
+	<div class="SliderName_2Description"   style="position:relative;background:none;z-index:88889;margin-top:5%;">
+	<div style="height:100%;width:100%;z-index:1;background:<? echo $_GET['color1']?>;position:absolute;opacity: 0.6;filter: alpha(opacity=60);">
 	</div>
-	
+	<div style="height:100%;width:100%;z-index:12;position:absolute;">
+	<div class="centered_info">
+		<div class="button" style="margin-top:1.7%;height:60%;">
+			<a href="http://www.karmathegame.org/karmathegame/dashboard.php" >
+				<img src="images/button_close.png" border="0" />
+			</a>
+		</div>
+		<div class="button" style="margin-top:1%;height:80%;width:6%;margin-right:38%;">
+			<a href="#" >
+				<img  src="images/guru-icon-corner.jpg" border="0" />
+			</a>
+		</div
+	</div>
+	</div>
+	</div>
+		</div>
 	
   </form>
+ 
 <? include("googleanalytic.php");?>
 </body>
 </html>
