@@ -376,7 +376,7 @@ function GetMessageTypeIcon($type){
     {
         $ret="<img src='images/icon_bomb.png' align='absmiddle' border=0 width='25' height='30' />";
     }
-    else if($type=='musicShare')
+    else if($type=='music')
     {
         $ret="<img src='images/icon_music.png' align='absmiddle' border=0 width='25' height='30' />";
     }
